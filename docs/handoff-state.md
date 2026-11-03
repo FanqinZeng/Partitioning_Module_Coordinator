@@ -13,3 +13,5 @@
 - 尚未制作的每章四部新影片、原生 PDF/PPTX 与讲义字数目标在报告中明确列出，不应误报为完成。
 
 当前总首页为 Learning EDA 双语课程门户。Clustering 以原站链接接入；本站 Partitioning 课程首页为 courses/partitioning/index.html。接入更多课程见 docs/COURSE_PORTAL.md 与 content/courses.json。
+
+- 2026-11-03：Courses 目录位于 courses/index.html，英文镜像 en/courses/index.html；数据扩展字段和进度适配说明见 docs/COURSE_PORTAL.md。

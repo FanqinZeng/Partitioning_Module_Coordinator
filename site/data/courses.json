@@ -29,6 +29,144 @@
     "languages": [
       "zh",
       "en"
+    ],
+    "status": "ready",
+    "level": "introductory",
+    "recommendedPrerequisites": [
+      "foundations"
+    ],
+    "requiredPrerequisites": [],
+    "updated": "2026-11-03",
+    "outcomes": [
+      "观察关系并解释聚类决策",
+      "Explain affinities and clustering decisions"
+    ],
+    "keywords": [
+      "聚类",
+      "亲和度",
+      "标签传播",
+      "谱二分",
+      "KL",
+      "FM",
+      "spectral",
+      "affinity",
+      "label propagation"
+    ],
+    "progress": {
+      "provider": "external"
+    },
+    "outline": [
+      {
+        "id": "m02-affinity-metrics",
+        "title": [
+          "亲和度指标",
+          "Affinity metrics"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m02-affinity-metrics/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m02-affinity-metrics/index.html"
+        ],
+        "keywords": []
+      },
+      {
+        "id": "m03-greedy-pair-merge",
+        "title": [
+          "贪心成对合并",
+          "Greedy pair merge"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m03-greedy-pair-merge/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m03-greedy-pair-merge/index.html"
+        ],
+        "keywords": []
+      },
+      {
+        "id": "m04-size-constrained-agglomerative",
+        "title": [
+          "容量约束凝聚聚类",
+          "Size-constrained agglomerative clustering"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m04-size-constrained-agglomerative/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m04-size-constrained-agglomerative/index.html"
+        ],
+        "keywords": []
+      },
+      {
+        "id": "m05-label-propagation",
+        "title": [
+          "标签传播",
+          "Label propagation"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m05-label-propagation/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m05-label-propagation/index.html"
+        ],
+        "keywords": []
+      },
+      {
+        "id": "m06-spectral-bisection",
+        "title": [
+          "谱二分",
+          "Spectral bisection"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m06-spectral-bisection/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m06-spectral-bisection/index.html"
+        ],
+        "keywords": [
+          "Fiedler",
+          "谱",
+          "拉普拉斯",
+          "Laplacian"
+        ]
+      },
+      {
+        "id": "m07-kernighan-lin",
+        "title": [
+          "Kernighan–Lin 改进",
+          "Kernighan–Lin refinement"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m07-kernighan-lin/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m07-kernighan-lin/index.html"
+        ],
+        "keywords": [
+          "KL",
+          "kernighan lin",
+          "增益",
+          "gain"
+        ]
+      },
+      {
+        "id": "m08-fiduccia-mattheyses",
+        "title": [
+          "Fiduccia–Mattheyses 改进",
+          "Fiduccia–Mattheyses refinement"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m08-fiduccia-mattheyses/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m08-fiduccia-mattheyses/index.html"
+        ],
+        "keywords": [
+          "FM",
+          "fiduccia mattheyses",
+          "增益",
+          "gain"
+        ]
+      },
+      {
+        "id": "m09-rajaraman-wong",
+        "title": [
+          "Rajaraman–Wong 延迟导向聚类",
+          "Rajaraman–Wong delay-driven clustering"
+        ],
+        "entry": [
+          "https://su3037.github.io/learning-clustering/modules/m09-rajaraman-wong/index.html",
+          "https://su3037.github.io/learning-clustering/en/modules/m09-rajaraman-wong/index.html"
+        ],
+        "keywords": []
+      }
     ]
   },
   {
@@ -61,6 +199,143 @@
     "languages": [
       "zh",
       "en"
+    ],
+    "status": "ready",
+    "level": "introductory",
+    "recommendedPrerequisites": [
+      "foundations"
+    ],
+    "requiredPrerequisites": [],
+    "updated": "2026-11-03",
+    "outcomes": [
+      "衡量割代价，在约束下构造与改进分组",
+      "Measure cut cost and construct or refine feasible assignments"
+    ],
+    "keywords": [
+      "划分",
+      "割代价",
+      "容量",
+      "平衡",
+      "谱二分",
+      "KL",
+      "FM",
+      "spectral",
+      "balance",
+      "cut",
+      "multiway"
+    ],
+    "progress": {
+      "provider": "partitioning",
+      "lessonIds": [
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08"
+      ]
+    },
+    "outline": [
+      {
+        "title": [
+          "割代价与平衡",
+          "Cut cost and balance"
+        ],
+        "entry": [
+          "modules/02-cut-and-balance/index.html",
+          "modules/02-cut-and-balance/index.html"
+        ],
+        "id": "02",
+        "keywords": []
+      },
+      {
+        "title": [
+          "初始二分",
+          "Initial bisection"
+        ],
+        "entry": [
+          "modules/03-initial-bisection/index.html",
+          "modules/03-initial-bisection/index.html"
+        ],
+        "id": "03",
+        "keywords": []
+      },
+      {
+        "title": [
+          "Kernighan–Lin 二分",
+          "Kernighan–Lin bisection"
+        ],
+        "entry": [
+          "modules/04-kernighan-lin/index.html",
+          "modules/04-kernighan-lin/index.html"
+        ],
+        "id": "04",
+        "keywords": [
+          "KL",
+          "kernighan lin",
+          "增益",
+          "gain"
+        ]
+      },
+      {
+        "title": [
+          "Fiduccia–Mattheyses 二分",
+          "Fiduccia–Mattheyses bisection"
+        ],
+        "entry": [
+          "modules/05-fiduccia-mattheyses/index.html",
+          "modules/05-fiduccia-mattheyses/index.html"
+        ],
+        "id": "05",
+        "keywords": [
+          "FM",
+          "fiduccia mattheyses",
+          "增益",
+          "gain"
+        ]
+      },
+      {
+        "title": [
+          "谱二分",
+          "Spectral bisection"
+        ],
+        "entry": [
+          "modules/06-spectral-bisection/index.html",
+          "modules/06-spectral-bisection/index.html"
+        ],
+        "id": "06",
+        "keywords": [
+          "Fiedler",
+          "谱",
+          "拉普拉斯",
+          "Laplacian"
+        ]
+      },
+      {
+        "title": [
+          "递归二分",
+          "Recursive bisection"
+        ],
+        "entry": [
+          "modules/07-recursive-bisection/index.html",
+          "modules/07-recursive-bisection/index.html"
+        ],
+        "id": "07",
+        "keywords": []
+      },
+      {
+        "title": [
+          "多路划分",
+          "Multiway partitioning"
+        ],
+        "entry": [
+          "modules/08-multiway-partitioning/index.html",
+          "modules/08-multiway-partitioning/index.html"
+        ],
+        "id": "08",
+        "keywords": []
+      }
     ]
   }
 ]

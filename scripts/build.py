@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import zipfile
 from portal import COURSES, entry as course_entry, render as portal_body
+from course_directory import render as directory_body
 
 ROOT=Path(__file__).resolve().parents[1]
 SITE=ROOT/'site'
@@ -47,15 +48,15 @@ for m in CATALOG:m['sections']=sections(m)
 
 def url(m):return f"modules/{m['id']}-{m['slug']}/index.html"
 LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 9 8 23M24 9 24 23" stroke="#0f6b5c" stroke-width="1.5"/><path d="M8 9 24 9M8 23 24 23" stroke="#b78056" stroke-width="1.2" stroke-dasharray="2 3"/><path d="M16 3 16 29" stroke="#9ba89c" stroke-width=".7" stroke-dasharray="2 2"/><g fill="#0f6b5c"><circle cx="8" cy="9" r="3.5"/><circle cx="8" cy="23" r="3.5"/></g><g fill="#577e9c"><circle cx="24" cy="9" r="3.5"/><circle cx="24" cy="23" r="3.5"/></g></svg>'
-NAV=[('index.html',['课程库','All courses']),('courses/partitioning/index.html',['课程首页','Course home']),('foundations/index.html',['基础','Foundations']),('glossary/index.html',['术语','Glossary']),('compare/index.html',['同图比较','Compare']),('progress/index.html',['学习记录','Progress']),('credits/index.html',['资源与贡献','Credits'])]
+NAV=[('index.html',['首页','Home']),('courses/index.html',['课程目录','Courses']),('courses/index.html#map',['学习地图','Learning map']),('compare/index.html',['同图比较','Compare']),('progress/index.html',['学习记录','Progress'])]
 def page(path,title,body,lang=0,page_type='',module=None):
     actual=('en/' if lang else '')+path
     depth=len(Path(actual).parts)-1
     root='../'*depth or './'
     lr=root+('en/' if lang else '')
     alternate=root+('' if lang else 'en/')+path
-    is_portal=page_type=='portal'
-    nav_items=[('index.html',['课程库','All courses']),('index.html#learning-path',['学习路线','Learning paths']),('courses/partitioning/index.html',['Partitioning','Partitioning']),('https://su3037.github.io/learning-clustering/'+('en/index.html' if lang else ''),['Clustering ↗','Clustering ↗'])] if is_portal else NAV
+    is_portal=page_type in ['portal','catalog']
+    nav_items=NAV
     links=''.join(f'<a href="{p if p.startswith("https://") else lr+p}"'+(' aria-current="page"' if p==path else '')+'>'+T(label,lang)+'</a>' for p,label in nav_items)
     language=f'<a data-lang-link href="{alternate}" hreflang="'+('zh-CN' if lang else 'en')+'">'+('中文' if lang else 'EN')+'</a>'
     top=f'''<a class="skip" href="#main">{T(['跳到正文','Skip to content'],lang)}</a><header class="topbar"><div class="wrap"><a class="brand" href="{lr}index.html">{LOGO}<span class="brand-name">Learning EDA</span></a><nav class="topnav" aria-label="{T(['课程导航','Course navigation'],lang)}">{links}</nav><details class="mobile-nav"><summary>{T(['导航','Menu'],lang)}</summary><nav>{links}</nav></details><button class="icon-button" data-open-search aria-label="{T(['搜索 Partitioning','Search Partitioning'],lang)}">⌕ {T(['搜索','Search'],lang)}</button><div class="lang-switch"><span aria-current="true">{'EN' if lang else '中文'}</span>{language}</div></div></header>'''
@@ -64,7 +65,7 @@ def page(path,title,body,lang=0,page_type='',module=None):
     context=''
     if not is_portal:
         choices=''.join(f'<a href="{E(course_entry(c,lang) if c["external"] else lr+course_entry(c,lang))}"'+(' aria-current="page"' if c['id']=='partitioning' else '')+'>'+E(c['title'])+(' ↗' if c['external'] else '')+'</a>' for c in COURSES)
-        context=f'<div class="course-context"><div class="wrap"><nav aria-label="{T(["当前位置","Breadcrumb"],lang)}"><a href="{lr}index.html">{T(["课程库","Course library"],lang)}</a><span aria-hidden="true">/</span><a href="{lr}courses/partitioning/index.html">Partitioning</a><span class="context-title">/ {E(title)}</span></nav><details class="course-switch"><summary>{T(["切换课程","Switch course"],lang)}</summary><div>{choices}</div></details></div></div>'
+        context=f'<div class="course-context"><div class="wrap"><nav aria-label="{T(["当前位置","Breadcrumb"],lang)}"><a href="{lr}courses/index.html">{T(["课程库","Course library"],lang)}</a><span aria-hidden="true">/</span><a href="{lr}courses/partitioning/index.html">Partitioning</a><span class="context-title">/ {E(title)}</span></nav><details class="course-switch"><summary>{T(["切换课程","Switch course"],lang)}</summary><div>{choices}</div></details></div></div>'
     module_nav=''
     if module:
         nav=[('goals',['目标','Goals']),('watch',['影片','Watch']),('terms',['术语','Terms']),('reading',['讲义','Lesson']),('slides',['课件','Slides']),('lab',['实验台','Lab']),('challenges',['挑战','Challenges']),('code',['Python','Python']),('mistakes',['易错点','Mistakes']),('resources',['来源','Sources'])]
@@ -73,7 +74,7 @@ def page(path,title,body,lang=0,page_type='',module=None):
     if is_portal:
         footer=footer.replace('Learning Partitioning · '+T(['七章 EDA 交互课程，由 FanqinZeng 整合。原作者与改动见','Seven interactive EDA lessons, integrated by FanqinZeng. Original authors and changes:'],lang),'Learning EDA · '+T(['开放课程入口，由 FanqinZeng 整合。各课程保留原作者署名。','An open course directory integrated by FanqinZeng. Each course retains its author credits.'],lang))
     dialog=f'''<dialog id="search-dialog"><div class="dialog-head"><h2>{T(['搜索 Partitioning','Search Partitioning'],lang)}</h2><button class="text-button" data-close>{T(['关闭','Close'],lang)} · Esc</button></div><label class="sr-only" for="course-search">{T(['搜索词','Search terms'],lang)}</label><input id="course-search" type="search" placeholder="{T(['割代价、容量、Fiedler…','cut, capacity, Fiedler…'],lang)}" autocomplete="off"><div data-results aria-live="polite"></div></dialog>'''
-    script='portal.js' if is_portal else 'module.js' if module else 'home.js' if page_type=='home' else 'compare.js' if page_type=='compare' else 'core.js'
+    script='catalog.js' if page_type=='catalog' else 'portal.js' if is_portal else 'module.js' if module else 'home.js' if page_type=='home' else 'compare.js' if page_type=='compare' else 'core.js'
     description=T(['交互式 EDA 开放课程：连接 Clustering 与 Partitioning，用影片、实验和 Python 学习芯片算法。','Interactive EDA courses: explore clustering and partitioning through films, experiments and Python.'],lang) if is_portal else T(['从割代价、初始二分到 KL、FM、谱方法与多路划分：真实交互实验、练习反馈与浏览器 Python。','From cut metrics to KL, FM, spectral and k-way partitioning: real interactive labs, feedback and browser Python.'],lang)
     out=f'''<!doctype html><html lang="{'en' if lang else 'zh-CN'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f0e7"><title>{E(title)} · {"Learning EDA" if is_portal else "Learning Partitioning"}</title><meta name="description" content="{E(description)}"><link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{root}assets/base.css"><link rel="stylesheet" href="{root}assets/partitioning.css"><link rel="stylesheet" href="{root}assets/portal.css"><link rel="alternate" hreflang="{'zh-CN' if lang else 'en'}" href="{alternate}"></head><body data-root="{root}" data-page="{page_type}"{(' data-module="'+module['id']+'"') if module else ''}>{top}{context}{module_nav}<div id="notice" class="notice" role="status" hidden></div><main id="main">{body}</main>{footer}{dialog}<script type="module" src="{root}assets/{script}"></script></body></html>'''
     dest=SITE/actual;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(out)
@@ -224,6 +225,7 @@ if __name__=='__main__':
     (SITE/'data/courses.json').write_text(json.dumps(COURSES,ensure_ascii=False,indent=2))
     for lang in [0,1]:
         page('index.html',T(['交互式 EDA 开放课程','Interactive EDA courses'],lang),portal_body(lang),lang,'portal')
+        page('courses/index.html',T(['课程目录与学习地图','Courses and learning map'],lang),directory_body(lang),lang,'catalog')
         home(lang)
         for m in CATALOG:module_page(m,lang)
         shared_pages(lang)
