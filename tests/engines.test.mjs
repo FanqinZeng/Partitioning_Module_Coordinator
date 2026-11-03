@@ -26,6 +26,11 @@ test('invalid graph and parameters do not become plausible traces',()=>{
  for(const p of [{k:99},{k:2.5},{capacity:-1},{minFraction:.6}])assert.equal(run('multiway',G01,p).status,'invalid');
  assert.equal(run('initial',G01,{seed:NaN}).status,'invalid');
  assert.equal(run('fm',G01,{maxDiff:0}).status,'invalid');
+ assert.equal(run('fm',{nodes:['A','B'],edges:[],nets:[{pins:['A','B'],w:3}]}).status,'invalid');
+});
+test('mixed-case vertex ties use code-point order consistently with Python',()=>{
+ const graph={nodes:['a','B','A','b'],edges:[]};
+ const r=run('initial',graph,{strategy:'grow'});assert.equal(r.events[0].chosen,'A');assert.equal(r.events[1].chosen,'B');
 });
 test('KL/FM agree pass by pass with an independent brute-change Python solver on 240 cases',()=>{
  const cases=[];

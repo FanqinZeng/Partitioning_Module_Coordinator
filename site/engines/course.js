@@ -1,5 +1,5 @@
 // Unified course contract. All visual states are actual solver states.
-import {requireGraph, cutsize, weightMap, mulberry32, G01} from './graph.js';
+import {requireGraph, cutsize, weightMap, mulberry32, compareKeys, G01} from './graph.js';
 import * as KL from './kl.js';
 import * as FM from './fm.js';
 import * as Spectral from './spectral.js';
@@ -35,7 +35,7 @@ function initialRun(g,{strategy='grow',seed=7}={}) {
   } else if(strategy==='grow') {
     a[ids[0]]=0;history.push(event('seed',a,{chosen:ids[0]}));
     while(count(g,a,0)<target) {
-      const candidates=ids.filter(id=>a[id]===1).map(id=>({node:id,score:[...adj.get(id)].filter(([u])=>a[u]===0).reduce((s,[,w])=>s+w,0)})).sort((x,y)=>y.score-x.score||x.node.localeCompare(y.node,'en'));
+      const candidates=ids.filter(id=>a[id]===1).map(id=>({node:id,score:[...adj.get(id)].filter(([u])=>a[u]===0).reduce((s,[,w])=>s+w,0)})).sort((x,y)=>y.score-x.score||compareKeys([x.node],[y.node]));
       const best=candidates[0];a[best.node]=0;history.push(event('grow',a,{candidates,chosen:best.node}));
     }
   } else {
@@ -91,7 +91,7 @@ function multiwayRun(g,{k=3,capacity=null,strategy='recursive-swap',minFraction=
         const u=ids[i],v=ids[j];if(a[u]===a[v])continue;
         const t={...a,[u]:a[v],[v]:a[u]};if(metrics(g,t,k,capacity).feasible)candidates.push({a:u,b:v,gain:before-cutsize(g,t),assignment:t});
       }
-      candidates.sort((x,y)=>y.gain-x.gain||x.a.localeCompare(y.a,'en')||x.b.localeCompare(y.b,'en'));
+      candidates.sort((x,y)=>compareKeys([-x.gain,x.a,x.b],[-y.gain,y.a,y.b]));
       const best=candidates[0];
       if(!best||best.gain<=1e-9){events.push(event('local-stop',a,{candidates}));stable=true;break;}
       Object.assign(a,best.assignment);events.push(event('swap',a,{chosen:[best.a,best.b],gain:best.gain,candidates}));
@@ -116,6 +116,7 @@ export function run(method,input=G01,params={}) {
   try {
     if(!METHODS.includes(method))throw Error('Unknown method');
     const g=requireGraph(input,{maxNodes:12,maxEdges:66}), n=g.nodes.length;
+    if(input.nets?.length)throw Error('This interface accepts ordinary edges; hypergraph nets are not supported here');
     if(g.nodes.some(n=>Object.prototype.hasOwnProperty.call(Object.prototype,n.id)))throw Error('Reserved object names cannot be used as vertex IDs');
     if(n<2)throw Error('At least two nodes are required');
     const k=['recursive','multiway'].includes(method)?(params.k??3):2;
@@ -127,7 +128,7 @@ export function run(method,input=G01,params={}) {
     const maxPasses=params.maxPasses??10;
     if(params.seed!==undefined&&(!Number.isInteger(params.seed)||Math.abs(params.seed)>2147483647))throw Error('Seed must be a 32-bit integer');
     if(!Number.isInteger(maxPasses)||maxPasses<1||maxPasses>30)throw Error('Pass limit must be 1–30');
-    const initial=params.initial??(g.nodes.every(n=>n.id in BAD)&&n===5?BAD:Object.fromEntries(g.nodes.map((x,i)=>[x.id,i<Math.floor(n/2)?0:1])));
+    const initial=params.initial??(g.nodes.every(n=>Object.hasOwn(BAD,n.id))&&n===5?BAD:Object.fromEntries(g.nodes.map((x,i)=>[x.id,i<Math.floor(n/2)?0:1])));
     let raw;
     if(method==='metrics'){metrics(g,initial);raw={events:[event('evaluate',initial)],result:{assignment:{...initial}},status:'completed'};}
     else if(method==='initial')raw=initialRun(g,params);
