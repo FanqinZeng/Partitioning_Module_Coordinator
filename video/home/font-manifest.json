@@ -1,0 +1,32 @@
+{
+  "sans": {
+    "file": "NotoSansSC-Regular.otf",
+    "source": "fonts/noto-sans-sc/NotoSansSC-Regular.otf",
+    "sha256": "faa6c9df652116dde789d351359f3d7e5d2285a2b2a1f04a2d7244df706d5ea9"
+  },
+  "bold": {
+    "file": "NotoSansSC-Bold.otf",
+    "source": "fonts/noto-sans-sc/NotoSansSC-Bold.otf",
+    "sha256": "c6cb5a93abaa9edc8ee7463b7ebb7f42d618d40e6ed2f7a5371c97b0b64767c0"
+  },
+  "serif": {
+    "file": "NotoSerifSC-Regular.ttf",
+    "source": "fonts/noto-serif-sc/NotoSerifSC-Regular.ttf",
+    "sha256": "a513b97fa1503422d78ee1f40415db736926e2d0d8d99701bdcede8cf6f6058e"
+  },
+  "latin": {
+    "file": "Newsreader-Regular.ttf",
+    "source": "fonts/newsreader/Newsreader-Regular.ttf",
+    "sha256": "b8f5e0a8bdd6a12c722ca5635d9da87e77ccbb2d0172112e34e00c4e55f2cd5a"
+  },
+  "italic": {
+    "file": "Newsreader-Italic.ttf",
+    "source": "fonts/newsreader/Newsreader-Italic.ttf",
+    "sha256": "a7a0a9114e29fbf6e83a339ed930d5d8ae69fe4217c34fdd95386d995929d6e8"
+  },
+  "mono": {
+    "file": "JetBrainsMono-Regular.ttf",
+    "source": "fonts/jetbrains-mono/JetBrainsMono-Regular.ttf",
+    "sha256": "44ce4a84f20d60f24539bd0cef11f79c29e38609e0f8adf18551c9794a5d9dc3"
+  }
+}

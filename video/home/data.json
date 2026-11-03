@@ -1,0 +1,6198 @@
+{
+  "schema": 1,
+  "graph": {
+    "id": "G01",
+    "nodes": [
+      {
+        "id": "A",
+        "size": 1
+      },
+      {
+        "id": "B",
+        "size": 1
+      },
+      {
+        "id": "C",
+        "size": 1
+      },
+      {
+        "id": "D",
+        "size": 1
+      },
+      {
+        "id": "E",
+        "size": 1
+      }
+    ],
+    "edges": [
+      {
+        "u": "A",
+        "v": "B",
+        "w": 5
+      },
+      {
+        "u": "A",
+        "v": "C",
+        "w": 1
+      },
+      {
+        "u": "B",
+        "v": "C",
+        "w": 4
+      },
+      {
+        "u": "C",
+        "v": "D",
+        "w": 2
+      },
+      {
+        "u": "C",
+        "v": "E",
+        "w": 1
+      },
+      {
+        "u": "D",
+        "v": "E",
+        "w": 5
+      }
+    ],
+    "positions": {
+      "A": [
+        170,
+        100
+      ],
+      "B": [
+        390,
+        85
+      ],
+      "C": [
+        305,
+        270
+      ],
+      "D": [
+        530,
+        375
+      ],
+      "E": [
+        280,
+        440
+      ]
+    }
+  },
+  "bad": {
+    "A": 0,
+    "B": 1,
+    "C": 1,
+    "D": 1,
+    "E": 0
+  },
+  "good": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 1,
+    "E": 1
+  },
+  "badMetrics": {
+    "cut": 12,
+    "counts": [
+      2,
+      3
+    ],
+    "areas": [
+      2,
+      3
+    ],
+    "ratio": 0.6666666666666666,
+    "imbalance": 0.2,
+    "nonempty": true,
+    "feasible": true,
+    "capacity": null,
+    "cutEdges": [
+      {
+        "u": "A",
+        "v": "B",
+        "w": 5
+      },
+      {
+        "u": "A",
+        "v": "C",
+        "w": 1
+      },
+      {
+        "u": "C",
+        "v": "E",
+        "w": 1
+      },
+      {
+        "u": "D",
+        "v": "E",
+        "w": 5
+      }
+    ]
+  },
+  "goodMetrics": {
+    "cut": 3,
+    "counts": [
+      3,
+      2
+    ],
+    "areas": [
+      3,
+      2
+    ],
+    "ratio": 0.6666666666666666,
+    "imbalance": 0.2,
+    "nonempty": true,
+    "feasible": true,
+    "capacity": null,
+    "cutEdges": [
+      {
+        "u": "C",
+        "v": "D",
+        "w": 2
+      },
+      {
+        "u": "C",
+        "v": "E",
+        "w": 1
+      }
+    ]
+  },
+  "areaMetrics": {
+    "cut": 3,
+    "counts": [
+      3,
+      2
+    ],
+    "areas": [
+      6,
+      2
+    ],
+    "ratio": 0.3333333333333333,
+    "imbalance": 0.5,
+    "nonempty": true,
+    "feasible": false,
+    "capacity": 4,
+    "cutEdges": [
+      {
+        "u": "C",
+        "v": "D",
+        "w": 2
+      },
+      {
+        "u": "C",
+        "v": "E",
+        "w": 1
+      }
+    ]
+  },
+  "allOneMetrics": {
+    "cut": 0,
+    "counts": [
+      5,
+      0
+    ],
+    "areas": [
+      5,
+      0
+    ],
+    "ratio": 0,
+    "imbalance": 1,
+    "nonempty": false,
+    "feasible": false,
+    "capacity": 3,
+    "cutEdges": []
+  },
+  "initial": {
+    "events": [
+      {
+        "kind": "seed",
+        "assignment": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 1
+        },
+        "chosen": "A",
+        "index": 0,
+        "metrics": {
+          "cut": 6,
+          "counts": [
+            1,
+            4
+          ],
+          "areas": [
+            1,
+            4
+          ],
+          "ratio": 0.25,
+          "imbalance": 0.6,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "grow",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 1,
+          "D": 1,
+          "E": 1
+        },
+        "candidates": [
+          {
+            "node": "B",
+            "score": 5
+          },
+          {
+            "node": "C",
+            "score": 1
+          },
+          {
+            "node": "D",
+            "score": 0
+          },
+          {
+            "node": "E",
+            "score": 0
+          }
+        ],
+        "chosen": "B",
+        "index": 1,
+        "metrics": {
+          "cut": 5,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "cut": 5,
+      "metrics": {
+        "cut": 5,
+        "counts": [
+          2,
+          3
+        ],
+        "areas": [
+          2,
+          3
+        ],
+        "ratio": 0.6666666666666666,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": null,
+        "cutEdges": [
+          {
+            "u": "A",
+            "v": "C",
+            "w": 1
+          },
+          {
+            "u": "B",
+            "v": "C",
+            "w": 4
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 2,
+    "method": "initial"
+  },
+  "initialRandom": {
+    "events": [
+      {
+        "kind": "shuffle",
+        "assignment": {
+          "A": 1,
+          "B": 0,
+          "C": 1,
+          "D": 0,
+          "E": 1
+        },
+        "order": [
+          "D",
+          "B",
+          "C",
+          "E",
+          "A"
+        ],
+        "seed": 7,
+        "index": 0,
+        "metrics": {
+          "cut": 16,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 1,
+        "B": 0,
+        "C": 1,
+        "D": 0,
+        "E": 1
+      },
+      "cut": 16,
+      "metrics": {
+        "cut": 16,
+        "counts": [
+          2,
+          3
+        ],
+        "areas": [
+          2,
+          3
+        ],
+        "ratio": 0.6666666666666666,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": null,
+        "cutEdges": [
+          {
+            "u": "A",
+            "v": "B",
+            "w": 5
+          },
+          {
+            "u": "B",
+            "v": "C",
+            "w": 4
+          },
+          {
+            "u": "C",
+            "v": "D",
+            "w": 2
+          },
+          {
+            "u": "D",
+            "v": "E",
+            "w": 5
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 2,
+    "method": "initial"
+  },
+  "initialGreedy": {
+    "events": [
+      {
+        "kind": "seed",
+        "assignment": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 1
+        },
+        "chosen": "A",
+        "index": 0,
+        "metrics": {
+          "cut": 6,
+          "counts": [
+            1,
+            4
+          ],
+          "areas": [
+            1,
+            4
+          ],
+          "ratio": 0.25,
+          "imbalance": 0.6,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "place",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 1,
+          "D": 1,
+          "E": 1
+        },
+        "node": "B",
+        "chosen": 0,
+        "candidates": [
+          {
+            "side": 0,
+            "legal": true,
+            "increment": 0
+          },
+          {
+            "side": 1,
+            "legal": true,
+            "increment": 5
+          }
+        ],
+        "placed": [
+          "A",
+          "B"
+        ],
+        "index": 1,
+        "metrics": {
+          "cut": 5,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        }
+      },
+      {
+        "kind": "place",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 1,
+          "D": 1,
+          "E": 1
+        },
+        "node": "C",
+        "chosen": 1,
+        "candidates": [
+          {
+            "side": 0,
+            "legal": false,
+            "increment": 0
+          },
+          {
+            "side": 1,
+            "legal": true,
+            "increment": 5
+          }
+        ],
+        "placed": [
+          "A",
+          "B",
+          "C"
+        ],
+        "index": 2,
+        "metrics": {
+          "cut": 5,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        }
+      },
+      {
+        "kind": "place",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 1,
+          "D": 1,
+          "E": 1
+        },
+        "node": "D",
+        "chosen": 1,
+        "candidates": [
+          {
+            "side": 0,
+            "legal": false,
+            "increment": 2
+          },
+          {
+            "side": 1,
+            "legal": true,
+            "increment": 0
+          }
+        ],
+        "placed": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "index": 3,
+        "metrics": {
+          "cut": 5,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        }
+      },
+      {
+        "kind": "place",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 1,
+          "D": 1,
+          "E": 1
+        },
+        "node": "E",
+        "chosen": 1,
+        "candidates": [
+          {
+            "side": 0,
+            "legal": false,
+            "increment": 6
+          },
+          {
+            "side": 1,
+            "legal": true,
+            "increment": 0
+          }
+        ],
+        "placed": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "index": 4,
+        "metrics": {
+          "cut": 5,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "cut": 5,
+      "metrics": {
+        "cut": 5,
+        "counts": [
+          2,
+          3
+        ],
+        "areas": [
+          2,
+          3
+        ],
+        "ratio": 0.6666666666666666,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": null,
+        "cutEdges": [
+          {
+            "u": "A",
+            "v": "C",
+            "w": 1
+          },
+          {
+            "u": "B",
+            "v": "C",
+            "w": 4
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 2,
+    "method": "initial"
+  },
+  "kl": {
+    "events": [
+      {
+        "eventId": "p1-start",
+        "phase": "pass-1",
+        "step": 0,
+        "kind": "pass-start",
+        "before": null,
+        "after": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 0
+        },
+        "decision": null,
+        "metrics": {
+          "cut": 12,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 0
+        },
+        "index": 0
+      },
+      {
+        "eventId": "p1-t1",
+        "phase": "pass-1",
+        "step": 1,
+        "kind": "trial-swap",
+        "before": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "试探交换 A↔D",
+        "candidates": [
+          {
+            "a": "A",
+            "b": "D",
+            "Da": 6,
+            "Db": 3,
+            "w": 0,
+            "gain": 9
+          },
+          {
+            "a": "E",
+            "b": "B",
+            "Da": 6,
+            "Db": 1,
+            "w": 0,
+            "gain": 7
+          },
+          {
+            "a": "A",
+            "b": "C",
+            "Da": 6,
+            "Db": -4,
+            "w": 1,
+            "gain": 0
+          },
+          {
+            "a": "E",
+            "b": "C",
+            "Da": 6,
+            "Db": -4,
+            "w": 1,
+            "gain": 0
+          },
+          {
+            "a": "E",
+            "b": "D",
+            "Da": 6,
+            "Db": 3,
+            "w": 5,
+            "gain": -1
+          },
+          {
+            "a": "A",
+            "b": "B",
+            "Da": 6,
+            "Db": 1,
+            "w": 5,
+            "gain": -3
+          }
+        ],
+        "dValues": {
+          "A": {
+            "ext": 6,
+            "int": 0,
+            "D": 6
+          },
+          "B": {
+            "ext": 5,
+            "int": 4,
+            "D": 1
+          },
+          "C": {
+            "ext": 2,
+            "int": 6,
+            "D": -4
+          },
+          "D": {
+            "ext": 5,
+            "int": 2,
+            "D": 3
+          },
+          "E": {
+            "ext": 6,
+            "int": 0,
+            "D": 6
+          }
+        },
+        "locks": [
+          "A",
+          "D"
+        ],
+        "trialGain": 9,
+        "metrics": {
+          "cutBefore": 12,
+          "cut": 3,
+          "cumulative": 9,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 1
+      },
+      {
+        "eventId": "p1-t2",
+        "phase": "pass-1",
+        "step": 2,
+        "kind": "trial-swap",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "decision": "试探交换 E↔C",
+        "candidates": [
+          {
+            "a": "E",
+            "b": "C",
+            "Da": -4,
+            "Db": -2,
+            "w": 1,
+            "gain": -8
+          },
+          {
+            "a": "E",
+            "b": "B",
+            "Da": -4,
+            "Db": -9,
+            "w": 0,
+            "gain": -13
+          }
+        ],
+        "dValues": {
+          "A": {
+            "ext": 0,
+            "int": 6,
+            "D": -6
+          },
+          "B": {
+            "ext": 0,
+            "int": 9,
+            "D": -9
+          },
+          "C": {
+            "ext": 3,
+            "int": 5,
+            "D": -2
+          },
+          "D": {
+            "ext": 2,
+            "int": 5,
+            "D": -3
+          },
+          "E": {
+            "ext": 1,
+            "int": 5,
+            "D": -4
+          }
+        },
+        "locks": [
+          "A",
+          "C",
+          "D",
+          "E"
+        ],
+        "trialGain": -8,
+        "metrics": {
+          "cutBefore": 3,
+          "cut": 11,
+          "cumulative": 1,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "index": 2
+      },
+      {
+        "eventId": "p1-prefix",
+        "phase": "pass-1",
+        "step": 3,
+        "kind": "best-prefix",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "保留前 1 步",
+        "prefix": {
+          "gains": [
+            0,
+            9,
+            1
+          ],
+          "bestK": 1
+        },
+        "locks": [],
+        "metrics": {
+          "cut": 3,
+          "rollbackFromCut": 11,
+          "bestGain": 9,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 3
+      },
+      {
+        "eventId": "p2-start",
+        "phase": "pass-2",
+        "step": 4,
+        "kind": "pass-start",
+        "before": null,
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": null,
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 4
+      },
+      {
+        "eventId": "p2-t1",
+        "phase": "pass-2",
+        "step": 5,
+        "kind": "trial-swap",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "decision": "试探交换 E↔C",
+        "candidates": [
+          {
+            "a": "E",
+            "b": "C",
+            "Da": -4,
+            "Db": -2,
+            "w": 1,
+            "gain": -8
+          },
+          {
+            "a": "D",
+            "b": "A",
+            "Da": -3,
+            "Db": -6,
+            "w": 0,
+            "gain": -9
+          },
+          {
+            "a": "D",
+            "b": "C",
+            "Da": -3,
+            "Db": -2,
+            "w": 2,
+            "gain": -9
+          },
+          {
+            "a": "E",
+            "b": "A",
+            "Da": -4,
+            "Db": -6,
+            "w": 0,
+            "gain": -10
+          },
+          {
+            "a": "D",
+            "b": "B",
+            "Da": -3,
+            "Db": -9,
+            "w": 0,
+            "gain": -12
+          },
+          {
+            "a": "E",
+            "b": "B",
+            "Da": -4,
+            "Db": -9,
+            "w": 0,
+            "gain": -13
+          }
+        ],
+        "dValues": {
+          "A": {
+            "ext": 0,
+            "int": 6,
+            "D": -6
+          },
+          "B": {
+            "ext": 0,
+            "int": 9,
+            "D": -9
+          },
+          "C": {
+            "ext": 3,
+            "int": 5,
+            "D": -2
+          },
+          "D": {
+            "ext": 2,
+            "int": 5,
+            "D": -3
+          },
+          "E": {
+            "ext": 1,
+            "int": 5,
+            "D": -4
+          }
+        },
+        "locks": [
+          "C",
+          "E"
+        ],
+        "trialGain": -8,
+        "metrics": {
+          "cutBefore": 3,
+          "cut": 11,
+          "cumulative": -8,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "index": 5
+      },
+      {
+        "eventId": "p2-t2",
+        "phase": "pass-2",
+        "step": 6,
+        "kind": "trial-swap",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "decision": "试探交换 D↔B",
+        "candidates": [
+          {
+            "a": "D",
+            "b": "B",
+            "Da": 3,
+            "Db": -1,
+            "w": 0,
+            "gain": 2
+          },
+          {
+            "a": "D",
+            "b": "A",
+            "Da": 3,
+            "Db": -4,
+            "w": 0,
+            "gain": -1
+          }
+        ],
+        "dValues": {
+          "A": {
+            "ext": 1,
+            "int": 5,
+            "D": -4
+          },
+          "B": {
+            "ext": 4,
+            "int": 5,
+            "D": -1
+          },
+          "C": {
+            "ext": 6,
+            "int": 2,
+            "D": 4
+          },
+          "D": {
+            "ext": 5,
+            "int": 2,
+            "D": 3
+          },
+          "E": {
+            "ext": 6,
+            "int": 0,
+            "D": 6
+          }
+        },
+        "locks": [
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "trialGain": 2,
+        "metrics": {
+          "cutBefore": 11,
+          "cut": 9,
+          "cumulative": -6,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "index": 6
+      },
+      {
+        "eventId": "p2-prefix",
+        "phase": "pass-2",
+        "step": 7,
+        "kind": "best-prefix",
+        "before": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "保留空前缀（不改变）",
+        "prefix": {
+          "gains": [
+            0,
+            -8,
+            -6
+          ],
+          "bestK": 0
+        },
+        "locks": [],
+        "metrics": {
+          "cut": 3,
+          "rollbackFromCut": 9,
+          "bestGain": 0,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 7
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 0,
+        "E": 0
+      },
+      "cut": 3,
+      "passes": [
+        {
+          "pass": 1,
+          "startCut": 12,
+          "swaps": [
+            {
+              "index": 1,
+              "a": "A",
+              "b": "D",
+              "Da": 6,
+              "Db": 3,
+              "w": 0,
+              "gain": 9,
+              "cutBefore": 12,
+              "cutAfter": 3,
+              "cumulative": 9
+            },
+            {
+              "index": 2,
+              "a": "E",
+              "b": "C",
+              "Da": -4,
+              "Db": -2,
+              "w": 1,
+              "gain": -8,
+              "cutBefore": 3,
+              "cutAfter": 11,
+              "cumulative": 1
+            }
+          ],
+          "prefixGains": [
+            0,
+            9,
+            1
+          ],
+          "bestK": 1,
+          "bestGain": 9,
+          "acceptedCut": 3,
+          "start": {
+            "A": 0,
+            "B": 1,
+            "C": 1,
+            "D": 1,
+            "E": 0
+          },
+          "accepted": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0,
+            "E": 0
+          }
+        },
+        {
+          "pass": 2,
+          "startCut": 3,
+          "swaps": [
+            {
+              "index": 1,
+              "a": "E",
+              "b": "C",
+              "Da": -4,
+              "Db": -2,
+              "w": 1,
+              "gain": -8,
+              "cutBefore": 3,
+              "cutAfter": 11,
+              "cumulative": -8
+            },
+            {
+              "index": 2,
+              "a": "D",
+              "b": "B",
+              "Da": 3,
+              "Db": -1,
+              "w": 0,
+              "gain": 2,
+              "cutBefore": 11,
+              "cutAfter": 9,
+              "cumulative": -6
+            }
+          ],
+          "prefixGains": [
+            0,
+            -8,
+            -6
+          ],
+          "bestK": 0,
+          "bestGain": 0,
+          "acceptedCut": 3,
+          "start": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0,
+            "E": 0
+          },
+          "accepted": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0,
+            "E": 0
+          }
+        }
+      ],
+      "stopReason": "no-positive-prefix",
+      "sideSizes": [
+        2,
+        3
+      ],
+      "metrics": {
+        "cut": 3,
+        "counts": [
+          2,
+          3
+        ],
+        "areas": [
+          2,
+          3
+        ],
+        "ratio": 0.6666666666666666,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": null,
+        "cutEdges": [
+          {
+            "u": "C",
+            "v": "D",
+            "w": 2
+          },
+          {
+            "u": "C",
+            "v": "E",
+            "w": 1
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "metadata": {
+      "engine": "kernighan-lin",
+      "version": "1.0.0",
+      "balance": "node count per side fixed"
+    },
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 2,
+    "method": "kl"
+  },
+  "fm": {
+    "events": [
+      {
+        "eventId": "p1-start",
+        "phase": "pass-1",
+        "step": 0,
+        "kind": "pass-start",
+        "before": null,
+        "after": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 0
+        },
+        "decision": null,
+        "gains": [
+          {
+            "node": "A",
+            "side": 0,
+            "gain": 6,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": 1,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "C",
+            "side": 1,
+            "gain": -4,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "D",
+            "side": 1,
+            "gain": 3,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "E",
+            "side": 0,
+            "gain": 6,
+            "locked": false,
+            "legal": false
+          }
+        ],
+        "buckets": [
+          {
+            "gain": 6,
+            "nodes": [
+              "A",
+              "E"
+            ]
+          },
+          {
+            "gain": 3,
+            "nodes": [
+              "D"
+            ]
+          },
+          {
+            "gain": 1,
+            "nodes": [
+              "B"
+            ]
+          },
+          {
+            "gain": -4,
+            "nodes": [
+              "C"
+            ]
+          }
+        ],
+        "metrics": {
+          "cut": 12,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 0
+        },
+        "index": 0
+      },
+      {
+        "eventId": "p1-m1",
+        "phase": "pass-1",
+        "step": 1,
+        "kind": "trial-move",
+        "before": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 0
+        },
+        "after": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "试探移动 D（1→0）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 0,
+            "gain": 6,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": 1,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "C",
+            "side": 1,
+            "gain": 0,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": 3,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 0,
+            "gain": -4,
+            "locked": false,
+            "legal": true
+          }
+        ],
+        "buckets": [
+          {
+            "gain": 6,
+            "nodes": [
+              "A"
+            ]
+          },
+          {
+            "gain": 1,
+            "nodes": [
+              "B"
+            ]
+          },
+          {
+            "gain": 0,
+            "nodes": [
+              "C"
+            ]
+          },
+          {
+            "gain": -4,
+            "nodes": [
+              "E"
+            ]
+          }
+        ],
+        "locks": [
+          "D"
+        ],
+        "trialGain": 3,
+        "blocked": [
+          "A",
+          "E"
+        ],
+        "metrics": {
+          "cutBefore": 12,
+          "cut": 9,
+          "cumulative": 3,
+          "counts": [
+            3,
+            2
+          ],
+          "areas": [
+            3,
+            2
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 1
+      },
+      {
+        "eventId": "p1-m2",
+        "phase": "pass-1",
+        "step": 2,
+        "kind": "trial-move",
+        "before": {
+          "A": 0,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "试探移动 A（0→1）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": 6,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": -9,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "C",
+            "side": 1,
+            "gain": -2,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": 3,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 0,
+            "gain": -4,
+            "locked": false,
+            "legal": false
+          }
+        ],
+        "buckets": [
+          {
+            "gain": -2,
+            "nodes": [
+              "C"
+            ]
+          },
+          {
+            "gain": -4,
+            "nodes": [
+              "E"
+            ]
+          },
+          {
+            "gain": -9,
+            "nodes": [
+              "B"
+            ]
+          }
+        ],
+        "locks": [
+          "A",
+          "D"
+        ],
+        "trialGain": 6,
+        "blocked": [],
+        "metrics": {
+          "cutBefore": 9,
+          "cut": 3,
+          "cumulative": 9,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 2
+      },
+      {
+        "eventId": "p1-m3",
+        "phase": "pass-1",
+        "step": 3,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "试探移动 C（1→0）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": 6,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": -1,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": 3,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 0,
+            "gain": -6,
+            "locked": false,
+            "legal": true
+          }
+        ],
+        "buckets": [
+          {
+            "gain": -1,
+            "nodes": [
+              "B"
+            ]
+          },
+          {
+            "gain": -6,
+            "nodes": [
+              "E"
+            ]
+          }
+        ],
+        "locks": [
+          "A",
+          "C",
+          "D"
+        ],
+        "trialGain": -2,
+        "blocked": [],
+        "metrics": {
+          "cutBefore": 3,
+          "cut": 5,
+          "cumulative": 7,
+          "counts": [
+            3,
+            2
+          ],
+          "areas": [
+            3,
+            2
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "index": 3
+      },
+      {
+        "eventId": "p1-m4",
+        "phase": "pass-1",
+        "step": 4,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "decision": "试探移动 E（0→1）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": 6,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": -1,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": 3,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 1,
+            "gain": -6,
+            "locked": true,
+            "legal": false
+          }
+        ],
+        "buckets": [
+          {
+            "gain": -1,
+            "nodes": [
+              "B"
+            ]
+          }
+        ],
+        "locks": [
+          "A",
+          "C",
+          "D",
+          "E"
+        ],
+        "trialGain": -6,
+        "blocked": [
+          "B"
+        ],
+        "metrics": {
+          "cutBefore": 5,
+          "cut": 11,
+          "cumulative": 1,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "index": 4
+      },
+      {
+        "eventId": "p1-m5",
+        "phase": "pass-1",
+        "step": 5,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "decision": "试探移动 B（1→0）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": 6,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 0,
+            "gain": -1,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": 3,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 1,
+            "gain": -6,
+            "locked": true,
+            "legal": false
+          }
+        ],
+        "buckets": [],
+        "locks": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "trialGain": -1,
+        "blocked": [],
+        "metrics": {
+          "cutBefore": 11,
+          "cut": 12,
+          "cumulative": 0,
+          "counts": [
+            3,
+            2
+          ],
+          "areas": [
+            3,
+            2
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "index": 5
+      },
+      {
+        "eventId": "p1-prefix",
+        "phase": "pass-1",
+        "step": 6,
+        "kind": "best-prefix",
+        "before": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "保留前 2 步",
+        "prefix": {
+          "gains": [
+            0,
+            3,
+            9,
+            7,
+            1,
+            0
+          ],
+          "bestK": 2
+        },
+        "locks": [],
+        "metrics": {
+          "cut": 3,
+          "rollbackFromCut": 12,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 6
+      },
+      {
+        "eventId": "p2-start",
+        "phase": "pass-2",
+        "step": 7,
+        "kind": "pass-start",
+        "before": null,
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": null,
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": -6,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": -9,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "C",
+            "side": 1,
+            "gain": -2,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": -3,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 0,
+            "gain": -4,
+            "locked": false,
+            "legal": false
+          }
+        ],
+        "buckets": [
+          {
+            "gain": -2,
+            "nodes": [
+              "C"
+            ]
+          },
+          {
+            "gain": -3,
+            "nodes": [
+              "D"
+            ]
+          },
+          {
+            "gain": -4,
+            "nodes": [
+              "E"
+            ]
+          },
+          {
+            "gain": -6,
+            "nodes": [
+              "A"
+            ]
+          },
+          {
+            "gain": -9,
+            "nodes": [
+              "B"
+            ]
+          }
+        ],
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 7
+      },
+      {
+        "eventId": "p2-m1",
+        "phase": "pass-2",
+        "step": 8,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "试探移动 C（1→0）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": -4,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": -1,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": -7,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "E",
+            "side": 0,
+            "gain": -6,
+            "locked": false,
+            "legal": true
+          }
+        ],
+        "buckets": [
+          {
+            "gain": -1,
+            "nodes": [
+              "B"
+            ]
+          },
+          {
+            "gain": -4,
+            "nodes": [
+              "A"
+            ]
+          },
+          {
+            "gain": -6,
+            "nodes": [
+              "E"
+            ]
+          },
+          {
+            "gain": -7,
+            "nodes": [
+              "D"
+            ]
+          }
+        ],
+        "locks": [
+          "C"
+        ],
+        "trialGain": -2,
+        "blocked": [],
+        "metrics": {
+          "cutBefore": 3,
+          "cut": 5,
+          "cumulative": -2,
+          "counts": [
+            3,
+            2
+          ],
+          "areas": [
+            3,
+            2
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "index": 8
+      },
+      {
+        "eventId": "p2-m2",
+        "phase": "pass-2",
+        "step": 9,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "decision": "试探移动 E（0→1）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": -4,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "B",
+            "side": 1,
+            "gain": -1,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": 3,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 1,
+            "gain": -6,
+            "locked": true,
+            "legal": false
+          }
+        ],
+        "buckets": [
+          {
+            "gain": 3,
+            "nodes": [
+              "D"
+            ]
+          },
+          {
+            "gain": -1,
+            "nodes": [
+              "B"
+            ]
+          },
+          {
+            "gain": -4,
+            "nodes": [
+              "A"
+            ]
+          }
+        ],
+        "locks": [
+          "C",
+          "E"
+        ],
+        "trialGain": -6,
+        "blocked": [
+          "A",
+          "B"
+        ],
+        "metrics": {
+          "cutBefore": 5,
+          "cut": 11,
+          "cumulative": -8,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "index": 9
+      },
+      {
+        "eventId": "p2-m3",
+        "phase": "pass-2",
+        "step": 10,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "decision": "试探移动 B（1→0）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": 6,
+            "locked": false,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 0,
+            "gain": -1,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 0,
+            "gain": 3,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "E",
+            "side": 1,
+            "gain": -6,
+            "locked": true,
+            "legal": false
+          }
+        ],
+        "buckets": [
+          {
+            "gain": 6,
+            "nodes": [
+              "A"
+            ]
+          },
+          {
+            "gain": 3,
+            "nodes": [
+              "D"
+            ]
+          }
+        ],
+        "locks": [
+          "B",
+          "C",
+          "E"
+        ],
+        "trialGain": -1,
+        "blocked": [
+          "D"
+        ],
+        "metrics": {
+          "cutBefore": 11,
+          "cut": 12,
+          "cumulative": -9,
+          "counts": [
+            3,
+            2
+          ],
+          "areas": [
+            3,
+            2
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "index": 10
+      },
+      {
+        "eventId": "p2-m4",
+        "phase": "pass-2",
+        "step": 11,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "decision": "试探移动 D（0→1）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 1,
+            "gain": 6,
+            "locked": false,
+            "legal": true
+          },
+          {
+            "node": "B",
+            "side": 0,
+            "gain": -1,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 1,
+            "gain": 3,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 1,
+            "gain": -6,
+            "locked": true,
+            "legal": false
+          }
+        ],
+        "buckets": [
+          {
+            "gain": 6,
+            "nodes": [
+              "A"
+            ]
+          }
+        ],
+        "locks": [
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "trialGain": 3,
+        "blocked": [
+          "A"
+        ],
+        "metrics": {
+          "cutBefore": 12,
+          "cut": 9,
+          "cumulative": -6,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "index": 11
+      },
+      {
+        "eventId": "p2-m5",
+        "phase": "pass-2",
+        "step": 12,
+        "kind": "trial-move",
+        "before": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "after": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "decision": "试探移动 A（1→0）",
+        "gains": [
+          {
+            "node": "A",
+            "side": 0,
+            "gain": 6,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "B",
+            "side": 0,
+            "gain": -1,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "C",
+            "side": 0,
+            "gain": -2,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "D",
+            "side": 1,
+            "gain": 3,
+            "locked": true,
+            "legal": false
+          },
+          {
+            "node": "E",
+            "side": 1,
+            "gain": -6,
+            "locked": true,
+            "legal": false
+          }
+        ],
+        "buckets": [],
+        "locks": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "trialGain": 6,
+        "blocked": [],
+        "metrics": {
+          "cutBefore": 9,
+          "cut": 3,
+          "cumulative": 0,
+          "counts": [
+            3,
+            2
+          ],
+          "areas": [
+            3,
+            2
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "index": 12
+      },
+      {
+        "eventId": "p2-prefix",
+        "phase": "pass-2",
+        "step": 13,
+        "kind": "best-prefix",
+        "before": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 1,
+          "E": 1
+        },
+        "after": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "decision": "保留空前缀",
+        "prefix": {
+          "gains": [
+            0,
+            -2,
+            -8,
+            -9,
+            -6,
+            0
+          ],
+          "bestK": 0
+        },
+        "locks": [],
+        "metrics": {
+          "cut": 3,
+          "rollbackFromCut": 3,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        },
+        "sourceVersion": "1.0.0",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 13
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 0,
+        "E": 0
+      },
+      "cut": 3,
+      "passes": [
+        {
+          "pass": 1,
+          "startCut": 12,
+          "moves": [
+            {
+              "index": 1,
+              "node": "D",
+              "from": 1,
+              "to": 0,
+              "gain": 3,
+              "fs": [
+                {
+                  "net": "DE",
+                  "w": 5
+                }
+              ],
+              "te": [
+                {
+                  "net": "CD",
+                  "w": 2
+                }
+              ],
+              "cutBefore": 12,
+              "cutAfter": 9,
+              "cumulative": 3,
+              "blockedBetter": [
+                "A",
+                "E"
+              ]
+            },
+            {
+              "index": 2,
+              "node": "A",
+              "from": 0,
+              "to": 1,
+              "gain": 6,
+              "fs": [
+                {
+                  "net": "AB",
+                  "w": 5
+                },
+                {
+                  "net": "AC",
+                  "w": 1
+                }
+              ],
+              "te": [],
+              "cutBefore": 9,
+              "cutAfter": 3,
+              "cumulative": 9,
+              "blockedBetter": []
+            },
+            {
+              "index": 3,
+              "node": "C",
+              "from": 1,
+              "to": 0,
+              "gain": -2,
+              "fs": [
+                {
+                  "net": "CD",
+                  "w": 2
+                },
+                {
+                  "net": "CE",
+                  "w": 1
+                }
+              ],
+              "te": [
+                {
+                  "net": "AC",
+                  "w": 1
+                },
+                {
+                  "net": "BC",
+                  "w": 4
+                }
+              ],
+              "cutBefore": 3,
+              "cutAfter": 5,
+              "cumulative": 7,
+              "blockedBetter": []
+            },
+            {
+              "index": 4,
+              "node": "E",
+              "from": 0,
+              "to": 1,
+              "gain": -6,
+              "fs": [],
+              "te": [
+                {
+                  "net": "CE",
+                  "w": 1
+                },
+                {
+                  "net": "DE",
+                  "w": 5
+                }
+              ],
+              "cutBefore": 5,
+              "cutAfter": 11,
+              "cumulative": 1,
+              "blockedBetter": [
+                "B"
+              ]
+            },
+            {
+              "index": 5,
+              "node": "B",
+              "from": 1,
+              "to": 0,
+              "gain": -1,
+              "fs": [
+                {
+                  "net": "BC",
+                  "w": 4
+                }
+              ],
+              "te": [
+                {
+                  "net": "AB",
+                  "w": 5
+                }
+              ],
+              "cutBefore": 11,
+              "cutAfter": 12,
+              "cumulative": 0,
+              "blockedBetter": []
+            }
+          ],
+          "prefixGains": [
+            0,
+            3,
+            9,
+            7,
+            1,
+            0
+          ],
+          "bestK": 2,
+          "bestGain": 9,
+          "acceptedCut": 3,
+          "start": {
+            "A": 0,
+            "B": 1,
+            "C": 1,
+            "D": 1,
+            "E": 0
+          },
+          "accepted": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0,
+            "E": 0
+          }
+        },
+        {
+          "pass": 2,
+          "startCut": 3,
+          "moves": [
+            {
+              "index": 1,
+              "node": "C",
+              "from": 1,
+              "to": 0,
+              "gain": -2,
+              "fs": [
+                {
+                  "net": "CD",
+                  "w": 2
+                },
+                {
+                  "net": "CE",
+                  "w": 1
+                }
+              ],
+              "te": [
+                {
+                  "net": "AC",
+                  "w": 1
+                },
+                {
+                  "net": "BC",
+                  "w": 4
+                }
+              ],
+              "cutBefore": 3,
+              "cutAfter": 5,
+              "cumulative": -2,
+              "blockedBetter": []
+            },
+            {
+              "index": 2,
+              "node": "E",
+              "from": 0,
+              "to": 1,
+              "gain": -6,
+              "fs": [],
+              "te": [
+                {
+                  "net": "CE",
+                  "w": 1
+                },
+                {
+                  "net": "DE",
+                  "w": 5
+                }
+              ],
+              "cutBefore": 5,
+              "cutAfter": 11,
+              "cumulative": -8,
+              "blockedBetter": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "index": 3,
+              "node": "B",
+              "from": 1,
+              "to": 0,
+              "gain": -1,
+              "fs": [
+                {
+                  "net": "BC",
+                  "w": 4
+                }
+              ],
+              "te": [
+                {
+                  "net": "AB",
+                  "w": 5
+                }
+              ],
+              "cutBefore": 11,
+              "cutAfter": 12,
+              "cumulative": -9,
+              "blockedBetter": [
+                "D"
+              ]
+            },
+            {
+              "index": 4,
+              "node": "D",
+              "from": 0,
+              "to": 1,
+              "gain": 3,
+              "fs": [
+                {
+                  "net": "DE",
+                  "w": 5
+                }
+              ],
+              "te": [
+                {
+                  "net": "CD",
+                  "w": 2
+                }
+              ],
+              "cutBefore": 12,
+              "cutAfter": 9,
+              "cumulative": -6,
+              "blockedBetter": [
+                "A"
+              ]
+            },
+            {
+              "index": 5,
+              "node": "A",
+              "from": 1,
+              "to": 0,
+              "gain": 6,
+              "fs": [
+                {
+                  "net": "AB",
+                  "w": 5
+                },
+                {
+                  "net": "AC",
+                  "w": 1
+                }
+              ],
+              "te": [],
+              "cutBefore": 9,
+              "cutAfter": 3,
+              "cumulative": 0,
+              "blockedBetter": []
+            }
+          ],
+          "prefixGains": [
+            0,
+            -2,
+            -8,
+            -9,
+            -6,
+            0
+          ],
+          "bestK": 0,
+          "bestGain": 0,
+          "acceptedCut": 3,
+          "start": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0,
+            "E": 0
+          },
+          "accepted": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0,
+            "E": 0
+          }
+        }
+      ],
+      "stopReason": "no-positive-prefix",
+      "maxDiff": 1,
+      "hasMultiPin": false,
+      "metrics": {
+        "cut": 3,
+        "counts": [
+          2,
+          3
+        ],
+        "areas": [
+          2,
+          3
+        ],
+        "ratio": 0.6666666666666666,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": null,
+        "cutEdges": [
+          {
+            "u": "C",
+            "v": "D",
+            "w": 2
+          },
+          {
+            "u": "C",
+            "v": "E",
+            "w": 1
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "metadata": {
+      "engine": "fiduccia-mattheyses",
+      "version": "1.0.0",
+      "buckets": "Map scan, not O(P)",
+      "balance": "|n0-n1|<=1"
+    },
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 2,
+    "method": "fm"
+  },
+  "spectral": {
+    "events": [
+      {
+        "kind": "laplacian",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "matrix": [
+          [
+            6,
+            -5,
+            -1,
+            0,
+            0
+          ],
+          [
+            -5,
+            9,
+            -4,
+            0,
+            0
+          ],
+          [
+            -1,
+            -4,
+            8,
+            -2,
+            -1
+          ],
+          [
+            0,
+            0,
+            -2,
+            7,
+            -5
+          ],
+          [
+            0,
+            0,
+            -1,
+            -5,
+            6
+          ]
+        ],
+        "ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "index": 0,
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "eigen",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "values": [
+          -1.9358672123717394e-16,
+          1.7733143437197103,
+          8.455115217186613,
+          11.605265509844251,
+          14.166304929249453
+        ],
+        "order": [
+          "E",
+          "D",
+          "C",
+          "B",
+          "A"
+        ],
+        "vector": [
+          0.5189547724545508,
+          0.41755389465180126,
+          0.10568921973284687,
+          -0.4888789156885835,
+          -0.5533189711506152
+        ],
+        "diagnostics": {
+          "solver": "Jacobi（浏览器实时求解）",
+          "sweeps": 5,
+          "rowSumMax": 0,
+          "lambda1": -1.9358672123717394e-16,
+          "lambda2": 1.7733143437197103,
+          "lambda3": 8.455115217186613,
+          "gap": 6.681800873466902,
+          "connected": true,
+          "components": [
+            [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          ],
+          "degenerate": false,
+          "residual": 3.836700112198048e-15,
+          "liveResidual": 3.836700112198048e-15,
+          "orthogonalityToOnes": 5.5511151231257815e-17,
+          "warnings": []
+        },
+        "index": 1,
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "sweep",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 1,
+          "E": 0
+        },
+        "candidates": [
+          {
+            "k": 1,
+            "left": [
+              "E"
+            ],
+            "right": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": -0.5210989434195994
+          },
+          {
+            "k": 2,
+            "left": [
+              "E",
+              "D"
+            ],
+            "right": [
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 3,
+            "legal": true,
+            "threshold": -0.1915948479778683
+          },
+          {
+            "k": 3,
+            "left": [
+              "E",
+              "D",
+              "C"
+            ],
+            "right": [
+              "B",
+              "A"
+            ],
+            "cut": 5,
+            "legal": true,
+            "threshold": 0.26162155719232405
+          },
+          {
+            "k": 4,
+            "left": [
+              "E",
+              "D",
+              "C",
+              "B"
+            ],
+            "right": [
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": 0.468254333553176
+          }
+        ],
+        "position": 1,
+        "legal": true,
+        "index": 2,
+        "metrics": {
+          "cut": 6,
+          "counts": [
+            1,
+            4
+          ],
+          "areas": [
+            1,
+            4
+          ],
+          "ratio": 0.25,
+          "imbalance": 0.6,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        }
+      },
+      {
+        "kind": "sweep",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "candidates": [
+          {
+            "k": 1,
+            "left": [
+              "E"
+            ],
+            "right": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": -0.5210989434195994
+          },
+          {
+            "k": 2,
+            "left": [
+              "E",
+              "D"
+            ],
+            "right": [
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 3,
+            "legal": true,
+            "threshold": -0.1915948479778683
+          },
+          {
+            "k": 3,
+            "left": [
+              "E",
+              "D",
+              "C"
+            ],
+            "right": [
+              "B",
+              "A"
+            ],
+            "cut": 5,
+            "legal": true,
+            "threshold": 0.26162155719232405
+          },
+          {
+            "k": 4,
+            "left": [
+              "E",
+              "D",
+              "C",
+              "B"
+            ],
+            "right": [
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": 0.468254333553176
+          }
+        ],
+        "position": 2,
+        "legal": true,
+        "index": 3,
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "sweep",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "candidates": [
+          {
+            "k": 1,
+            "left": [
+              "E"
+            ],
+            "right": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": -0.5210989434195994
+          },
+          {
+            "k": 2,
+            "left": [
+              "E",
+              "D"
+            ],
+            "right": [
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 3,
+            "legal": true,
+            "threshold": -0.1915948479778683
+          },
+          {
+            "k": 3,
+            "left": [
+              "E",
+              "D",
+              "C"
+            ],
+            "right": [
+              "B",
+              "A"
+            ],
+            "cut": 5,
+            "legal": true,
+            "threshold": 0.26162155719232405
+          },
+          {
+            "k": 4,
+            "left": [
+              "E",
+              "D",
+              "C",
+              "B"
+            ],
+            "right": [
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": 0.468254333553176
+          }
+        ],
+        "position": 3,
+        "legal": true,
+        "index": 4,
+        "metrics": {
+          "cut": 5,
+          "counts": [
+            3,
+            2
+          ],
+          "areas": [
+            3,
+            2
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            }
+          ]
+        }
+      },
+      {
+        "kind": "sweep",
+        "assignment": {
+          "A": 1,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "candidates": [
+          {
+            "k": 1,
+            "left": [
+              "E"
+            ],
+            "right": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": -0.5210989434195994
+          },
+          {
+            "k": 2,
+            "left": [
+              "E",
+              "D"
+            ],
+            "right": [
+              "C",
+              "B",
+              "A"
+            ],
+            "cut": 3,
+            "legal": true,
+            "threshold": -0.1915948479778683
+          },
+          {
+            "k": 3,
+            "left": [
+              "E",
+              "D",
+              "C"
+            ],
+            "right": [
+              "B",
+              "A"
+            ],
+            "cut": 5,
+            "legal": true,
+            "threshold": 0.26162155719232405
+          },
+          {
+            "k": 4,
+            "left": [
+              "E",
+              "D",
+              "C",
+              "B"
+            ],
+            "right": [
+              "A"
+            ],
+            "cut": 6,
+            "legal": true,
+            "threshold": 0.468254333553176
+          }
+        ],
+        "position": 4,
+        "legal": true,
+        "index": 5,
+        "metrics": {
+          "cut": 6,
+          "counts": [
+            4,
+            1
+          ],
+          "areas": [
+            4,
+            1
+          ],
+          "ratio": 0.25,
+          "imbalance": 0.6,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "choose",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "chosen": 2,
+        "order": [
+          "E",
+          "D",
+          "C",
+          "B",
+          "A"
+        ],
+        "diagnostics": {
+          "solver": "Jacobi（浏览器实时求解）",
+          "sweeps": 5,
+          "rowSumMax": 0,
+          "lambda1": -1.9358672123717394e-16,
+          "lambda2": 1.7733143437197103,
+          "lambda3": 8.455115217186613,
+          "gap": 6.681800873466902,
+          "connected": true,
+          "components": [
+            [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ]
+          ],
+          "degenerate": false,
+          "residual": 3.836700112198048e-15,
+          "liveResidual": 3.836700112198048e-15,
+          "orthogonalityToOnes": 5.5511151231257815e-17,
+          "warnings": []
+        },
+        "index": 6,
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3
+          ],
+          "areas": [
+            2,
+            3
+          ],
+          "ratio": 0.6666666666666666,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "L": [
+        [
+          6,
+          -5,
+          -1,
+          0,
+          0
+        ],
+        [
+          -5,
+          9,
+          -4,
+          0,
+          0
+        ],
+        [
+          -1,
+          -4,
+          8,
+          -2,
+          -1
+        ],
+        [
+          0,
+          0,
+          -2,
+          7,
+          -5
+        ],
+        [
+          0,
+          0,
+          -1,
+          -5,
+          6
+        ]
+      ],
+      "eigenvalues": [
+        -1.9358672123717394e-16,
+        1.7733143437197103,
+        8.455115217186613,
+        11.605265509844251,
+        14.166304929249453
+      ],
+      "fiedler": [
+        0.5189547724545508,
+        0.41755389465180126,
+        0.10568921973284687,
+        -0.4888789156885835,
+        -0.5533189711506152
+      ],
+      "order": [
+        "E",
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "orderValues": [
+        -0.5533189711506152,
+        -0.4888789156885835,
+        0.10568921973284687,
+        0.41755389465180126,
+        0.5189547724545508
+      ],
+      "sweep": [
+        {
+          "k": 1,
+          "left": [
+            "E"
+          ],
+          "right": [
+            "D",
+            "C",
+            "B",
+            "A"
+          ],
+          "cut": 6,
+          "legal": true,
+          "threshold": -0.5210989434195994
+        },
+        {
+          "k": 2,
+          "left": [
+            "E",
+            "D"
+          ],
+          "right": [
+            "C",
+            "B",
+            "A"
+          ],
+          "cut": 3,
+          "legal": true,
+          "threshold": -0.1915948479778683
+        },
+        {
+          "k": 3,
+          "left": [
+            "E",
+            "D",
+            "C"
+          ],
+          "right": [
+            "B",
+            "A"
+          ],
+          "cut": 5,
+          "legal": true,
+          "threshold": 0.26162155719232405
+        },
+        {
+          "k": 4,
+          "left": [
+            "E",
+            "D",
+            "C",
+            "B"
+          ],
+          "right": [
+            "A"
+          ],
+          "cut": 6,
+          "legal": true,
+          "threshold": 0.468254333553176
+        }
+      ],
+      "window": {
+        "lo": 1,
+        "hi": 4,
+        "minFraction": 0.2,
+        "maxFraction": 0.8
+      },
+      "partition": [
+        [
+          "E",
+          "D"
+        ],
+        [
+          "C",
+          "B",
+          "A"
+        ]
+      ],
+      "cut": 3,
+      "bestK": 2,
+      "signSplit": {
+        "k": 2,
+        "cut": 3,
+        "legal": true
+      },
+      "diagnostics": {
+        "solver": "Jacobi（浏览器实时求解）",
+        "sweeps": 5,
+        "rowSumMax": 0,
+        "lambda1": -1.9358672123717394e-16,
+        "lambda2": 1.7733143437197103,
+        "lambda3": 8.455115217186613,
+        "gap": 6.681800873466902,
+        "connected": true,
+        "components": [
+          [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]
+        ],
+        "degenerate": false,
+        "residual": 3.836700112198048e-15,
+        "liveResidual": 3.836700112198048e-15,
+        "orthogonalityToOnes": 5.5511151231257815e-17,
+        "warnings": []
+      },
+      "bipartitions": 15,
+      "assignment": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 0,
+        "E": 0
+      },
+      "metrics": {
+        "cut": 3,
+        "counts": [
+          2,
+          3
+        ],
+        "areas": [
+          2,
+          3
+        ],
+        "ratio": 0.6666666666666666,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": null,
+        "cutEdges": [
+          {
+            "u": "C",
+            "v": "D",
+            "w": 2
+          },
+          {
+            "u": "C",
+            "v": "E",
+            "w": 1
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 2,
+    "method": "spectral"
+  },
+  "recursive": {
+    "events": [
+      {
+        "kind": "start",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "index": 0,
+        "metrics": {
+          "cut": 0,
+          "counts": [
+            5,
+            0,
+            0
+          ],
+          "areas": [
+            5,
+            0,
+            0
+          ],
+          "ratio": 0,
+          "imbalance": 1,
+          "nonempty": false,
+          "feasible": false,
+          "capacity": null,
+          "cutEdges": []
+        }
+      },
+      {
+        "kind": "split",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "source": 0,
+        "newLabel": 1,
+        "members": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "children": [
+          [
+            "D",
+            "E"
+          ],
+          [
+            "A",
+            "B",
+            "C"
+          ]
+        ],
+        "order": [
+          "E",
+          "D",
+          "C",
+          "B",
+          "A"
+        ],
+        "addedCut": 3,
+        "tree": [
+          {
+            "source": 0,
+            "newLabel": 1,
+            "members": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ],
+            "children": [
+              [
+                "D",
+                "E"
+              ],
+              [
+                "A",
+                "B",
+                "C"
+              ]
+            ],
+            "order": [
+              "E",
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "addedCut": 3
+          }
+        ],
+        "index": 1,
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3,
+            0
+          ],
+          "areas": [
+            2,
+            3,
+            0
+          ],
+          "ratio": 0,
+          "imbalance": 0.6,
+          "nonempty": false,
+          "feasible": false,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "split",
+        "assignment": {
+          "A": 2,
+          "B": 2,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "source": 1,
+        "newLabel": 2,
+        "members": [
+          "A",
+          "B",
+          "C"
+        ],
+        "children": [
+          [
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "order": [
+          "C",
+          "B",
+          "A"
+        ],
+        "addedCut": 5,
+        "tree": [
+          {
+            "source": 0,
+            "newLabel": 1,
+            "members": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ],
+            "children": [
+              [
+                "D",
+                "E"
+              ],
+              [
+                "A",
+                "B",
+                "C"
+              ]
+            ],
+            "order": [
+              "E",
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "addedCut": 3
+          },
+          {
+            "source": 1,
+            "newLabel": 2,
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "children": [
+              [
+                "C"
+              ],
+              [
+                "A",
+                "B"
+              ]
+            ],
+            "order": [
+              "C",
+              "B",
+              "A"
+            ],
+            "addedCut": 5
+          }
+        ],
+        "index": 2,
+        "metrics": {
+          "cut": 8,
+          "counts": [
+            2,
+            1,
+            2
+          ],
+          "areas": [
+            2,
+            1,
+            2
+          ],
+          "ratio": 0.5,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": null,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 2,
+        "B": 2,
+        "C": 1,
+        "D": 0,
+        "E": 0
+      },
+      "tree": [
+        {
+          "source": 0,
+          "newLabel": 1,
+          "members": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "children": [
+            [
+              "D",
+              "E"
+            ],
+            [
+              "A",
+              "B",
+              "C"
+            ]
+          ],
+          "order": [
+            "E",
+            "D",
+            "C",
+            "B",
+            "A"
+          ],
+          "addedCut": 3
+        },
+        {
+          "source": 1,
+          "newLabel": 2,
+          "members": [
+            "A",
+            "B",
+            "C"
+          ],
+          "children": [
+            [
+              "C"
+            ],
+            [
+              "A",
+              "B"
+            ]
+          ],
+          "order": [
+            "C",
+            "B",
+            "A"
+          ],
+          "addedCut": 5
+        }
+      ],
+      "cut": 8,
+      "metrics": {
+        "cut": 8,
+        "counts": [
+          2,
+          1,
+          2
+        ],
+        "areas": [
+          2,
+          1,
+          2
+        ],
+        "ratio": 0.5,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": null,
+        "cutEdges": [
+          {
+            "u": "A",
+            "v": "C",
+            "w": 1
+          },
+          {
+            "u": "B",
+            "v": "C",
+            "w": 4
+          },
+          {
+            "u": "C",
+            "v": "D",
+            "w": 2
+          },
+          {
+            "u": "C",
+            "v": "E",
+            "w": 1
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 3,
+    "method": "recursive"
+  },
+  "roundRobin": {
+    "events": [
+      {
+        "kind": "initial-kway",
+        "assignment": {
+          "A": 0,
+          "B": 1,
+          "C": 2,
+          "D": 0,
+          "E": 1
+        },
+        "index": 0,
+        "metrics": {
+          "cut": 18,
+          "counts": [
+            2,
+            2,
+            1
+          ],
+          "areas": [
+            2,
+            2,
+            1
+          ],
+          "ratio": 0.5,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": 2,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "B",
+              "w": 5
+            },
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            },
+            {
+              "u": "D",
+              "v": "E",
+              "w": 5
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 0,
+        "B": 1,
+        "C": 2,
+        "D": 0,
+        "E": 1
+      },
+      "cut": 18,
+      "metrics": {
+        "cut": 18,
+        "counts": [
+          2,
+          2,
+          1
+        ],
+        "areas": [
+          2,
+          2,
+          1
+        ],
+        "ratio": 0.5,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": 2,
+        "cutEdges": [
+          {
+            "u": "A",
+            "v": "B",
+            "w": 5
+          },
+          {
+            "u": "A",
+            "v": "C",
+            "w": 1
+          },
+          {
+            "u": "B",
+            "v": "C",
+            "w": 4
+          },
+          {
+            "u": "C",
+            "v": "D",
+            "w": 2
+          },
+          {
+            "u": "C",
+            "v": "E",
+            "w": 1
+          },
+          {
+            "u": "D",
+            "v": "E",
+            "w": 5
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 3,
+    "method": "multiway"
+  },
+  "refined": {
+    "events": [
+      {
+        "kind": "start",
+        "assignment": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "index": 0,
+        "metrics": {
+          "cut": 0,
+          "counts": [
+            5,
+            0,
+            0
+          ],
+          "areas": [
+            5,
+            0,
+            0
+          ],
+          "ratio": 0,
+          "imbalance": 1,
+          "nonempty": false,
+          "feasible": false,
+          "capacity": 2,
+          "cutEdges": []
+        }
+      },
+      {
+        "kind": "split",
+        "assignment": {
+          "A": 1,
+          "B": 1,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "source": 0,
+        "newLabel": 1,
+        "members": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "children": [
+          [
+            "D",
+            "E"
+          ],
+          [
+            "A",
+            "B",
+            "C"
+          ]
+        ],
+        "order": [
+          "E",
+          "D",
+          "C",
+          "B",
+          "A"
+        ],
+        "addedCut": 3,
+        "tree": [
+          {
+            "source": 0,
+            "newLabel": 1,
+            "members": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ],
+            "children": [
+              [
+                "D",
+                "E"
+              ],
+              [
+                "A",
+                "B",
+                "C"
+              ]
+            ],
+            "order": [
+              "E",
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "addedCut": 3
+          }
+        ],
+        "index": 1,
+        "metrics": {
+          "cut": 3,
+          "counts": [
+            2,
+            3,
+            0
+          ],
+          "areas": [
+            2,
+            3,
+            0
+          ],
+          "ratio": 0,
+          "imbalance": 0.6,
+          "nonempty": false,
+          "feasible": false,
+          "capacity": 2,
+          "cutEdges": [
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "split",
+        "assignment": {
+          "A": 2,
+          "B": 2,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "source": 1,
+        "newLabel": 2,
+        "members": [
+          "A",
+          "B",
+          "C"
+        ],
+        "children": [
+          [
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "order": [
+          "C",
+          "B",
+          "A"
+        ],
+        "addedCut": 5,
+        "tree": [
+          {
+            "source": 0,
+            "newLabel": 1,
+            "members": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ],
+            "children": [
+              [
+                "D",
+                "E"
+              ],
+              [
+                "A",
+                "B",
+                "C"
+              ]
+            ],
+            "order": [
+              "E",
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "addedCut": 3
+          },
+          {
+            "source": 1,
+            "newLabel": 2,
+            "members": [
+              "A",
+              "B",
+              "C"
+            ],
+            "children": [
+              [
+                "C"
+              ],
+              [
+                "A",
+                "B"
+              ]
+            ],
+            "order": [
+              "C",
+              "B",
+              "A"
+            ],
+            "addedCut": 5
+          }
+        ],
+        "index": 2,
+        "metrics": {
+          "cut": 8,
+          "counts": [
+            2,
+            1,
+            2
+          ],
+          "areas": [
+            2,
+            1,
+            2
+          ],
+          "ratio": 0.5,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": 2,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "initial-kway",
+        "assignment": {
+          "A": 2,
+          "B": 2,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "index": 3,
+        "metrics": {
+          "cut": 8,
+          "counts": [
+            2,
+            1,
+            2
+          ],
+          "areas": [
+            2,
+            1,
+            2
+          ],
+          "ratio": 0.5,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": 2,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      },
+      {
+        "kind": "local-stop",
+        "assignment": {
+          "A": 2,
+          "B": 2,
+          "C": 1,
+          "D": 0,
+          "E": 0
+        },
+        "candidates": [
+          {
+            "a": "A",
+            "b": "C",
+            "gain": -1,
+            "assignment": {
+              "A": 1,
+              "B": 2,
+              "C": 2,
+              "D": 0,
+              "E": 0
+            }
+          },
+          {
+            "a": "C",
+            "b": "E",
+            "gain": -3,
+            "assignment": {
+              "A": 2,
+              "B": 2,
+              "C": 0,
+              "D": 0,
+              "E": 1
+            }
+          },
+          {
+            "a": "B",
+            "b": "C",
+            "gain": -4,
+            "assignment": {
+              "A": 2,
+              "B": 1,
+              "C": 2,
+              "D": 0,
+              "E": 0
+            }
+          },
+          {
+            "a": "C",
+            "b": "D",
+            "gain": -4,
+            "assignment": {
+              "A": 2,
+              "B": 2,
+              "C": 0,
+              "D": 1,
+              "E": 0
+            }
+          },
+          {
+            "a": "A",
+            "b": "D",
+            "gain": -10,
+            "assignment": {
+              "A": 0,
+              "B": 2,
+              "C": 1,
+              "D": 2,
+              "E": 0
+            }
+          },
+          {
+            "a": "A",
+            "b": "E",
+            "gain": -10,
+            "assignment": {
+              "A": 0,
+              "B": 2,
+              "C": 1,
+              "D": 0,
+              "E": 2
+            }
+          },
+          {
+            "a": "B",
+            "b": "D",
+            "gain": -10,
+            "assignment": {
+              "A": 2,
+              "B": 0,
+              "C": 1,
+              "D": 2,
+              "E": 0
+            }
+          },
+          {
+            "a": "B",
+            "b": "E",
+            "gain": -10,
+            "assignment": {
+              "A": 2,
+              "B": 0,
+              "C": 1,
+              "D": 0,
+              "E": 2
+            }
+          }
+        ],
+        "index": 4,
+        "metrics": {
+          "cut": 8,
+          "counts": [
+            2,
+            1,
+            2
+          ],
+          "areas": [
+            2,
+            1,
+            2
+          ],
+          "ratio": 0.5,
+          "imbalance": 0.2,
+          "nonempty": true,
+          "feasible": true,
+          "capacity": 2,
+          "cutEdges": [
+            {
+              "u": "A",
+              "v": "C",
+              "w": 1
+            },
+            {
+              "u": "B",
+              "v": "C",
+              "w": 4
+            },
+            {
+              "u": "C",
+              "v": "D",
+              "w": 2
+            },
+            {
+              "u": "C",
+              "v": "E",
+              "w": 1
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "assignment": {
+        "A": 2,
+        "B": 2,
+        "C": 1,
+        "D": 0,
+        "E": 0
+      },
+      "cut": 8,
+      "metrics": {
+        "cut": 8,
+        "counts": [
+          2,
+          1,
+          2
+        ],
+        "areas": [
+          2,
+          1,
+          2
+        ],
+        "ratio": 0.5,
+        "imbalance": 0.2,
+        "nonempty": true,
+        "feasible": true,
+        "capacity": 2,
+        "cutEdges": [
+          {
+            "u": "A",
+            "v": "C",
+            "w": 1
+          },
+          {
+            "u": "B",
+            "v": "C",
+            "w": 4
+          },
+          {
+            "u": "C",
+            "v": "D",
+            "w": 2
+          },
+          {
+            "u": "C",
+            "v": "E",
+            "w": 1
+          }
+        ]
+      }
+    },
+    "status": "completed",
+    "graph": {
+      "nodes": [
+        {
+          "id": "A",
+          "size": 1
+        },
+        {
+          "id": "B",
+          "size": 1
+        },
+        {
+          "id": "C",
+          "size": 1
+        },
+        {
+          "id": "D",
+          "size": 1
+        },
+        {
+          "id": "E",
+          "size": 1
+        }
+      ],
+      "edges": [
+        {
+          "u": "A",
+          "v": "B",
+          "w": 5
+        },
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        },
+        {
+          "u": "D",
+          "v": "E",
+          "w": 5
+        }
+      ]
+    },
+    "k": 3,
+    "method": "multiway"
+  },
+  "oracle": {
+    "best": {
+      "assignment": {
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "D": 2,
+        "E": 2
+      },
+      "cut": 8,
+      "counts": [
+        2,
+        1,
+        2
+      ],
+      "areas": [
+        2,
+        1,
+        2
+      ],
+      "ratio": 0.5,
+      "imbalance": 0.2,
+      "nonempty": true,
+      "feasible": true,
+      "capacity": 2,
+      "cutEdges": [
+        {
+          "u": "A",
+          "v": "C",
+          "w": 1
+        },
+        {
+          "u": "B",
+          "v": "C",
+          "w": 4
+        },
+        {
+          "u": "C",
+          "v": "D",
+          "w": 2
+        },
+        {
+          "u": "C",
+          "v": "E",
+          "w": 1
+        }
+      ]
+    },
+    "checked": 15
+  },
+  "counts": {
+    "unlabeled5": "15",
+    "balanced5": "10",
+    "unlabeled100": "633825300114114700748351602687"
+  },
+  "graphDigest": "66c16e94e9144fca21a48de00675e209eb253170e10b3653d0b268d3fc2d29bc"
+}

@@ -1,0 +1,151 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.000
+一个项目，需要两个小组协作。
+A project needs two collaborating teams.
+
+2
+00:00:06.000 --> 00:00:12.000
+联系紧密的任务，最好留在一起。
+Keep closely linked tasks together.
+
+3
+00:00:12.000 --> 00:00:18.000
+全放一组，跨组沟通可以为零。
+One part can have zero crossings.
+
+4
+00:00:18.000 --> 00:00:24.000
+但空间与工作量，不允许这样分。
+Space and workload can forbid that assignment.
+
+5
+00:00:24.000 --> 00:00:34.000
+Partitioning：在约束下划分。
+Partitioning means dividing under constraints.
+
+6
+00:00:34.000 --> 00:00:40.000
+芯片单元彼此连线，也需要分区。
+Connected circuit cells also need regions.
+
+7
+00:00:40.000 --> 00:00:46.000
+跨区域连接，是这里衡量的代价。
+Cross-region connections contribute to our cost.
+
+8
+00:00:46.000 --> 00:00:53.000
+先用五个节点，把代价算清楚。
+Use five vertices to make the cost explicit.
+
+9
+00:00:53.000 --> 00:01:00.000
+边权表示切开这条连接的代价。
+An edge weight is the cost of cutting that connection.
+
+10
+00:01:00.000 --> 00:01:07.000
+跨组边的权重，逐条相加。
+Add the crossing edge weights, one by one.
+
+11
+00:01:07.000 --> 00:01:14.000
+总和为12，每条无向边只算一次。
+The sum is 12. Count each undirected edge once.
+
+12
+00:01:14.000 --> 00:01:20.000
+换成 ABC | DE，代价会怎样？
+Try ABC | DE. What happens to the cut?
+
+13
+00:01:20.000 --> 00:01:26.000
+cut 为 3，人数仍是二与三。
+The cut is 3; the counts are still two and three.
+
+14
+00:01:26.000 --> 00:01:31.000
+人数平衡，不等于面积可行。
+Balanced counts do not guarantee feasible areas.
+
+15
+00:01:31.000 --> 00:01:38.000
+A 面积变为 4，ABC 面积变为 6。
+Set A's area to 4: ABC then has area 6.
+
+16
+00:01:38.000 --> 00:01:45.000
+五个节点，有十五种非空二分。
+Five vertices have 15 nonempty, unlabeled splits.
+
+17
+00:01:45.000 --> 00:01:50.000
+若限定二与三，则剩十种。
+Requiring counts two and three leaves ten.
+
+18
+00:01:50.000 --> 00:01:57.000
+一百个节点，候选已是三十位数。
+At 100 vertices, the count already has 30 digits.
+
+19
+00:01:57.000 --> 00:02:04.000
+逐一试遍，很快就不再现实。
+Trying every split soon becomes impractical.
+
+20
+00:02:04.000 --> 00:02:10.000
+先构造起点：随机、贪心、生长。
+Construct a start: random, greedy, or growing.
+
+21
+00:02:10.000 --> 00:02:16.000
+生长吸收 B，得到 cut 5。
+Growing adds B, producing cut 5.
+
+22
+00:02:16.000 --> 00:02:22.000
+KL 成对交换，FM 单点移动。
+KL exchanges a pair; FM moves one vertex.
+
+23
+00:02:22.000 --> 00:02:28.000
+先试探、锁定，再选最佳前缀。
+Try, lock, then keep the best prefix.
+
+24
+00:02:28.000 --> 00:02:34.000
+谱方法用矩阵结构，给节点排序。
+Spectral structure orders the vertices.
+
+25
+00:02:34.000 --> 00:02:40.000
+扫描合法切口，选择较小的 cut。
+Sweep legal thresholds for a smaller cut.
+
+26
+00:02:40.000 --> 00:02:45.000
+继续二分，就能得到更多分组。
+Repeated bisection produces more parts.
+
+27
+00:02:45.000 --> 00:02:50.000
+每次在当前子图上重新计算。
+Each split solves its current induced subgraph.
+
+28
+00:02:50.000 --> 00:02:55.000
+同一张图，比较不同多路方法。
+Compare k-way methods on the same graph.
+
+29
+00:02:55.000 --> 00:03:00.000
+先检查容量，再比较 cut。
+Check capacity before comparing cut.
+
+30
+00:03:00.000 --> 00:03:10.000
+从割代价开始，用实验和代码检验判断。
+Start with cut cost. Test your reasoning with labs and code.

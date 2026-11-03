@@ -2,6 +2,8 @@ import './core.js';
 import {run,G01,BAD,GOOD,metrics} from '../engines/course.js';
 import {graphSVG} from './graph.js';
 import {t,fmt,table} from './ui.js';
+import {mountHomeFilm} from './home-film.js';
+mountHomeFilm();
 const graph=document.querySelector('[data-hero-graph]');
 function show(a){graph.innerHTML=graphSVG(G01,a,{dark:false});document.querySelector('[data-hero-cut]').textContent=fmt(metrics(G01,a).cut);}
 document.querySelector('[data-hero-bad]').onclick=()=>show(BAD);document.querySelector('[data-hero-good]').onclick=()=>show(GOOD);show(BAD);

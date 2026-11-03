@@ -1,6 +1,6 @@
 # Course content
 
-New Learning Partitioning text, diagrams and slides: Copyright 2026 FanqinZeng, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+New Learning Partitioning text, diagrams, slides, homepage introduction animations, captions and original score “Boundaries / 边界”: Copyright 2026 FanqinZeng, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 The retained `course-playbook/` is by Su3037, Learning Clustering, CC BY 4.0. The design and portions of the code are adapted from [Learning Clustering](https://github.com/Su3037/learning-clustering), with changes for Partitioning. Its original MIT notice is in `licenses/Learning-Clustering-MIT.txt`.
 

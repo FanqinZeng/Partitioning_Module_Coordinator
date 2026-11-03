@@ -1,0 +1,503 @@
+{
+  "schema": 2,
+  "id": "home-intro",
+  "version": "2026-11-03-1",
+  "duration": 190,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "title": {
+    "zh": "划分与取舍：Partitioning 导论",
+    "en": "Partition with Purpose: An Introduction"
+  },
+  "why": {
+    "zh": "从两组分工开始，理解为什么不能只追求更小的割代价。用同一张五节点图解释 cut、人数与面积，再认识初始构造、KL/FM、谱二分和多路划分。看完后，你会知道从哪一章开始，以及在实验中应该检查什么。",
+    "en": "Start with a two-team assignment and see why a small cut alone is not enough. A shared five-vertex graph introduces cut cost, counts and areas, followed by construction, KL/FM, spectral and k-way methods. Learn where to begin and what to inspect in the labs."
+  },
+  "music": {
+    "title": "Boundaries / 边界",
+    "composer": "Learning Partitioning · FanqinZeng",
+    "license": "CC BY 4.0",
+    "source": "Original procedural score; no third-party recording",
+    "analysis": {
+      "title": "Boundaries / 边界",
+      "sampleRate": 48000,
+      "duration": 190,
+      "rmsDbFS": -24.0,
+      "peakDbFS": -14.54,
+      "clippedSamples": 0
+    }
+  },
+  "graphDigest": "66c16e94e9144fca21a48de00675e209eb253170e10b3653d0b268d3fc2d29bc",
+  "sourceDataSha256": "ee8311c61064821fa170d11841315ce25f4c316443d9d8e12175675b63f7725a",
+  "sourceFiles": {
+    "video/home/storyboard.json": "5038ff3665ad5b76a4ae1fb3d6e92c3059564864e7252f9afe186141a122f960",
+    "video/home/scenes.py": "f638f0f62ee6ea90dd1f453d4c1449a30da9d8dac91dec7f3909909ed2934e4b",
+    "video/home/data.json": "ee8311c61064821fa170d11841315ce25f4c316443d9d8e12175675b63f7725a",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "scripts/film/render_intro.py": "f6a3daa98a83327353fdd359fbdf3773240fa5fe0039d7cfb5a4562fdf87c034",
+    "scripts/film/export_intro_data.mjs": "2d26a01f3f6714e5cc4cbe50bab98326e7ec983b07d310c0a22cba8835930533"
+  },
+  "readingViolations": {
+    "zh": 0,
+    "en": 0
+  },
+  "captions": [
+    {
+      "start": 0,
+      "end": 6,
+      "zh": "一个项目，需要两个小组协作。",
+      "en": "A project needs two collaborating teams.",
+      "minimum": 3.9111,
+      "scene": "teams"
+    },
+    {
+      "start": 6,
+      "end": 12,
+      "zh": "联系紧密的任务，最好留在一起。",
+      "en": "Keep closely linked tasks together.",
+      "minimum": 4.1333,
+      "scene": "teams"
+    },
+    {
+      "start": 12,
+      "end": 18,
+      "zh": "全放一组，跨组沟通可以为零。",
+      "en": "One part can have zero crossings.",
+      "minimum": 3.9111,
+      "scene": "capacity"
+    },
+    {
+      "start": 18,
+      "end": 24,
+      "zh": "但空间与工作量，不允许这样分。",
+      "en": "Space and workload can forbid that assignment.",
+      "minimum": 4.1333,
+      "scene": "capacity"
+    },
+    {
+      "start": 24,
+      "end": 34,
+      "zh": "Partitioning：在约束下划分。",
+      "en": "Partitioning means dividing under constraints.",
+      "minimum": 5.2444,
+      "scene": "title"
+    },
+    {
+      "start": 34,
+      "end": 40,
+      "zh": "芯片单元彼此连线，也需要分区。",
+      "en": "Connected circuit cells also need regions.",
+      "minimum": 4.1333,
+      "scene": "chip"
+    },
+    {
+      "start": 40,
+      "end": 46,
+      "zh": "跨区域连接，是这里衡量的代价。",
+      "en": "Cross-region connections contribute to our cost.",
+      "minimum": 4.1333,
+      "scene": "chip"
+    },
+    {
+      "start": 46,
+      "end": 53,
+      "zh": "先用五个节点，把代价算清楚。",
+      "en": "Use five vertices to make the cost explicit.",
+      "minimum": 3.9111,
+      "scene": "graph"
+    },
+    {
+      "start": 53,
+      "end": 60,
+      "zh": "边权表示切开这条连接的代价。",
+      "en": "An edge weight is the cost of cutting that connection.",
+      "minimum": 4.4,
+      "scene": "graph"
+    },
+    {
+      "start": 60,
+      "end": 67,
+      "zh": "跨组边的权重，逐条相加。",
+      "en": "Add the crossing edge weights, one by one.",
+      "minimum": 3.6,
+      "scene": "cut"
+    },
+    {
+      "start": 67,
+      "end": 74,
+      "zh": "总和为12，每条无向边只算一次。",
+      "en": "The sum is 12. Count each undirected edge once.",
+      "minimum": 4.3556,
+      "scene": "cut"
+    },
+    {
+      "start": 74,
+      "end": 80,
+      "zh": "换成 ABC | DE，代价会怎样？",
+      "en": "Try ABC | DE. What happens to the cut?",
+      "minimum": 4.1333,
+      "scene": "better"
+    },
+    {
+      "start": 80,
+      "end": 86,
+      "zh": "cut 为 3，人数仍是二与三。",
+      "en": "The cut is 3; the counts are still two and three.",
+      "minimum": 4.0667,
+      "scene": "better"
+    },
+    {
+      "start": 86,
+      "end": 91,
+      "zh": "人数平衡，不等于面积可行。",
+      "en": "Balanced counts do not guarantee feasible areas.",
+      "minimum": 4.0,
+      "scene": "area"
+    },
+    {
+      "start": 91,
+      "end": 98,
+      "zh": "A 面积变为 4，ABC 面积变为 6。",
+      "en": "Set A's area to 4: ABC then has area 6.",
+      "minimum": 4.3556,
+      "scene": "area"
+    },
+    {
+      "start": 98,
+      "end": 105,
+      "zh": "五个节点，有十五种非空二分。",
+      "en": "Five vertices have 15 nonempty, unlabeled splits.",
+      "minimum": 4.0667,
+      "scene": "enumerate"
+    },
+    {
+      "start": 105,
+      "end": 110,
+      "zh": "若限定二与三，则剩十种。",
+      "en": "Requiring counts two and three leaves ten.",
+      "minimum": 3.6,
+      "scene": "enumerate"
+    },
+    {
+      "start": 110,
+      "end": 117,
+      "zh": "一百个节点，候选已是三十位数。",
+      "en": "At 100 vertices, the count already has 30 digits.",
+      "minimum": 4.1333,
+      "scene": "scale"
+    },
+    {
+      "start": 117,
+      "end": 124,
+      "zh": "逐一试遍，很快就不再现实。",
+      "en": "Trying every split soon becomes impractical.",
+      "minimum": 3.7333,
+      "scene": "scale"
+    },
+    {
+      "start": 124,
+      "end": 130,
+      "zh": "先构造起点：随机、贪心、生长。",
+      "en": "Construct a start: random, greedy, or growing.",
+      "minimum": 4.1333,
+      "scene": "initial"
+    },
+    {
+      "start": 130,
+      "end": 136,
+      "zh": "生长吸收 B，得到 cut 5。",
+      "en": "Growing adds B, producing cut 5.",
+      "minimum": 3.6889,
+      "scene": "initial"
+    },
+    {
+      "start": 136,
+      "end": 142,
+      "zh": "KL 成对交换，FM 单点移动。",
+      "en": "KL exchanges a pair; FM moves one vertex.",
+      "minimum": 3.9111,
+      "scene": "refine"
+    },
+    {
+      "start": 142,
+      "end": 148,
+      "zh": "先试探、锁定，再选最佳前缀。",
+      "en": "Try, lock, then keep the best prefix.",
+      "minimum": 3.9111,
+      "scene": "refine"
+    },
+    {
+      "start": 148,
+      "end": 154,
+      "zh": "谱方法用矩阵结构，给节点排序。",
+      "en": "Spectral structure orders the vertices.",
+      "minimum": 4.1333,
+      "scene": "spectral"
+    },
+    {
+      "start": 154,
+      "end": 160,
+      "zh": "扫描合法切口，选择较小的 cut。",
+      "en": "Sweep legal thresholds for a smaller cut.",
+      "minimum": 4.3556,
+      "scene": "spectral"
+    },
+    {
+      "start": 160,
+      "end": 165,
+      "zh": "继续二分，就能得到更多分组。",
+      "en": "Repeated bisection produces more parts.",
+      "minimum": 3.9111,
+      "scene": "recursive"
+    },
+    {
+      "start": 165,
+      "end": 170,
+      "zh": "每次在当前子图上重新计算。",
+      "en": "Each split solves its current induced subgraph.",
+      "minimum": 3.9333,
+      "scene": "recursive"
+    },
+    {
+      "start": 170,
+      "end": 175,
+      "zh": "同一张图，比较不同多路方法。",
+      "en": "Compare k-way methods on the same graph.",
+      "minimum": 3.9111,
+      "scene": "multiway"
+    },
+    {
+      "start": 175,
+      "end": 180,
+      "zh": "先检查容量，再比较 cut。",
+      "en": "Check capacity before comparing cut.",
+      "minimum": 3.6889,
+      "scene": "multiway"
+    },
+    {
+      "start": 180,
+      "end": 190,
+      "zh": "从割代价开始，用实验和代码检验判断。",
+      "en": "Start with cut cost. Test your reasoning with labs and code.",
+      "minimum": 4.8,
+      "scene": "invitation"
+    }
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": {
+        "zh": "分组的两难",
+        "en": "The assignment problem"
+      }
+    },
+    {
+      "time": 34,
+      "title": {
+        "zh": "芯片中的划分",
+        "en": "Partitioning on a chip"
+      }
+    },
+    {
+      "time": 60,
+      "title": {
+        "zh": "割代价与平衡",
+        "en": "Cut cost and balance"
+      }
+    },
+    {
+      "time": 98,
+      "title": {
+        "zh": "为什么需要算法",
+        "en": "Why we need algorithms"
+      }
+    },
+    {
+      "time": 124,
+      "title": {
+        "zh": "认识课程的方法",
+        "en": "Meet the course methods"
+      }
+    },
+    {
+      "time": 160,
+      "title": {
+        "zh": "扩展到多个分组",
+        "en": "Extend to more parts"
+      }
+    },
+    {
+      "time": 180,
+      "title": {
+        "zh": "从这里开始",
+        "en": "Start here"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "teams",
+      "start": 0,
+      "end": 12,
+      "title": [
+        "把任务分给两个小组",
+        "Assign the work to two teams"
+      ]
+    },
+    {
+      "id": "capacity",
+      "start": 12,
+      "end": 24,
+      "title": [
+        "少沟通，也要放得下",
+        "Fewer crossings, but the parts must fit"
+      ]
+    },
+    {
+      "id": "title",
+      "start": 24,
+      "end": 34,
+      "title": [
+        "划分与取舍",
+        "Partition with Purpose"
+      ]
+    },
+    {
+      "id": "chip",
+      "start": 34,
+      "end": 46,
+      "title": [
+        "芯片也需要划分区域",
+        "A chip also needs regions"
+      ]
+    },
+    {
+      "id": "graph",
+      "start": 46,
+      "end": 60,
+      "title": [
+        "先用五个节点说清楚",
+        "Make the cost explicit on five vertices"
+      ]
+    },
+    {
+      "id": "cut",
+      "start": 60,
+      "end": 74,
+      "title": [
+        "跨边的权重，逐条相加",
+        "Add the crossing weights, once per edge"
+      ]
+    },
+    {
+      "id": "better",
+      "start": 74,
+      "end": 86,
+      "title": [
+        "换一种分法，cut 从 12 到 3",
+        "A different assignment: cut 12 to 3"
+      ]
+    },
+    {
+      "id": "area",
+      "start": 86,
+      "end": 98,
+      "title": [
+        "人数与面积，是不同的约束",
+        "Counts and areas are different constraints"
+      ]
+    },
+    {
+      "id": "enumerate",
+      "start": 98,
+      "end": 110,
+      "title": [
+        "五个节点，也有多种分法",
+        "Even five vertices allow many splits"
+      ]
+    },
+    {
+      "id": "scale",
+      "start": 110,
+      "end": 124,
+      "title": [
+        "规模一大，就不能逐一试遍",
+        "Exhaustive search soon becomes impractical"
+      ]
+    },
+    {
+      "id": "initial",
+      "start": 124,
+      "end": 136,
+      "title": [
+        "Lesson 03 · 先构造一个起点",
+        "Lesson 03 · Construct a starting point"
+      ]
+    },
+    {
+      "id": "refine",
+      "start": 136,
+      "end": 148,
+      "title": [
+        "Lesson 04–05 · KL 与 FM 改进",
+        "Lessons 04–05 · KL and FM refinement"
+      ]
+    },
+    {
+      "id": "spectral",
+      "start": 148,
+      "end": 160,
+      "title": [
+        "Lesson 06 · 谱方法产生排序",
+        "Lesson 06 · Spectral structure gives an order"
+      ]
+    },
+    {
+      "id": "recursive",
+      "start": 160,
+      "end": 170,
+      "title": [
+        "Lesson 07 · 在子图上继续二分",
+        "Lesson 07 · Split the induced subgraphs"
+      ]
+    },
+    {
+      "id": "multiway",
+      "start": 170,
+      "end": 180,
+      "title": [
+        "Lesson 08 · 同图比较多路方法",
+        "Lesson 08 · Compare k-way methods fairly"
+      ]
+    },
+    {
+      "id": "invitation",
+      "start": 180,
+      "end": 190,
+      "title": [
+        "从 Lesson 02 开始",
+        "Begin with Lesson 02"
+      ]
+    }
+  ],
+  "versions": {
+    "zh": {
+      "video": "intro.zh.mp4",
+      "poster": "intro.zh.jpg",
+      "captions": "intro.zh.vtt",
+      "transcript": "intro.zh.md",
+      "duration": 190,
+      "sha256": "f27afffea2bc941e16b4a2326e09c7196be27584cd9f77c3d50b7032890dec8c"
+    },
+    "en": {
+      "video": "intro.en.mp4",
+      "poster": "intro.en.jpg",
+      "captions": "intro.en.vtt",
+      "transcript": "intro.en.md",
+      "duration": 190,
+      "sha256": "71c552421f6ff083ddaadff803457d199412fd2d976d268c5447af5aed882087"
+    }
+  }
+}

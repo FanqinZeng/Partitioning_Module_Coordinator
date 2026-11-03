@@ -1,0 +1,121 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.000
+A project needs two collaborating teams.
+
+2
+00:00:06.000 --> 00:00:12.000
+Keep closely linked tasks together.
+
+3
+00:00:12.000 --> 00:00:18.000
+One part can have zero crossings.
+
+4
+00:00:18.000 --> 00:00:24.000
+Space and workload can forbid that assignment.
+
+5
+00:00:24.000 --> 00:00:34.000
+Partitioning means dividing under constraints.
+
+6
+00:00:34.000 --> 00:00:40.000
+Connected circuit cells also need regions.
+
+7
+00:00:40.000 --> 00:00:46.000
+Cross-region connections contribute to our cost.
+
+8
+00:00:46.000 --> 00:00:53.000
+Use five vertices to make the cost explicit.
+
+9
+00:00:53.000 --> 00:01:00.000
+An edge weight is the cost of cutting that connection.
+
+10
+00:01:00.000 --> 00:01:07.000
+Add the crossing edge weights, one by one.
+
+11
+00:01:07.000 --> 00:01:14.000
+The sum is 12. Count each undirected edge once.
+
+12
+00:01:14.000 --> 00:01:20.000
+Try ABC | DE. What happens to the cut?
+
+13
+00:01:20.000 --> 00:01:26.000
+The cut is 3; the counts are still two and three.
+
+14
+00:01:26.000 --> 00:01:31.000
+Balanced counts do not guarantee feasible areas.
+
+15
+00:01:31.000 --> 00:01:38.000
+Set A's area to 4: ABC then has area 6.
+
+16
+00:01:38.000 --> 00:01:45.000
+Five vertices have 15 nonempty, unlabeled splits.
+
+17
+00:01:45.000 --> 00:01:50.000
+Requiring counts two and three leaves ten.
+
+18
+00:01:50.000 --> 00:01:57.000
+At 100 vertices, the count already has 30 digits.
+
+19
+00:01:57.000 --> 00:02:04.000
+Trying every split soon becomes impractical.
+
+20
+00:02:04.000 --> 00:02:10.000
+Construct a start: random, greedy, or growing.
+
+21
+00:02:10.000 --> 00:02:16.000
+Growing adds B, producing cut 5.
+
+22
+00:02:16.000 --> 00:02:22.000
+KL exchanges a pair; FM moves one vertex.
+
+23
+00:02:22.000 --> 00:02:28.000
+Try, lock, then keep the best prefix.
+
+24
+00:02:28.000 --> 00:02:34.000
+Spectral structure orders the vertices.
+
+25
+00:02:34.000 --> 00:02:40.000
+Sweep legal thresholds for a smaller cut.
+
+26
+00:02:40.000 --> 00:02:45.000
+Repeated bisection produces more parts.
+
+27
+00:02:45.000 --> 00:02:50.000
+Each split solves its current induced subgraph.
+
+28
+00:02:50.000 --> 00:02:55.000
+Compare k-way methods on the same graph.
+
+29
+00:02:55.000 --> 00:03:00.000
+Check capacity before comparing cut.
+
+30
+00:03:00.000 --> 00:03:10.000
+Start with cut cost. Test your reasoning with labs and code.

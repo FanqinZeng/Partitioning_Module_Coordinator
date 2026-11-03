@@ -16,6 +16,8 @@
 
 保留 [Learning Clustering](https://su3037.github.io/learning-clustering/) 的暖纸色、衬线标题、深青色与深色技术实验区。新增随文实验、双向步进、候选/锁定/前缀表、伪代码联动、同图比较与精确小图校准、49 道带两级提示的挑战、浏览器 Python、搜索、草稿与可移植学习记录。
 
+首页现有全新中英导论片：每版 3 分 10 秒，1080p/30fps，16 场二维动画、字幕与原创配乐。支持章节跳转、倍速、语言切换、文字稿和 MP4 下载；影片随离线包提供。制作与复核说明见 [FILM_BUILD.md](docs/FILM_BUILD.md)。
+
 ## 本地运行
 
 ```sh
@@ -43,6 +45,7 @@ python3 tests/check_python.py
 - `content/`：双语讲义、课程元数据、课件源。
 - `site/engines/`：统一算法契约、图工具、KL/FM、实时谱求解、递归与多路算法。
 - `site/assets/`：设计系统、实验、挑战、Python worker、进度与搜索。
+- `video/home/`、`scripts/film/`：首页片分镜、真实引擎数据、动画、原创配乐与可复现渲染；成片位于 `site/media/home/`。
 - `python/`：每章两个函数的 starter/reference 与独立检查器。
 - `tests/`：算法不变量、精确解、独立 Python pass 对照、站点链接与练习验证。
 - `course-playbook/`：Su3037 的原制作手册（CC BY 4.0，保留署名）。

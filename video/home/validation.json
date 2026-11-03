@@ -1,0 +1,40 @@
+{
+  "duration": 190,
+  "reviewScope": "Bilingual scene contact sheets plus sampled encoded frames; complete decode. Not a claim of full human playback.",
+  "versions": {
+    "zh": {
+      "sha256": "f27afffea2bc941e16b4a2326e09c7196be27584cd9f77c3d50b7032890dec8c",
+      "bytes": 6331107,
+      "fullDecode": true,
+      "frames": 5700,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "faststart": true,
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.55,
+      "readingViolations": 0,
+      "vttCues": 30,
+      "sampledEncodedFrames": 19
+    },
+    "en": {
+      "sha256": "71c552421f6ff083ddaadff803457d199412fd2d976d268c5447af5aed882087",
+      "bytes": 6279705,
+      "fullDecode": true,
+      "frames": 5700,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "faststart": true,
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.55,
+      "readingViolations": 0,
+      "vttCues": 30,
+      "sampledEncodedFrames": 19
+    }
+  }
+}
