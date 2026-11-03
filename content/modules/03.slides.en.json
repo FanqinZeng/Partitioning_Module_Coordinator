@@ -11,37 +11,37 @@
   },
   {
     "title": "01 · Construct a starting point",
-    "text": "Initial bisection answers where to start. It builds an assignment from the graph; KL and FM instead refine an existing assignment. Temporary construction states should not be confused with the final contract.",
+    "text": "Initial bisection answers where to start.",
     "transcript": "Initial bisection answers where to start. It builds an assignment from the graph; KL and FM instead refine an existing assignment. Temporary construction states should not be confused with the final contract."
   },
   {
     "title": "02 · A seeded random baseline",
-    "text": "The random method uses an integer seed and Fisher–Yates shuffle, then assigns the first floor(n/2) shuffled vertices to the left. Unlike independent coin flips, this guarantees the final counts and avoids empty",
+    "text": "The random method uses an integer seed and Fisher–Yates shuffle, then assigns the first floor(n/2) shuffled vertices to the left.",
     "transcript": "The random method uses an integer seed and Fisher–Yates shuffle, then assigns the first floor(n/2) shuffled vertices to the left. Unlike independent coin flips, this guarantees the final counts and avoids empty sides."
   },
   {
     "title": "03 · Incremental greedy placement",
-    "text": "Place the anchor on the left, then process remaining vertices in name order. For each legal side, sum the new crossing weight to already placed vertices. Discard full sides first. Choose smaller",
+    "text": "Place the anchor on the left, then process remaining vertices in name order.",
     "transcript": "Place the anchor on the left, then process remaining vertices in name order. For each legal side, sum the new crossing weight to already placed vertices. Discard full sides first. Choose smaller increment, then smaller current count, then smaller side number."
   },
   {
     "title": "04 · Region growing",
-    "text": "Starting at A, growing scores every unselected vertex by its total connection weight to the current left side. Pick the maximum, breaking ties by name, until the left side reaches floor(n/2). All",
+    "text": "Starting at A, growing scores every unselected vertex by its total connection weight to the current left side.",
     "transcript": "Starting at A, growing scores every unselected vertex by its total connection weight to the current left side. Pick the maximum, breaking ties by name, until the left side reaches floor(n/2). All remaining vertices form the right side."
   },
   {
     "title": "05 · Specify ties and limits",
-    "text": "“Keep strongly connected vertices together” is not an executable specification. Does strength mean a single edge, a sum or an average? Which side grows? What happens when it is full? A tie",
+    "text": "“Keep strongly connected vertices together” is not an executable specification.",
     "transcript": "“Keep strongly connected vertices together” is not an executable specification. Does strength mean a single edge, a sum or an average? Which side grows? What happens when it is full? A tie affects later scores and therefore matters."
   },
   {
     "title": "06 · Compare starts fairly",
-    "text": "Fix the graph, order, count targets and tie rules. Record seeds and run budgets for random methods. You can then feed the different starts into the same refiner, separating a good initial",
+    "text": "Fix the graph, order, count targets and tie rules.",
     "transcript": "Fix the graph, order, count targets and tie rules. Record seeds and run budgets for random methods. You can then feed the different starts into the same refiner, separating a good initial cut from a starting point that is easy to improve."
   },
   {
     "title": "07 · Implement and check",
-    "text": "Implement grow_order to return the full anchored growing order, then balanced_initial to assign its first floor(n/2) vertices left. Tests cover ties, disconnected graphs, odd and even sizes, uniqueness and completeness.",
+    "text": "Implement grow_order to return the full anchored growing order, then balanced_initial to assign its first floor(n/2) vertices left.",
     "transcript": "Implement grow_order to return the full anchored growing order, then balanced_initial to assign its first floor(n/2) vertices left. Tests cover ties, disconnected graphs, odd and even sizes, uniqueness and completeness."
   },
   {

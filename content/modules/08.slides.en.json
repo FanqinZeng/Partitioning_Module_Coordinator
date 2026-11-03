@@ -11,37 +11,37 @@
   },
   {
     "title": "01 · The k-way objective",
-    "text": "Assign every vertex to one of k disjoint, nonempty parts. In an ordinary graph, an edge contributes its weight once whenever endpoint labels differ. Increasing k does not multiply that charge. Meaningful",
+    "text": "Assign every vertex to one of k disjoint, nonempty parts.",
     "transcript": "Assign every vertex to one of k disjoint, nonempty parts. In an ordinary graph, an edge contributes its weight once whenever endpoint labels differ. Increasing k does not multiply that charge. Meaningful comparison requires the same input, objective and capacity."
   },
   {
     "title": "02 · A round-robin baseline",
-    "text": "Assign input vertex i to i mod k. At k=3, G01 becomes AD | BE | C. Every edge crosses, so cut=18. Counts 2/2/1 are even, but the method ignores weights. Balanced",
+    "text": "Assign input vertex i to i mod k.",
     "transcript": "Assign input vertex i to i mod k. At k=3, G01 becomes AD | BE | C. Every edge crosses, so cut=18. Counts 2/2/1 are even, but the method ignores weights. Balanced counts and good connections are separate properties."
   },
   {
     "title": "03 · Recursive construction",
-    "text": "Recursive splitting gives DE | ABC, then AB | C, yielding AB | C | DE with cut 8. It preserves the heavy AB and DE edges. Counts are 2/1/2, so unit",
+    "text": "Recursive splitting gives DE | ABC, then AB | C, yielding AB | C | DE with cut 8.",
     "transcript": "Recursive splitting gives DE | ABC, then AB | C, yielding AB | C | DE with cut 8. It preserves the heavy AB and DE edges. Counts are 2/1/2, so unit areas satisfy capacity 2."
   },
   {
     "title": "04 · Cross-part swap refinement",
-    "text": "Enumerate pairs in different parts. Hypothetically exchange their labels, check every area against capacity, then compute gain=cut_before−cut_after. Accept the largest strictly positive legal gain, breaking ties by vertex names. Repeat until none",
+    "text": "Enumerate pairs in different parts.",
     "transcript": "Enumerate pairs in different parts. Hypothetically exchange their labels, check every area against capacity, then compute gain=cut_before−cut_after. Accept the largest strictly positive legal gain, breaking ties by vertex names. Repeat until none exists or the step limit is reached."
   },
   {
     "title": "05 · Calibrate with an exact tiny solver",
-    "text": "The oracle enumerates legal nonempty assignments while removing duplicate part-label permutations. For G01, k=3 and capacity 2, its optimum is 8. Agreement proves optimality only for that instance.",
+    "text": "The oracle enumerates legal nonempty assignments while removing duplicate part-label permutations.",
     "transcript": "The oracle enumerates legal nonempty assignments while removing duplicate part-label permutations. For G01, k=3 and capacity 2, its optimum is 8. Agreement proves optimality only for that instance."
   },
   {
     "title": "06 · Change a weight and rerun",
-    "text": "Change AB from 5 to 1 at k=3. Round robin still cuts every edge, reducing its cost from 18 to 14. The spectral and recursive methods solve again and can produce A",
+    "text": "Change AB from 5 to 1 at k=3.",
     "transcript": "Change AB from 5 to 1 at k=3. Round robin still cuts every edge, reducing its cost from 18 to 14. The spectral and recursive methods solve again and can produce A | BC | DE with cut 5. Inspect actual events; ties or repeated eigenvalues may permit equivalent groupings."
   },
   {
     "title": "07 · Report a reproducible comparison",
-    "text": "Record the graph, vertex order, sizes, k, capacity, construction strategy, ties, stop reason, final cut and part areas. Do not rank infeasible rows alongside feasible ones by cost. Report an optimality gap",
+    "text": "Record the graph, vertex order, sizes, k, capacity, construction strategy, ties, stop reason, final cut and part areas.",
     "transcript": "Record the graph, vertex order, sizes, k, capacity, construction strategy, ties, stop reason, final cut and part areas. Do not rank infeasible rows alongside feasible ones by cost. Report an optimality gap only when an exact result is available."
   },
   {

@@ -8,3 +8,6 @@
 - 实际浏览器通过首页分组切换、搜索、错答/重试、Python incomplete/正确/错误、KL 负增益与回退、无效 JSON 保留、比较台变边权/不可行容量，以及学习记录文件导出再导入。
 - 原视频实际播放：Lesson 2 duration≈451.98s、readyState=4、currentTime>0，无媒体错误。
 - skill-creator 验证仓库内维护 skill 通过。
+
+- 代码已推送 main；GitHub Pages 已设为 workflow 发布。首轮构建全部检查通过，发布阶段早于 Pages 启用而失败；启用后新运行 41595612425 的构建与部署均成功。
+- 最终补充：自定义大小写节点名的平票统一为 code-point 规则（与 Python 一致）；网页课件采用完整首句，避免截断解释；代码草稿上限与输入限制一致。

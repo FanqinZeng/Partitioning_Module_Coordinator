@@ -11,37 +11,37 @@
   },
   {
     "title": "01 · Why move one vertex?",
-    "text": "FM tries one vertex at a time, reducing the candidate set and enabling gain maintenance through net pin counts. A move changes side counts, so balance must be part of legality. The",
+    "text": "FM tries one vertex at a time, reducing the candidate set and enabling gain maintenance through net pin counts.",
     "transcript": "FM tries one vertex at a time, reducing the candidate set and enabling gain maintenance through net pin counts. A move changes side counts, so balance must be part of legality. The basic lab requires nonempty sides and |n0−n1|≤maxDiff, initially 1."
   },
   {
     "title": "02 · Filter before ranking",
-    "text": "For each unlocked vertex, check the assignment after its hypothetical move. Rank only legal candidates, using maximum gain then name order. The table retains blocked candidates and the reason they were excluded.",
+    "text": "For each unlocked vertex, check the assignment after its hypothetical move.",
     "transcript": "For each unlocked vertex, check the assignment after its hypothetical move. Rank only legal candidates, using maximum gain then name order. The table retains blocked candidates and the reason they were excluded."
   },
   {
     "title": "03 · Gains for edges and nets",
-    "text": "For ordinary edges, gain is external minus internal weight. In a cut-net hypergraph model, a multi-pin net contributes its weight once whenever pins occupy both sides. Replacing it with pairwise edges generally",
+    "text": "For ordinary edges, gain is external minus internal weight.",
     "transcript": "For ordinary edges, gain is external minus internal weight. In a cut-net hypergraph model, a multi-pin net contributes its weight once whenever pins occupy both sides. Replacing it with pairwise edges generally changes the objective."
   },
   {
     "title": "04 · Trials, locks and the best prefix",
-    "text": "Lock each tried vertex until the next pass. Update gains after the move instead of reusing the initial ranking. When no legal unlocked vertex remains, choose the best cumulative prefix, including the",
+    "text": "Lock each tried vertex until the next pass.",
     "transcript": "Lock each tried vertex until the next pass. Update gains after the move instead of reusing the initial ranking. When no legal unlocked vertex remains, choose the best cumulative prefix, including the empty prefix."
   },
   {
     "title": "05 · Area balance is a separate rule",
-    "text": "This basic FM engine constrains counts, not areas. Legal counts can coexist with very unequal areas. Adding area bounds requires checking them after every candidate move and validating the initial assignment.",
+    "text": "This basic FM engine constrains counts, not areas.",
     "transcript": "This basic FM engine constrains counts, not areas. Legal counts can coexist with very unequal areas. Adding area bounds requires checking them after every candidate move and validating the initial assignment."
   },
   {
     "title": "06 · Be precise about linear time",
-    "text": "The classic linear-per-pass result depends on the appropriate bucket structure, update rules and cost model. This teaching implementation indexes gains with a Map but scans legal unlocked vertices and records full candidate",
+    "text": "The classic linear-per-pass result depends on the appropriate bucket structure, update rules and cost model.",
     "transcript": "The classic linear-per-pass result depends on the appropriate bucket structure, update rules and cost model. This teaching implementation indexes gains with a Map but scans legal unlocked vertices and records full candidate tables. It does not claim the paper's O(P) pass bound."
   },
   {
     "title": "07 · Correct the shorthand",
-    "text": "“Choose maximum gain” means maximum gain among legal, unlocked candidates. “Move one vertex” does not mean accepting only individually positive moves. KL and FM share the prefix idea while differing in move",
+    "text": "“Choose maximum gain” means maximum gain among legal, unlocked candidates.",
     "transcript": "“Choose maximum gain” means maximum gain among legal, unlocked candidates. “Move one vertex” does not mean accepting only individually positive moves. KL and FM share the prefix idea while differing in move objects and legality."
   },
   {

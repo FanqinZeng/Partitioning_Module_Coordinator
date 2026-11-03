@@ -29,7 +29,7 @@
 
 KL 实际点击验证 cut 12→3→11→3，负增益试探、前缀回退、反向步进同步；无效 JSON 保留上次有效分组。中文/英文全部 14 个课时在 375px 宽度有 7 道挑战、12 页课件、两处实验，整页 scrollWidth=375；无新增浏览器错误日志。
 
-比较台实际修改 AB 权重后显示轮转 14、递归 5；容量 1 显示 infeasible。学习记录完成文件导出和重新导入；Lesson 2 原影片实际开始播放、readyState=4。维护 skill 通过官方 quick_validate。生产部署最终状态见实施日志。
+比较台实际修改 AB 权重后显示轮转 14、递归 5；容量 1 显示 infeasible。学习记录完成文件导出和重新导入；Lesson 2 原影片实际开始播放、readyState=4。维护 skill 通过官方 quick_validate。GitHub Actions 的构建与 Pages 发布已成功（run 41595612425）；最新部署状态见实施日志。
 
 ## 与上游完整制作标准的区别
 

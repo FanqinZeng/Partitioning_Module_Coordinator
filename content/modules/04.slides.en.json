@@ -11,37 +11,37 @@
   },
   {
     "title": "01 · Preserve counts with a pair",
-    "text": "KL starts from a complete split and exchanges one unlocked vertex from each side. Counts remain fixed; areas need not. Our initial AE | BCD assignment has cut 12. To rank exchanges,",
+    "text": "KL starts from a complete split and exchanges one unlocked vertex from each side.",
     "transcript": "KL starts from a complete split and exchanges one unlocked vertex from each side. Counts remain fixed; areas need not. Our initial AE | BCD assignment has cut 12. To rank exchanges, first measure each vertex's local contribution."
   },
   {
     "title": "02 · The pair-gain correction",
-    "text": "For opposite-side a and b, g(a,b)=D(a)+D(b)−2w(a,b). Use zero when no edge joins them. Adding the D values counts the a–b edge as removed twice. In reality, after swapping both endpoints it remains",
+    "text": "For opposite-side a and b, g(a,b)=D(a)+D(b)−2w(a,b).",
     "transcript": "For opposite-side a and b, g(a,b)=D(a)+D(b)−2w(a,b). Use zero when no edge joins them. Adding the D values counts the a–b edge as removed twice. In reality, after swapping both endpoints it remains crossing, so subtract 2w."
   },
   {
     "title": "03 · Locking is not acceptance",
-    "text": "After selecting the highest-gain pair, exchange it in the trial assignment and lock both vertices. Recompute candidates on that trial state. Equal gains use a then b in name order, with a",
+    "text": "After selecting the highest-gain pair, exchange it in the trial assignment and lock both vertices.",
     "transcript": "After selecting the highest-gain pair, exchange it in the trial assignment and lock both vertices. Recompute candidates on that trial state. Equal gains use a then b in name order, with a drawn from the current side 0."
   },
   {
     "title": "04 · Best prefix and rollback",
-    "text": "Include G0=0, the empty prefix, then compute Gk=Σi≤k gi. Choose the earliest prefix with maximum cumulative gain. If no positive cumulative gain exists, retain the empty prefix. Do not pick the largest",
+    "text": "Include G0=0, the empty prefix, then compute Gk=Σi≤k gi.",
     "transcript": "Include G0=0, the empty prefix, then compute Gk=Σi≤k gi. Choose the earliest prefix with maximum cumulative gain. If no positive cumulative gain exists, retain the empty prefix. Do not pick the largest individual gain or splice together positive moves while skipping their intervening states."
   },
   {
     "title": "05 · Passes and termination",
-    "text": "Unlock vertices and begin the next pass from the accepted assignment. Stop when the empty prefix wins. If the configured pass limit is reached, report limit instead. Neither status establishes a global",
+    "text": "Unlock vertices and begin the next pass from the accepted assignment.",
     "transcript": "Unlock vertices and begin the next pass from the accepted assignment. Stop when the empty prefix wins. If the configured pass limit is reached, report limit instead. Neither status establishes a global optimum."
   },
   {
     "title": "06 · Four implementation invariants",
-    "text": "After every trial, verify fixed side counts, no repeated locked vertices, actual cut difference equal to recorded gain, and cumulative gain equal to start cut minus current trial cut. After acceptance, cut",
+    "text": "After every trial, verify fixed side counts, no repeated locked vertices, actual cut difference equal to recorded gain, and cumulative gain equal to start cut minus current trial cut.",
     "transcript": "After every trial, verify fixed side counts, no repeated locked vertices, actual cut difference equal to recorded gain, and cumulative gain equal to start cut minus current trial cut. After acceptance, cut must equal start cut minus best cumulative gain and cannot be worse than the pass start."
   },
   {
     "title": "07 · How FM differs",
-    "text": "Both KL and FM use trials, locks and a best prefix. It is incorrect to say that only FM tolerates worsening trials. Their important differences concern the moving object, legality checks and",
+    "text": "Both KL and FM use trials, locks and a best prefix.",
     "transcript": "Both KL and FM use trials, locks and a best prefix. It is incorrect to say that only FM tolerates worsening trials. Their important differences concern the moving object, legality checks and candidate maintenance."
   },
   {

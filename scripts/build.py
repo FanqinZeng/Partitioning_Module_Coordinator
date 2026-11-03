@@ -113,7 +113,7 @@ def module_page(m,lang):
     for s in m['sections']:
         text=z(s['text']).replace('[[interactive]]','').split('\n\n')
         first=text[0]
-        teaser=first[:100] if not lang else ' '.join(first.split()[:32])
+        teaser=re.split(r'(?<=[。！？])' if not lang else r'(?<=[.!?])\s+',first)[0]
         slide_items.append((z(s['title']),teaser,first))
     slide_items.extend([(z(['决策契约','Decision contract']),z(m['summary']),z(problem[-1][1])),(z(['易错点复核','Check the common mistakes']),MISTAKES[m['id']][0][1 if lang else 0],MISTAKES[m['id']][0][3 if lang else 2]),(z(['动手验证','Test your understanding']),z(['预测下一步 → 运行实验 → 完成挑战 → 写两个 Python 函数','Predict → run the lab → solve challenges → write two Python functions']),z(['用实际输出解释你的判断；记录目标、约束与停止原因。','Explain your reasoning with actual output, the objective, constraints and stop reason.']))])
     assert len(slide_items)==12
