@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Recursive bisection",
+    "text": "Split repeatedly while accounting for the whole graph",
+    "transcript": "Split the largest current part on its induced subgraph; account for new cuts on the full graph."
+  },
+  {
+    "title": "Learning goals",
+    "text": "Select the largest splittable part · Build the correct induced subgraph · Solve afresh on each subgraph",
+    "transcript": "Select the largest splittable part\nBuild the correct induced subgraph\nSolve afresh on each subgraph\nAccount for the full-graph cut\nHandle k that is not a power of two\nSeparate local balance from final capacity"
+  },
+  {
+    "title": "01 · Produce k parts using a bisection solver",
+    "text": "Recursive bisection repeatedly splits one current part until there are k parts. k need not be a power of two. Starting from one part, each successful split adds one, so reaching k",
+    "transcript": "Recursive bisection repeatedly splits one current part until there are k parts. k need not be a power of two. Starting from one part, each successful split adds one, so reaching k needs k−1 splits."
+  },
+  {
+    "title": "02 · What belongs in the induced subgraph?",
+    "text": "For selected vertices S, retain only edges whose endpoints both lie in S. Edges to other parts already contribute to the full-graph cut. Including them in the local degree matrix would change",
+    "transcript": "For selected vertices S, retain only edges whose endpoints both lie in S. Edges to other parts already contribute to the full-graph cut. Including them in the local degree matrix would change the subproblem."
+  },
+  {
+    "title": "03 · The split tree and labels",
+    "text": "Record each parent, its children, local ordering and added cut. Labels identify parts; they do not measure quality. Swapping side names or renumbering parts leaves the grouping unchanged, so canonical comparisons sort",
+    "transcript": "Record each parent, its children, local ordering and added cut. Labels identify parts; they do not measure quality. Swapping side names or renumbering parts leaves the grouping unchanged, so canonical comparisons sort members and ignore labels."
+  },
+  {
+    "title": "04 · Account for the full cut",
+    "text": "A split only separates vertices within its parent part. Previously crossing edges remain crossing. Therefore pure splitting cannot reduce the old cut; the increment is exactly the parent-internal weight newly separated by",
+    "transcript": "A split only separates vertices within its parent part. Previously crossing edges remain crossing. Therefore pure splitting cannot reduce the old cut; the increment is exactly the parent-internal weight newly separated by this split."
+  },
+  {
+    "title": "05 · Local balance is not final capacity",
+    "text": "Requiring each child to contain at least 20% of its parent's vertices does not guarantee equally sized final parts. A 3/2 split followed by 2/1 yields counts 2/1/2. Unequal vertex areas can",
+    "transcript": "Requiring each child to contain at least 20% of its parent's vertices does not guarantee equally sized final parts. A 3/2 split followed by 2/1 yields counts 2/1/2. Unequal vertex areas can widen the disparity."
+  },
+  {
+    "title": "06 · Termination and failure",
+    "text": "Stop at k nonempty parts, with k no larger than the vertex count. If a selected subgraph has no prefix satisfying the declared window, report infeasible rather than silently using an illegal",
+    "transcript": "Stop at k nonempty parts, with k no larger than the vertex count. If a selected subgraph has no prefix satisfying the declared window, report infeasible rather than silently using an illegal midpoint."
+  },
+  {
+    "title": "07 · Implement and refine",
+    "text": "Implement induced_subgraph and largest_part in Python. Preserve original internal edges and weights; select by count then label. The visualizer shows the subgraph chosen by your functions. The bisection solver was examined separately",
+    "transcript": "Implement induced_subgraph and largest_part in Python. Preserve original internal edges and weights; select by count then label. The visualizer shows the subgraph chosen by your functions. The bisection solver was examined separately in Lesson 6."
+  },
+  {
+    "title": "Decision contract",
+    "text": "Split the largest current part on its induced subgraph; account for new cuts on the full graph.",
+    "transcript": "At k parts or no legal split"
+  },
+  {
+    "title": "Check the common mistakes",
+    "text": "k must be a power of two",
+    "transcript": "Split one part at a time; k=3 needs two splits."
+  },
+  {
+    "title": "Test your understanding",
+    "text": "Predict → run the lab → solve challenges → write two Python functions",
+    "transcript": "Explain your reasoning with actual output, the objective, constraints and stop reason."
+  }
+]

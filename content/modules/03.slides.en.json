@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Initial bisection",
+    "text": "Build a legal starting point",
+    "transcript": "Compare random, sequential greedy and region growing with explicit seeds, ties and count limits."
+  },
+  {
+    "title": "Learning goals",
+    "text": "Separate construction from refinement · Reproduce a seeded random split · Compute incremental cut costs",
+    "transcript": "Separate construction from refinement\nReproduce a seeded random split\nCompute incremental cut costs\nExplain region-growing scores\nApply count limits and tie rules\nAssess the limits of several starts"
+  },
+  {
+    "title": "01 · Construct a starting point",
+    "text": "Initial bisection answers where to start. It builds an assignment from the graph; KL and FM instead refine an existing assignment. Temporary construction states should not be confused with the final contract.",
+    "transcript": "Initial bisection answers where to start. It builds an assignment from the graph; KL and FM instead refine an existing assignment. Temporary construction states should not be confused with the final contract."
+  },
+  {
+    "title": "02 · A seeded random baseline",
+    "text": "The random method uses an integer seed and Fisher–Yates shuffle, then assigns the first floor(n/2) shuffled vertices to the left. Unlike independent coin flips, this guarantees the final counts and avoids empty",
+    "transcript": "The random method uses an integer seed and Fisher–Yates shuffle, then assigns the first floor(n/2) shuffled vertices to the left. Unlike independent coin flips, this guarantees the final counts and avoids empty sides."
+  },
+  {
+    "title": "03 · Incremental greedy placement",
+    "text": "Place the anchor on the left, then process remaining vertices in name order. For each legal side, sum the new crossing weight to already placed vertices. Discard full sides first. Choose smaller",
+    "transcript": "Place the anchor on the left, then process remaining vertices in name order. For each legal side, sum the new crossing weight to already placed vertices. Discard full sides first. Choose smaller increment, then smaller current count, then smaller side number."
+  },
+  {
+    "title": "04 · Region growing",
+    "text": "Starting at A, growing scores every unselected vertex by its total connection weight to the current left side. Pick the maximum, breaking ties by name, until the left side reaches floor(n/2). All",
+    "transcript": "Starting at A, growing scores every unselected vertex by its total connection weight to the current left side. Pick the maximum, breaking ties by name, until the left side reaches floor(n/2). All remaining vertices form the right side."
+  },
+  {
+    "title": "05 · Specify ties and limits",
+    "text": "“Keep strongly connected vertices together” is not an executable specification. Does strength mean a single edge, a sum or an average? Which side grows? What happens when it is full? A tie",
+    "transcript": "“Keep strongly connected vertices together” is not an executable specification. Does strength mean a single edge, a sum or an average? Which side grows? What happens when it is full? A tie affects later scores and therefore matters."
+  },
+  {
+    "title": "06 · Compare starts fairly",
+    "text": "Fix the graph, order, count targets and tie rules. Record seeds and run budgets for random methods. You can then feed the different starts into the same refiner, separating a good initial",
+    "transcript": "Fix the graph, order, count targets and tie rules. Record seeds and run budgets for random methods. You can then feed the different starts into the same refiner, separating a good initial cut from a starting point that is easy to improve."
+  },
+  {
+    "title": "07 · Implement and check",
+    "text": "Implement grow_order to return the full anchored growing order, then balanced_initial to assign its first floor(n/2) vertices left. Tests cover ties, disconnected graphs, odd and even sizes, uniqueness and completeness.",
+    "transcript": "Implement grow_order to return the full anchored growing order, then balanced_initial to assign its first floor(n/2) vertices left. Tests cover ties, disconnected graphs, odd and even sizes, uniqueness and completeness."
+  },
+  {
+    "title": "Decision contract",
+    "text": "Compare random, sequential greedy and region growing with explicit seeds, ties and count limits.",
+    "transcript": "When target counts are reached"
+  },
+  {
+    "title": "Check the common mistakes",
+    "text": "Random means irreproducible",
+    "transcript": "Fix generator, seed and shuffle rule to reproduce."
+  },
+  {
+    "title": "Test your understanding",
+    "text": "Predict → run the lab → solve challenges → write two Python functions",
+    "transcript": "Explain your reasoning with actual output, the objective, constraints and stop reason."
+  }
+]

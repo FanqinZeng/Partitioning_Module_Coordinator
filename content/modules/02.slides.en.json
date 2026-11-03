@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Cut cost and balance",
+    "text": "Cut fewer connections, and keep the parts usable",
+    "transcript": "Start with a crossing edge. Separate the objective, node-count balance and area capacity."
+  },
+  {
+    "title": "Learning goals",
+    "text": "Compute a weighted cut edge by edge · Check complete, disjoint assignments · Distinguish counts from areas",
+    "transcript": "Compute a weighted cut edge by edge\nCheck complete, disjoint assignments\nDistinguish counts from areas\nInterpret ratio and imbalance\nRecognize an infeasible low cut\nWrite testable metric functions"
+  },
+  {
+    "title": "01 · Check the assignment first",
+    "text": "Represent circuit cells by vertices and connections by undirected edges. An edge weight models the cost of placing its endpoints in different regions. This is a deliberately simple model: it does not",
+    "transcript": "Represent circuit cells by vertices and connections by undirected edges. An edge weight models the cost of placing its endpoints in different regions. This is a deliberately simple model: it does not predict complete routed wire length or timing. It does let us compare assignments under a clearly defined objective."
+  },
+  {
+    "title": "02 · Count each crossing edge once",
+    "text": "The objective is cut = Σ w(u,v)·[part(u) ≠ part(v)]. The bracket is 1 when its condition is true and 0 otherwise. Endpoint labels determine whether an edge crosses. Its position on the",
+    "transcript": "The objective is cut = Σ w(u,v)·[part(u) ≠ part(v)]. The bracket is 1 when its condition is true and 0 otherwise. Endpoint labels determine whether an edge crosses. Its position on the screen, or an intersection with another drawn line, has no effect."
+  },
+  {
+    "title": "03 · Counts, areas and capacities",
+    "text": "When every size equals 1, counts and areas coincide. Change A's size to 4: ABC still contains three vertices, but its area becomes 6; DE has count and area 2. Under capacity",
+    "transcript": "When every size equals 1, counts and areas coincide. Change A's size to 4: ABC still contains three vertices, but its area becomes 6; DE has count and area 2. Under capacity 4, ABC | DE has a low cut of 3 but is infeasible."
+  },
+  {
+    "title": "04 · Two balance summaries",
+    "text": "For side areas s0 and s1, ratio = min(s0,s1)/max(s0,s1), where values closer to 1 are more even. Imbalance = |s0−s1|/(s0+s1), where values closer to 0 are more even. For areas 2 and",
+    "transcript": "For side areas s0 and s1, ratio = min(s0,s1)/max(s0,s1), where values closer to 1 are more even. Imbalance = |s0−s1|/(s0+s1), where values closer to 0 are more even. For areas 2 and 3 the values are 2/3 and 1/5. Their thresholds are not interchangeable."
+  },
+  {
+    "title": "05 · Feasibility precedes optimization",
+    "text": "An optimization problem has an objective and constraints. Here the objective minimizes cut; constraints require a complete, disjoint, nonempty assignment and the declared balance or capacity. Filter for legality before comparing costs.",
+    "transcript": "An optimization problem has an objective and constraints. Here the objective minimizes cut; constraints require a complete, disjoint, nonempty assignment and the declared balance or capacity. Filter for legality before comparing costs. Mixing illegal and legal assignments rewards avoiding the problem's rules."
+  },
+  {
+    "title": "06 · Implement a reliable evaluator",
+    "text": "Validate unique vertex names, positive sizes, existing endpoints and finite weights. Then verify that the assignment supplies a valid part for every vertex. An adjacency list often stores each undirected edge twice.",
+    "transcript": "Validate unique vertex names, positive sizes, existing endpoints and finite weights. Then verify that the assignment supplies a valid part for every vertex. An adjacency list often stores each undirected edge twice. Summing it directly double-counts; the normalized edge list used here stores each edge once."
+  },
+  {
+    "title": "07 · Carry the contract forward",
+    "text": "Next we construct an initial split, refine with KL and FM, then study spectral ordering, recursive bisection and k-way comparisons. Their decision processes differ, but all use this evaluator. When you rewind",
+    "transcript": "Next we construct an initial split, refine with KL and FM, then study spectral ordering, recursive bisection and k-way comparisons. Their decision processes differ, but all use this evaluator. When you rewind the lab, the displayed metrics describe the currently selected state."
+  },
+  {
+    "title": "Decision contract",
+    "text": "Start with a crossing edge. Separate the objective, node-count balance and area capacity.",
+    "transcript": "After one evaluation"
+  },
+  {
+    "title": "Check the common mistakes",
+    "text": "A low cut is always good",
+    "transcript": "All on one side has cut 0 but can violate nonempty or capacity constraints. Check legality first."
+  },
+  {
+    "title": "Test your understanding",
+    "text": "Predict → run the lab → solve challenges → write two Python functions",
+    "transcript": "Explain your reasoning with actual output, the objective, constraints and stop reason."
+  }
+]

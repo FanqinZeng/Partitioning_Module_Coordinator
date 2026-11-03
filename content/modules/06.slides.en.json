@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Spectral bisection",
+    "text": "Order the vertices, then sweep the cut",
+    "transcript": "Build the Laplacian, solve for a Fiedler vector live and sweep legal thresholds."
+  },
+  {
+    "title": "Learning goals",
+    "text": "Build L=D−A edge by edge · Verify row sums and the quadratic form · Explain the second eigenvector",
+    "transcript": "Build L=D−A edge by edge\nVerify row sums and the quadratic form\nExplain the second eigenvector\nReport residuals and degeneracy\nSweep legal ordering prefixes\nRecognize the limits of the relaxation"
+  },
+  {
+    "title": "01 · Use global structure to order vertices",
+    "text": "Spectral bisection relaxes discrete labels into continuous coordinates, encourages strongly connected vertices to stay close, then converts coordinates back into a split. Here L=D−A is the unnormalized Laplacian. This is neither a",
+    "transcript": "Spectral bisection relaxes discrete labels into continuous coordinates, encourages strongly connected vertices to stay close, then converts coordinates back into a split. Here L=D−A is the unnormalized Laplacian. This is neither a normalized-cut implementation nor a physical spring simulation."
+  },
+  {
+    "title": "02 · Build L edge by edge",
+    "text": "For u–v of weight w, add w to Luu and Lvv and subtract w from Luv and Lvu. In G01, A has weighted degree 6, giving first row [6,−5,−1,0,0] in A–E order.",
+    "transcript": "For u–v of weight w, add w to Luu and Lvv and subtract w from Luv and Lvu. In G01, A has weighted degree 6, giving first row [6,−5,−1,0,0] in A–E order. The matrix is symmetric, has nonnegative diagonal and zero row sums."
+  },
+  {
+    "title": "03 · The vector and its diagnostics",
+    "text": "Sort eigenvalues increasingly. A connected graph has smallest eigenvalue 0 with a constant eigenvector. An eigenvector for the second smallest eigenvalue λ2 is a Fiedler vector. The page solves the symmetric problem",
+    "transcript": "Sort eigenvalues increasingly. A connected graph has smallest eigenvalue 0 with a constant eigenvector. An eigenvector for the second smallest eigenvalue λ2 is a Fiedler vector. The page solves the symmetric problem live using Jacobi rotations and reports residual ‖Lx−λ2x‖/‖x‖, orthogonality to constants and the λ2–λ3 gap."
+  },
+  {
+    "title": "04 · Sweep every legal prefix",
+    "text": "Sort vertices by ascending coordinate and try prefixes of lengths 1 through n−1. Check the count window and compute each cut. By default each side needs at least 20% of the vertices.",
+    "transcript": "Sort vertices by ascending coordinate and try prefixes of lengths 1 through n−1. Check the count window and compute each cut. By default each side needs at least 20% of the vertices. This is a count rule, not an area bound."
+  },
+  {
+    "title": "05 · Disconnection and repeated eigenvalues",
+    "text": "Multiple connected components produce multiple zero eigenvalues and a non-unique second vector. A connected graph can also have λ2=λ3; the equal-weight four-cycle has both equal to 2. Different valid solvers may return",
+    "transcript": "Multiple connected components produce multiple zero eigenvalues and a non-unique second vector. A connected graph can also have λ2=λ3; the equal-weight four-cycle has both equal to 2. Different valid solvers may return different directions in the same eigenspace."
+  },
+  {
+    "title": "06 · A relaxation is not an exact solver",
+    "text": "Continuous coordinates provide structural guidance. Prefix cuts cover only a small fraction of discrete assignments, and rounding must still satisfy balance. G01's optimum of 3 does not establish a general guarantee.",
+    "transcript": "Continuous coordinates provide structural guidance. Prefix cuts cover only a small fraction of discrete assignments, and rounding must still satisfy balance. G01's optimum of 3 does not establish a general guarantee."
+  },
+  {
+    "title": "07 · Implement two auditable stages",
+    "text": "Implement laplacian and sweep_cut in Python. The latter receives an explicit ordering and count window and returns the best legal prefix assignment. Separating numerical solution from discrete sweep makes both testable without",
+    "transcript": "Implement laplacian and sweep_cut in Python. The latter receives an explicit ordering and count window and returns the best legal prefix assignment. Separating numerical solution from discrete sweep makes both testable without requiring a complete eigensolver in an introductory exercise."
+  },
+  {
+    "title": "Decision contract",
+    "text": "Build the Laplacian, solve for a Fiedler vector live and sweep legal thresholds.",
+    "transcript": "After sweeping all legal prefixes"
+  },
+  {
+    "title": "Check the common mistakes",
+    "text": "Cut only at zero",
+    "transcript": "Sweep legal prefixes: G01 cuts are 6,3,5,6."
+  },
+  {
+    "title": "Test your understanding",
+    "text": "Predict → run the lab → solve challenges → write two Python functions",
+    "transcript": "Explain your reasoning with actual output, the objective, constraints and stop reason."
+  }
+]

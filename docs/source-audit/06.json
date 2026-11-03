@@ -1,0 +1,10 @@
+{
+  "lesson": "06",
+  "issue": 14,
+  "author": "thy031",
+  "source": "thy031/partitioning6",
+  "commit": "10c1a3ac90eaa41e04db53f9b4bf25aed648309d",
+  "status": "verified source; integrated reconstruction",
+  "retained": "credit, source links, lesson topic and named teaching example",
+  "new": "bilingual lesson, common solver contract, challenges, Python, web slides"
+}

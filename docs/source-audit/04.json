@@ -1,0 +1,10 @@
+{
+  "lesson": "04",
+  "issue": 12,
+  "author": "muranfei",
+  "source": "muranfei/kl-fm-refinement-lab",
+  "commit": "7123c461deb16c279c938565f08aa0a5fdd41627",
+  "status": "verified source; integrated reconstruction",
+  "retained": "credit, source links, lesson topic and named teaching example",
+  "new": "bilingual lesson, common solver contract, challenges, Python, web slides"
+}

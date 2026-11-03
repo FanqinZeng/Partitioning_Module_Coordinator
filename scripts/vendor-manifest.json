@@ -1,0 +1,132 @@
+[
+  {
+    "source": "site/assets/fonts/OFL-jetbrains-mono.txt",
+    "target": "site/assets/fonts/OFL-jetbrains-mono.txt",
+    "sha256": "6e72a78d8ea9f36e26d9fea709da6460189681007dc211a44ebd291754f6b96c"
+  },
+  {
+    "source": "site/assets/fonts/OFL-newsreader.txt",
+    "target": "site/assets/fonts/OFL-newsreader.txt",
+    "sha256": "6a5bc7b8b83c077bec6beec4b52c4221b7dd0f9294e78dcb0dc1a6871d42ac0b"
+  },
+  {
+    "source": "site/assets/fonts/OFL-noto-sans-sc.txt",
+    "target": "site/assets/fonts/OFL-noto-sans-sc.txt",
+    "sha256": "3848c5e25757fa2e24a354fda8012564d5f214b43f5f3e2075cfa8bd3efd3b7e"
+  },
+  {
+    "source": "site/assets/fonts/OFL-noto-sans.txt",
+    "target": "site/assets/fonts/OFL-noto-sans.txt",
+    "sha256": "b87ed2ea2dec227ce972fab51c5952793b4a16642b8fab651adfd28f602c2010"
+  },
+  {
+    "source": "site/assets/fonts/OFL-noto-serif-sc.txt",
+    "target": "site/assets/fonts/OFL-noto-serif-sc.txt",
+    "sha256": "e1ec350adf6fe7edcb08a97b38e08d0b8029858e3bb58a1b10cd0faa2b3085a6"
+  },
+  {
+    "source": "site/assets/fonts/coverage.json",
+    "target": "site/assets/fonts/coverage.json",
+    "sha256": "4520aeff85633239d81e9a15e72fcbab5d1677db7856b9d74d5036151d295321"
+  },
+  {
+    "source": "site/assets/fonts/jetbrains-mono-400.woff2",
+    "target": "site/assets/fonts/jetbrains-mono-400.woff2",
+    "sha256": "f5a419f865f4da576c71e8278675a24bd722b6637a34ff86e823cf45dfce7508"
+  },
+  {
+    "source": "site/assets/fonts/jetbrains-mono-500.woff2",
+    "target": "site/assets/fonts/jetbrains-mono-500.woff2",
+    "sha256": "569683fb27f2ca8a2af4c062ac3921a00baa415f311bcff89a2d59c0d5da733f"
+  },
+  {
+    "source": "site/assets/fonts/newsreader-400.woff2",
+    "target": "site/assets/fonts/newsreader-400.woff2",
+    "sha256": "49f625c068a0805ee2dbe2c3f8f2ce90bf33306c88af2b9e9d9ceaa3eda3624a"
+  },
+  {
+    "source": "site/assets/fonts/newsreader-400i.woff2",
+    "target": "site/assets/fonts/newsreader-400i.woff2",
+    "sha256": "3d0a89dc0f1d175d6fd3b769414ef3b9ca4e043fdfc044160e744e54d1a03f52"
+  },
+  {
+    "source": "site/assets/fonts/newsreader-500.woff2",
+    "target": "site/assets/fonts/newsreader-500.woff2",
+    "sha256": "6b139f1872886c1fb71b6183b16142d82b6dc8fd4f355a8a2ab72bfe8cd6eea4"
+  },
+  {
+    "source": "site/assets/fonts/noto-sans-400.woff2",
+    "target": "site/assets/fonts/noto-sans-400.woff2",
+    "sha256": "e3fa09f3f24b4afdc0e6701e49035c378c86fc13a11286b46aadc69f9ecae001"
+  },
+  {
+    "source": "site/assets/fonts/noto-sans-400i.woff2",
+    "target": "site/assets/fonts/noto-sans-400i.woff2",
+    "sha256": "c03770e8955cbc004d799d23aacd435b6a8eb062b16e2c22568236eaf4559a1f"
+  },
+  {
+    "source": "site/assets/fonts/noto-sans-600.woff2",
+    "target": "site/assets/fonts/noto-sans-600.woff2",
+    "sha256": "c72a402654076a9198160c6b6a790c35d9c23b2641c03ba62f9ca16861951ad5"
+  },
+  {
+    "source": "site/assets/fonts/noto-sans-sc-400.woff2",
+    "target": "site/assets/fonts/noto-sans-sc-400.woff2",
+    "sha256": "f857e97ffaf9abad0d21cc2047965f9a847ed611d36cf6e2eb449412c0807311"
+  },
+  {
+    "source": "site/assets/fonts/noto-sans-sc-700.woff2",
+    "target": "site/assets/fonts/noto-sans-sc-700.woff2",
+    "sha256": "88f9d7097e521c4edfb2eef4a822daca3b3d22ffd9ea077a3ec8831161fff5e2"
+  },
+  {
+    "source": "site/assets/fonts/noto-serif-sc-400.woff2",
+    "target": "site/assets/fonts/noto-serif-sc-400.woff2",
+    "sha256": "d06b1959d35fa92fb8e526c0fa0a5b9ad779f5bf8f4664b43436c01c80b3b85c"
+  },
+  {
+    "source": "site/assets/fonts/noto-serif-sc-600.woff2",
+    "target": "site/assets/fonts/noto-serif-sc-600.woff2",
+    "sha256": "9df1a551cb579239183025734b2c7e0e4bff83c27397a13a4ecf00814cd2504a"
+  },
+  {
+    "source": "site/vendor/pyodide/package.json",
+    "target": "site/vendor/pyodide/package.json",
+    "sha256": "7e0d33e986f04657f82f5f6d3b80fbc77593a2e53bf886637e4ecf0975219c43"
+  },
+  {
+    "source": "site/vendor/pyodide/pyodide-lock.json",
+    "target": "site/vendor/pyodide/pyodide-lock.json",
+    "sha256": "f6e6f42f451f42affbbcddb00e8c9a3278dcbf399f57aab9f3f568839a7ff4a6"
+  },
+  {
+    "source": "site/vendor/pyodide/pyodide.asm.js",
+    "target": "site/vendor/pyodide/pyodide.asm.js",
+    "sha256": "b22e5831eade9ff10e6fe2c811c68688cd91f10154377b4f80debcf5bafa1e56"
+  },
+  {
+    "source": "site/vendor/pyodide/pyodide.asm.wasm",
+    "target": "site/vendor/pyodide/pyodide.asm.wasm",
+    "sha256": "5effb6a1a6cc4a1a85bec4622701aa797c031e1de923cbbaf2ad47abdc4ab325"
+  },
+  {
+    "source": "site/vendor/pyodide/pyodide.mjs",
+    "target": "site/vendor/pyodide/pyodide.mjs",
+    "sha256": "635a6da3218fe4e5668da595acfe8b5ce77453d597d602f19a423dd250653441"
+  },
+  {
+    "source": "site/vendor/pyodide/python_stdlib.zip",
+    "target": "site/vendor/pyodide/python_stdlib.zip",
+    "sha256": "71fee17f88a6260ec8c9c7c063533ee59c021fdc88a1ce76247378d3c4a35f4c"
+  },
+  {
+    "source": "LICENSE",
+    "target": "licenses/Learning-Clustering-MIT.txt",
+    "sha256": "a8dcabadf23b3e2a01ebe5e586b661115c12a857d516eee885d4ac68d5e4b4cb"
+  },
+  {
+    "source": "LICENSE-CONTENT.md",
+    "target": "licenses/Learning-Clustering-content.md",
+    "sha256": "d52cf809db92a8c8f0c33c6b1cba0fe7d6b0411213ec67d9b78cd12a1c7a9ea0"
+  }
+]

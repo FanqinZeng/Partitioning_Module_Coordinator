@@ -1,0 +1,10 @@
+{
+  "lesson": "02",
+  "issue": 10,
+  "author": "GateUltra",
+  "source": "GateUltra/Partitioning_Lesson2",
+  "commit": "f4fd49af4cc4efe17891534fb5dbe8be38f1c7aa",
+  "status": "verified source; integrated reconstruction",
+  "retained": "credit, source links, lesson topic and named teaching example",
+  "new": "bilingual lesson, common solver contract, challenges, Python, web slides"
+}

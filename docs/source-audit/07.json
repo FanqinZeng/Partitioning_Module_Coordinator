@@ -1,0 +1,10 @@
+{
+  "lesson": "07",
+  "issue": 15,
+  "author": "xingguangyaoyu",
+  "source": "xingguangyaoyu/EDA-Partitioning-Module-Lesson-7",
+  "commit": "2d3a89a88e00f3b539fecff8b4d6bd47516fad50",
+  "status": "verified source; integrated reconstruction",
+  "retained": "credit, source links, lesson topic and named teaching example",
+  "new": "bilingual lesson, common solver contract, challenges, Python, web slides"
+}
