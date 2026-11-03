@@ -1,6 +1,11 @@
-# Learning Partitioning · 划分与取舍
+# Learning EDA · 交互课程门户
 
-整合 [eda-learning #10–#16](https://github.com/yongfu-li/eda-learning/issues) 的七份 Partitioning 提交，对应协调任务 [#17](https://github.com/yongfu-li/eda-learning/issues/17)。默认中文，英文镜像，纯静态 GitHub Pages 站点。
+首页现为双语课程门户，Clustering 以链接方式接入 Su3037 的原站，Partitioning 为本站完整课程。课程登记表为 `content/courses.json`，接入说明见 [COURSE_PORTAL.md](docs/COURSE_PORTAL.md)。
+
+- 总门户：https://fanqinzeng.github.io/Partitioning_Module_Coordinator/
+- Partitioning：https://fanqinzeng.github.io/Partitioning_Module_Coordinator/courses/partitioning/
+
+Partitioning 整合 [eda-learning #10–#16](https://github.com/yongfu-li/eda-learning/issues) 的七份 Partitioning 提交，对应协调任务 [#17](https://github.com/yongfu-li/eda-learning/issues/17)。默认中文，英文镜像，纯静态 GitHub Pages 站点。
 
 **网站：** https://fanqinzeng.github.io/Partitioning_Module_Coordinator/
 

@@ -32,8 +32,8 @@ if(document.body.dataset.page==='progress'){
  document.querySelector('[data-cancel-reset]').onclick=()=>document.querySelector('#reset-dialog').close();
  document.querySelector('[data-confirm-reset]').onclick=()=>{saveState({version:1,last:null,modules:{}});document.querySelector('#reset-dialog').close();};
 }
-if(document.body.dataset.page==='home'){
- const s=readState(),m=course.find(m=>m.id===s.last);if(m){const a=document.querySelector('[data-continue]');a.href=moduleURL(m);a.textContent=t('继续学习：','Continue: ')+t(m.title);a.hidden=false;}
+if(['home','portal'].includes(document.body.dataset.page)){
+ const s=readState(),m=course.find(m=>m.id===s.last);if(m){const a=document.querySelector('[data-continue]');a.href=moduleURL(m);a.textContent=t('继续学习：','Continue: ')+(document.body.dataset.page==='portal'?'Partitioning · ':'')+t(m.title);a.hidden=false;}
  for(const card of document.querySelectorAll('[data-progress-module]')){const m=s.modules[card.dataset.progressModule]||{},done=[m.read,m.lab,m.code].filter(Boolean).length+Object.values(m.answers||{}).filter(Boolean).length;card.querySelector('[data-progress-text]').textContent=done?t('已完成 ','Completed ')+done+'/10':'';card.querySelector('progress').value=done;}
 }
 export {course};

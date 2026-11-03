@@ -1,0 +1,28 @@
+[
+  {
+    "id": "clustering",
+    "title": "Learning Clustering",
+    "subtitle": ["连接与分组", "Connections and groups"],
+    "description": ["从亲和度出发，理解单元如何合并成簇，再探索标签传播、谱方法与延迟导向聚类。", "Start with affinity, learn how cells form clusters, then explore label propagation, spectral methods and delay-driven clustering."],
+    "entry": ["https://su3037.github.io/learning-clustering/", "https://su3037.github.io/learning-clustering/en/index.html"],
+    "external": true,
+    "units": 8,
+    "author": "Su3037",
+    "prerequisites": ["基础图论；可从原站基础速查开始", "Basic graph concepts; a foundations guide is available"],
+    "topics": ["Affinity", "Merging", "Label propagation"],
+    "languages": ["zh", "en"]
+  },
+  {
+    "id": "partitioning",
+    "title": "Learning Partitioning",
+    "subtitle": ["划分与取舍", "Partition with purpose"],
+    "description": ["从割代价与平衡约束出发，构造和改进分组，再把二分扩展到递归与多路划分。", "Measure cut cost and balance, construct and refine assignments, then extend bisection to recursive and k-way partitioning."],
+    "entry": ["courses/partitioning/index.html", "courses/partitioning/index.html"],
+    "external": false,
+    "units": 7,
+    "author": "FanqinZeng",
+    "prerequisites": ["基础图论；提供基础速查与浏览器 Python", "Basic graph concepts; includes foundations and browser Python"],
+    "topics": ["Cut & balance", "KL / FM", "K-way"],
+    "languages": ["zh", "en"]
+  }
+]

@@ -20,7 +20,22 @@ class Page(HTMLParser):
 pages={}
 for f in SITE.rglob('*.html'):
     p=Page(f);p.feed(f.read_text());pages[f.resolve()]=p
-assert len(pages)==30,len(pages)
+assert len(pages)==32,len(pages)
+registry=json.loads((ROOT/'content/courses.json').read_text())
+assert len({c['id'] for c in registry})==len(registry)
+for prefix in ['', 'en/']:
+    portal=(SITE/prefix/'index.html').read_text()
+    assert 'data-page="portal"' in portal
+    assert portal.count('data-hub-course=')==len(registry)
+    for course in registry:
+        assert f'data-hub-course="{course["id"]}"' in portal
+        destination=course['entry'][int(bool(prefix))]
+        if course['external']:
+            assert destination.startswith('https://') and destination in portal
+        else:
+            assert (SITE/prefix/destination).is_file()
+            landing=(SITE/prefix/destination).read_text()
+            assert 'data-page="home"' in landing and 'data-home-video' in landing
 checked=0
 for file,p in pages.items():
     assert p.lang in ['zh-CN','en']

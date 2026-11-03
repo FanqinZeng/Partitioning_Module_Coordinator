@@ -11,3 +11,5 @@
 - 功能与验证证据：docs/COMPLETION_REPORT.md
 - 首页新增 190 秒中英导论片、原创配乐、七章跳转与文字稿；制作源、数据与验证报告在 `video/home/`、`scripts/film/`、`docs/FILM_BUILD.md`。
 - 尚未制作的每章四部新影片、原生 PDF/PPTX 与讲义字数目标在报告中明确列出，不应误报为完成。
+
+当前总首页为 Learning EDA 双语课程门户。Clustering 以原站链接接入；本站 Partitioning 课程首页为 courses/partitioning/index.html。接入更多课程见 docs/COURSE_PORTAL.md 与 content/courses.json。
