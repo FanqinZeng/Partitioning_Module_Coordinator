@@ -1,4 +1,4 @@
-import {readState,saveState,validateState,download} from './state.js';
+import {readState,saveState,validateState,download,STORAGE_KEY} from './state.js';
 import {t,esc,root,languageRoot,moduleURL,notice} from './ui.js';
 window.addEventListener('storage-error',()=>notice(t('浏览器无法保存或读取学习记录。你仍可学习，并可在学习记录页导出当前会话。','This browser cannot store or read progress. You can still learn and export this session from Progress.')));
 const course=await fetch(root+'data/course.json').then(r=>{if(!r.ok)throw Error('Course data could not be loaded');return r.json();});
@@ -23,9 +23,25 @@ if('IntersectionObserver'in window&&observers.length){
  const io=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)document.querySelectorAll('.reading-toc a').forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id));},{rootMargin:'-12% 0px -70% 0px'});observers.forEach(h=>io.observe(h));
 }
 if(document.body.dataset.page==='progress'){
+ const {progressMarkup}=await import('./progress-review.js');
  const target=document.querySelector('#progress-list');
- function render(){const s=readState();target.innerHTML=course.map(m=>{const p=s.modules[m.id]||{},solved=Object.values(p.answers||{}).filter(Boolean).length;return `<article class="progress-row"><a href="${moduleURL(m)}"><small>Lesson ${m.id}</small><h3>${esc(t(m.title))}</h3></a><span>${t('阅读','Reading')} ${p.read?'✓':'—'}</span><span>${t('实验','Lab')} ${p.lab?'✓':'—'}</span><span>${t('挑战','Challenges')} ${solved}/7</span><span>Python ${p.code?'✓':'—'}</span></article>`;}).join('');}
+ function render(){
+  const active=document.activeElement,lessonId=active.closest('[data-progress-lesson]')?.dataset.progressLesson;
+  const href=active.tagName==='A'?active.getAttribute('href'):null,wasSummary=active.tagName==='SUMMARY';
+  const expanded=new Set([...target.querySelectorAll('.progress-questions[open]')].map(el=>el.closest('[data-progress-lesson]').dataset.progressLesson));
+  target.innerHTML=progressMarkup(course,readState());
+  for(const details of target.querySelectorAll('details.progress-questions'))details.open=expanded.has(details.closest('[data-progress-lesson]').dataset.progressLesson);
+  if(lessonId){
+   const row=target.querySelector(`[data-progress-lesson="${lessonId}"]`);
+   const same=href?[...row.querySelectorAll('a')].find(a=>a.getAttribute('href')===href):wasSummary?row.querySelector('summary'):null;
+   (same||row.querySelector('[data-progress-next]'))?.focus({preventScroll:true});
+  }
+ }
  render();window.addEventListener('progress-changed',render);
+ // Back/forward cache and another tab can preserve an older in-memory record.
+ function refreshProgress(){readState(true);render();}
+ window.addEventListener('pageshow',event=>{if(event.persisted)refreshProgress();});
+ window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY||event.key===null)refreshProgress();});
  document.querySelector('[data-export]').onclick=()=>download('partitioning-progress.json',JSON.stringify(readState(),null,2));
  document.querySelector('[data-import]').onchange=async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>1024*1024)throw Error('File too large');const incoming=validateState(JSON.parse(await file.text()));saveState(incoming);notice(t('已导入并替换本地学习记录。','Imported and replaced local progress.'));}catch(error){notice(t('导入失败，原记录保留：','Import failed; previous progress preserved: ')+error.message);}e.target.value='';};
  document.querySelector('[data-reset]').onclick=()=>document.querySelector('#reset-dialog').showModal();

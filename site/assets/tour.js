@@ -72,7 +72,7 @@ const tours = {
   ],
   progress: [
     step('.progress-row', ['分别查看完成情况', 'Check each activity separately'],
-      ['阅读、实验、挑战和 Python 分别记录。点击章节标题可以回到该课时。', 'Reading, labs, challenges and Python are recorded separately. Select the lesson title to return to it.']),
+      ['阅读、实验、挑战和 Python 分别记录。展开「未完成挑战」可直接进入具体题目，或用每章的下一项活动接着学。', 'Reading, labs, challenges and Python are recorded separately. Expand Unfinished challenges to open a specific question, or use the next activity link to continue.']),
     step('[data-export]', ['先导出备份', 'Export a backup'],
       ['记录仅存在当前浏览器。更换设备或清理浏览器前，先导出记录文件。', 'Records stay in this browser. Export a file before changing devices or clearing browser data.']),
     step('.file-label', ['在另一台设备恢复', 'Restore on another device'],

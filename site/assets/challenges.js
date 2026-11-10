@@ -11,4 +11,14 @@ export function mountChallenges(host,module){
   feedback.textContent=(ok?t('正确。','Correct. '):t('再试一次。','Try again. '))+t(q.explain);
   if(ok){updateLesson(module.id,p=>p.answers[q.id]=true);article.querySelector('.eyebrow').textContent=`${qs.indexOf(q)+1} / ${cats[q.category]} / ${q.level} ✓`;}
  });
+ // These anchors appear after the module loads, so an incoming review link
+ // needs to position and focus the question once it has actually been mounted.
+ function focusLinkedQuestion(){
+  const article=[...host.querySelectorAll('.challenge')].find(el=>'#'+el.id===location.hash);
+  if(!article)return;
+  const heading=article.querySelector('h3');heading.tabIndex=-1;
+  heading.focus({preventScroll:true});article.scrollIntoView({block:'start',behavior:'instant'});
+ }
+ focusLinkedQuestion();
+ window.addEventListener('hashchange',focusLinkedQuestion);
 }

@@ -30,10 +30,10 @@ export function validateState(x){
  return out;
 }
 let memory;
-export function readState(){
- if(memory)return memory;
+export function readState(refresh=false){
+ if(memory&&!refresh)return memory;
  try{const raw=localStorage.getItem(STORAGE_KEY);memory=raw?validateState(JSON.parse(raw)):emptyState();}
- catch(e){memory=emptyState();queueMicrotask(()=>window.dispatchEvent(new CustomEvent('storage-error',{detail:e.message})));}
+ catch(e){memory??=emptyState();queueMicrotask(()=>window.dispatchEvent(new CustomEvent('storage-error',{detail:e.message})));}
  return memory;
 }
 export function saveState(state){
