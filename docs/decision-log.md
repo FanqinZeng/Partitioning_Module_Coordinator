@@ -11,3 +11,5 @@
 - 2026-11-03：总首页升级为 Learning EDA 双语课程门户。按用户要求，Clustering 以原站链接接入；Partitioning 课程首页移至 courses/partitioning/index.html，原课时路径与进度存储保持兼容。课程目录由 content/courses.json 生成，现阶段不汇总外站进度。
 
 - 2026-11-03：Courses 单独承载选课；通用功能导航取代逐门课程导航。课程地图为建议起点，不把 Clustering 强制设为 Partitioning 先修；外站进度不汇总。
+
+- 2026-11-10（阶段三，本周第 1 轮）：同图比较新增可复制链接。链接记录最近一次成功计算所用的图、组数与容量，打开后用现有引擎重算。设计参考 [EDA Algorithms Platform 的共享实验](https://github.com/yongfu-li/eda-learning/blob/main/platform/README.md) 与 [Desmos 的快照分享](https://help.desmos.com/hc/en-us/articles/4405901719309-Saving-and-Sharing-Your-Work)。实测把 AB 权重设为 1、容量设为 1.5 后，在新标签页还原了同一组结果，切换英文也能读取链接。损坏链接保留当前结果。375px 宽度无横向溢出。
