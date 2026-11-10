@@ -61,6 +61,11 @@ dialog{border:1px solid var(--line);background:var(--paper);color:var(--ink);bor
 .film-activity form button[type=submit]{margin:12px 0}
 .film-activity [role=status]:not(:empty){color:var(--c-ink);border-left:2px solid var(--c-teal);padding-left:10px}
 .film-activity .film-resume{border-color:var(--c-teal);color:var(--c-teal)}
+.film-hints{margin:16px 0;padding:16px 0;border-top:1px solid var(--c-line)}
+.film-hints button{min-height:44px;color:var(--c-teal)}
+.film-hints button:disabled{color:var(--c-muted);cursor:default}
+.film-hints ol{margin:14px 0 0;padding-left:24px;color:var(--c-ink);font-size:13px;line-height:1.85}
+.film-hints li+li{margin-top:10px}
 @media(max-width:600px){.film-activity-grid{grid-template-columns:minmax(0,1fr)}.film-activity .graph-svg{max-height:155px}}
 
 .compare-link{box-sizing:border-box;width:100%;max-width:620px;margin:10px 0;padding:8px 12px;background:var(--paper);border:1px solid var(--line);font:12px var(--mono);color:var(--ink)}

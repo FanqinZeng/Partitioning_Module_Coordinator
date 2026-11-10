@@ -1,12 +1,7 @@
 import {BAD, GOOD, G01, metrics} from '../engines/course.js';
 import {graphSVG} from './graph.js';
 import {esc} from './ui.js';
-
-const CAPACITY = 4;
-const CAPACITY_GRAPH = {
-  ...G01,
-  nodes: G01.nodes.map(node => node.id === 'A' ? {...node, size: 4} : node),
-};
+import {filmHints, FILM_CAPACITY as CAPACITY, FILM_CAPACITY_GRAPH as CAPACITY_GRAPH} from './film-hints.js';
 const TITLES = {
   cut: ['预测割代价', 'Predict the cut'],
   capacity: ['让两组都放得下', 'Fit both parts'],
@@ -20,6 +15,13 @@ export function mountFilmActivities(host, {video, language, seek}) {
   const question = panel.querySelector('[data-film-question]');
   const feedback = panel.querySelector('[data-film-feedback]');
   const resume = panel.querySelector('[data-film-resume]');
+  const hints = document.createElement('div');
+  hints.className = 'film-hints';
+  hints.innerHTML = '<button type="button" data-film-hint disabled aria-controls="film-hint-list"></button>' +
+    '<ol id="film-hint-list" data-film-hint-list aria-live="polite" aria-atomic="true" hidden></ol>';
+  resume.before(hints);
+  const hintButton = panel.querySelector('[data-film-hint]');
+  const hintList = panel.querySelector('[data-film-hint-list]');
   const cues = [...host.querySelectorAll('[data-film-cue]')].map(button => ({
     key: button.dataset.filmCue, time: Number(button.dataset.time), button,
   }));
@@ -29,6 +31,20 @@ export function mountFilmActivities(host, {video, language, seek}) {
   let assignment;
   let prediction;
   let checked;
+  let attempted = false;
+  let hintLevel = 0;
+
+  function updateHints() {
+    const hints = filmHints(active.key, assignment);
+    hintButton.disabled = !attempted || hintLevel >= hints.length;
+    hintButton.textContent = !attempted
+      ? text('先提交一次，再看提示', 'Try an answer first to unlock hints')
+      : hintLevel >= hints.length
+        ? text('已展开全部提示', 'All hints shown')
+        : text(`查看提示 ${hintLevel + 1} / ${hints.length}`, `Show hint ${hintLevel + 1} / ${hints.length}`);
+    hintList.hidden = hintLevel === 0;
+    hintList.innerHTML = hints.slice(0, hintLevel).map(hint => `<li>${esc(text(...hint))}</li>`).join('');
+  }
 
   function updateLabels() {
     host.querySelector('[data-film-activity-intro]').textContent = text(
@@ -42,6 +58,7 @@ export function mountFilmActivities(host, {video, language, seek}) {
   }
 
   function showFeedback() {
+    updateHints();
     resume.textContent = checked ? text('继续播放', 'Continue watching') : text('跳过并继续', 'Skip and continue');
     if (!checked) {
       feedback.textContent = '';
@@ -116,6 +133,8 @@ export function mountFilmActivities(host, {video, language, seek}) {
     active = cue;
     opened.add(cue.key);
     checked = false;
+    attempted = false;
+    hintLevel = 0;
     prediction = '';
     assignment = {...GOOD};
     panel.hidden = false;
@@ -135,7 +154,13 @@ export function mountFilmActivities(host, {video, language, seek}) {
   question.addEventListener('submit', event => {
     event.preventDefault();
     checked = true;
+    attempted = true;
     showFeedback();
+  });
+  hintButton.addEventListener('click', () => {
+    if (!attempted || hintLevel >= 2) return;
+    hintLevel++;
+    updateHints();
   });
   question.addEventListener('click', event => {
     const vertex = event.target.closest('[data-move-vertex]')?.dataset.moveVertex;
