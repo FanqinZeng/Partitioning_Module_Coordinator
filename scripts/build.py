@@ -71,13 +71,13 @@ def page(path,title,body,lang=0,page_type='',module=None):
     if module:
         nav=[('goals',['目标','Goals']),('watch',['影片','Watch']),('terms',['术语','Terms']),('reading',['讲义','Lesson']),('slides',['课件','Slides']),('lab',['实验台','Lab']),('challenges',['挑战','Challenges']),('code',['Python','Python']),('mistakes',['易错点','Mistakes']),('resources',['来源','Sources'])]
         module_nav='<nav class="module-nav" aria-label="'+T(['章节导航','Lesson sections'],lang)+'"><div class="wrap">'+''.join(f'<a href="#{anchor}">{T(label,lang)}</a>' for anchor,label in nav)+'</div></nav>'
-    footer=f'''<footer class="footer"><div class="wrap"><div><p>Learning Partitioning · {T(['七章 EDA 交互课程，由 FanqinZeng 整合。原作者与改动见','Seven interactive EDA lessons, integrated by FanqinZeng. Original authors and changes:'],lang)} <a href="{lr}credits/index.html">{T(['资源与贡献','Credits'],lang)}</a>。</p><p>{T(['设计与制作规范改编自','Design and production guidance adapted from'],lang)} <a href="https://su3037.github.io/learning-clustering/">Learning Clustering · Su3037</a> · {T(['代码 MIT / 新教材 CC BY 4.0','Code MIT / new course content CC BY 4.0'],lang)}</p></div><p><a href="https://github.com/FanqinZeng/Partitioning_Module_Coordinator">GitHub ↗</a><br><a href="{lr}guide/index.html">{T(['使用指南与离线学习','Guide & offline learning'],lang)}</a><br>2026.11 · v1.0</p></div></footer>'''
+    footer=f'''<footer class="footer"><div class="wrap"><div><p>Learning Partitioning · {T(['七章 EDA 交互课程，由 FanqinZeng 整合。原作者与改动见','Seven interactive EDA lessons, integrated by FanqinZeng. Original authors and changes:'],lang)} <a href="{lr}credits/index.html">{T(['资源与贡献','Credits'],lang)}</a>。</p><p>{T(['设计与制作规范改编自','Design and production guidance adapted from'],lang)} <a href="https://su3037.github.io/learning-clustering/">Learning Clustering · Su3037</a> · {T(['代码 MIT / 新教材 CC BY 4.0','Code MIT / new course content CC BY 4.0'],lang)}</p></div><p><a href="https://github.com/FanqinZeng/Partitioning_Module_Coordinator">GitHub ↗</a><br><a href="{lr}guide/index.html">{T(['帮助与离线学习','Help & offline learning'],lang)}</a><br>2026.11 · v1.0</p></div></footer>'''
     if is_portal:
         footer=footer.replace('Learning Partitioning · '+T(['七章 EDA 交互课程，由 FanqinZeng 整合。原作者与改动见','Seven interactive EDA lessons, integrated by FanqinZeng. Original authors and changes:'],lang),'Learning EDA · '+T(['开放课程入口，由 FanqinZeng 整合。各课程保留原作者署名。','An open course directory integrated by FanqinZeng. Each course retains its author credits.'],lang))
     dialog=f'''<dialog id="search-dialog"><div class="dialog-head"><h2>{T(['搜索 Partitioning','Search Partitioning'],lang)}</h2><button class="text-button" data-close>{T(['关闭','Close'],lang)} · Esc</button></div><label class="sr-only" for="course-search">{T(['搜索词','Search terms'],lang)}</label><input id="course-search" type="search" placeholder="{T(['割代价、容量、Fiedler…','cut, capacity, Fiedler…'],lang)}" autocomplete="off"><div data-results aria-live="polite"></div></dialog>'''
     script='catalog.js' if page_type=='catalog' else 'portal.js' if is_portal else 'module.js' if module else 'home.js' if page_type=='home' else 'compare.js' if page_type=='compare' else 'core.js'
     description=T(['交互式 EDA 开放课程：连接 Clustering 与 Partitioning，用影片、实验和 Python 学习芯片算法。','Interactive EDA courses: explore clustering and partitioning through films, experiments and Python.'],lang) if is_portal else T(['从割代价、初始二分到 KL、FM、谱方法与多路划分：真实交互实验、练习反馈与浏览器 Python。','From cut metrics to KL, FM, spectral and k-way partitioning: real interactive labs, feedback and browser Python.'],lang)
-    out=f'''<!doctype html><html lang="{'en' if lang else 'zh-CN'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f0e7"><title>{E(title)} · {"Learning EDA" if is_portal else "Learning Partitioning"}</title><meta name="description" content="{E(description)}"><link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{root}assets/base.css"><link rel="stylesheet" href="{root}assets/partitioning.css"><link rel="stylesheet" href="{root}assets/portal.css"><link rel="alternate" hreflang="{'zh-CN' if lang else 'en'}" href="{alternate}"></head><body data-root="{root}" data-page="{page_type}"{(' data-module="'+module['id']+'"') if module else ''}>{top}{context}{module_nav}<div id="notice" class="notice" role="status" hidden></div><main id="main">{body}</main>{footer}{dialog}<script type="module" src="{root}assets/{script}"></script></body></html>'''
+    out=f'''<!doctype html><html lang="{'en' if lang else 'zh-CN'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f0e7"><title>{E(title)} · {"Learning EDA" if is_portal else "Learning Partitioning"}</title><meta name="description" content="{E(description)}"><link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{root}assets/base.css"><link rel="stylesheet" href="{root}assets/partitioning.css"><link rel="stylesheet" href="{root}assets/portal.css"><link rel="stylesheet" href="{root}assets/tour.css"><link rel="alternate" hreflang="{'zh-CN' if lang else 'en'}" href="{alternate}"></head><body data-root="{root}" data-page="{page_type}"{(' data-module="'+module['id']+'"') if module else ''}>{top}{context}{module_nav}<div id="notice" class="notice" role="status" hidden></div><main id="main">{body}</main>{footer}{dialog}<button type="button" class="tour-launcher" data-tour-launcher data-start-tour><span aria-hidden="true">?</span>{T(['使用引导','Site tour'],lang)}</button><script type="module" src="{root}assets/tour.js"></script><script type="module" src="{root}assets/{script}"></script></body></html>'''
     dest=SITE/actual;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(out)
 
 def film_clock(seconds):
@@ -185,7 +185,7 @@ def home(lang):
     cards=''.join(f'''<a class="course-card" href="{url(m)}" data-progress-module="{m['id']}"><span class="num">Lesson {m['id']} <span aria-hidden="true">↗</span></span><h3>{E(z(m['title']))}</h3><p>{E(z(m['summary']))}</p><span class="meta">{E(m['author'])} · {m['minutes']} {z(['分钟','min'])}</span><progress value="0" max="10" aria-label="{E(z(m['title']))} {z(['学习进度','progress'])}"></progress><span data-progress-text></span></a>''' for m in CATALOG)
     stages=[(['01 / MEASURE','01 / MEASURE'],['衡量','Measure'],['割代价与约束','Cut cost and constraints']),(['02 / CONSTRUCT','02 / CONSTRUCT'],['构造','Construct'],['初始二分与谱排序','Initial splits and spectral order']),(['03 / REFINE','03 / REFINE'],['改进','Refine'],['KL 与 FM 的试探和回退','KL and FM trials and rollback']),(['04 / EXTEND','04 / EXTEND'],['扩展','Extend'],['递归二分与多路比较','Recursive and k-way comparisons'])]
     route=''.join(f'<div class="route-stage"><small>{z(no)}</small><h3>{z(title)}</h3><p>{z(desc)}</p></div>' for no,title,desc in stages)
-    body=f'''<section class="wrap hero"><div><p class="eyebrow">Learning Partitioning / EDA / 07 LESSONS</p><h1>{z(['划分与取舍','Partition with purpose'])}</h1><p class="hero-sub">{z(['让紧密相连的单元相聚，<br>让每个分组都放得下。','Keep close connections together.<br>Make every part fit.'])}</p><p class="lead">{z(['一张图，七种观察与操作。从“怎样评价一个分组”，到“如何构造、改进并扩展到多个分组”。读解释、做预测，再在真实算法中验证你的判断。','One graph, seven ways to reason about it. Learn to measure, construct, refine and extend a partition. Read an explanation, make a prediction, then test it in a real algorithm.'])}</p><div class="btn-row"><a class="btn primary" href="{url(CATALOG[0])}">{z(['从 Lesson 02 开始','Start with Lesson 02'])} →</a><a class="btn quiet" href="#intro">{z(['先看导论（3:10）','Watch the introduction (3:10)'])}</a><a class="btn quiet" href="guide/index.html">{z(['新手引导','Getting started'])} →</a></div><p><a data-continue hidden class="section-link"></a></p><p class="byline">{z(['中文 / English · 浏览器内实验与 Python · 无需登录','中文 / English · In-browser labs & Python · No login'])}</p></div><figure class="hero-art"><div data-hero-graph></div><div class="hero-metric"><span>{z(['相同人数，改变连接质量','Same counts, different connections'])}</span><strong data-hero-cut>12</strong><span class="small muted">cut</span></div><div class="hero-controls"><button class="text-button" data-hero-bad>AE | BCD</button><span class="muted">↔</span><button class="text-button" data-hero-good>ABC | DE</button></div><figcaption>{z(['公共图 G01 · 点击比较两个起点','Shared graph G01 · compare two assignments'])}</figcaption></figure></section>
+    body=f'''<section class="wrap hero"><div><p class="eyebrow">Learning Partitioning / EDA / 07 LESSONS</p><h1>{z(['划分与取舍','Partition with purpose'])}</h1><p class="hero-sub">{z(['让紧密相连的单元相聚，<br>让每个分组都放得下。','Keep close connections together.<br>Make every part fit.'])}</p><p class="lead">{z(['一张图，七种观察与操作。从“怎样评价一个分组”，到“如何构造、改进并扩展到多个分组”。读解释、做预测，再在真实算法中验证你的判断。','One graph, seven ways to reason about it. Learn to measure, construct, refine and extend a partition. Read an explanation, make a prediction, then test it in a real algorithm.'])}</p><div class="btn-row"><a class="btn primary" href="{url(CATALOG[0])}">{z(['从 Lesson 02 开始','Start with Lesson 02'])} →</a><a class="btn quiet" href="#intro">{z(['先看导论（3:10）','Watch the introduction (3:10)'])}</a><button type="button" class="btn quiet" data-start-tour>{z(['新手引导','Getting started'])} ◎</button></div><p><a data-continue hidden class="section-link"></a></p><p class="byline">{z(['中文 / English · 浏览器内实验与 Python · 无需登录','中文 / English · In-browser labs & Python · No login'])}</p></div><figure class="hero-art"><div data-hero-graph></div><div class="hero-metric"><span>{z(['相同人数，改变连接质量','Same counts, different connections'])}</span><strong data-hero-cut>12</strong><span class="small muted">cut</span></div><div class="hero-controls"><button class="text-button" data-hero-bad>AE | BCD</button><span class="muted">↔</span><button class="text-button" data-hero-good>ABC | DE</button></div><figcaption>{z(['公共图 G01 · 点击比较两个起点','Shared graph G01 · compare two assignments'])}</figcaption></figure></section>
     {home_film(lang)}
     <section class="section" id="curriculum"><div class="wrap"><div class="section-head"><div><p class="eyebrow">02 / LEARNING PATH</p><h2>{z(['七章，连接成一条路线','Seven connected lessons'])}</h2></div><p>{z(['编号沿用原课时 Lesson 2–8。初学者按顺序前进；已有基础时，可从谱方法或改进算法进入。每章约 35–60 分钟。','Numbering follows the original Lessons 2–8. Follow the sequence, or enter at spectral methods or refinement if you know the basics. Allow 35–60 minutes per lesson.'])}</p></div><div class="learning-route">{route}</div><div class="course-grid">{cards}</div></div></section>
     <section class="section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">03 / ONE GRAPH, DIFFERENT CONTRACTS</p><h2>{z(['把方法放在同一张图上比较','Compare methods on one graph'])}</h2></div><p>{z(['算法结果由页面实时计算。相同 cut 不意味着相同约束；二分与三路结果也不混排为一个排名。','Results are calculated live. Equal cuts do not imply equal constraints, and two-way and three-way results are not ranked together.'])}</p></div><div id="home-comparison"></div><a class="section-link" href="compare/index.html">{z(['进入比较台：换图、改参数、查看精确解','Open the comparison bench: edit the graph, parameters and exact oracle'])} →</a></div></section>
@@ -243,55 +243,10 @@ def module_page(m,lang):
     (ROOT/f"content/modules/{m['id']}.slides.{('en' if lang else 'zh')}.json").write_text(json.dumps([{'title':a,'text':b,'transcript':c} for a,b,c in slide_items],ensure_ascii=False,indent=2))
 
 def getting_started(lang):
-    lesson='../'+url(CATALOG[0])
-    steps=[
-        (
-            ['选一门课','Choose a course'],
-            ['在课程目录看两门课的学习地图。想学割代价与分组，就进入 Partitioning，再从 Lesson 02 开始。用页面顶部的 EN 或「中文」切换语言。',
-             'Use the learning map to choose a course. To learn cut cost and grouping, open Partitioning and start with Lesson 02. Switch languages using EN or 中文 at the top of the page.'],
-            [('../courses/index.html#map',['查看学习地图','View the learning map'])],
-        ),
-        (
-            ['边看边答','Watch and try'],
-            ['打开 Lesson 02 的「影片」，点击播放。影片会两次自动暂停，请在播放器下方预测割代价或移动节点并检查容量。看完反馈后点「继续播放」。',
-             'Open the Lesson 02 film and press Play. It pauses twice. Use the panel below the player to predict the cut or move vertices and check capacity. Read the feedback, then select Continue watching.'],
-            [(lesson+'#watch',['打开互动影片','Open the interactive film'])],
-        ),
-        (
-            ['用实验验证理解','Test an idea in the lab'],
-            ['在实验台点一个节点给它换组，观察跨组边和割代价怎么变。到「挑战」提交答案，需要时打开提示。想练代码，可以直接在「Python」里运行检查。',
-             'Select a vertex in the lab to move it and watch how crossing edges and cut cost change. Submit an answer in Challenges and open a hint if you get stuck. Use Python to run the code checks in your browser.'],
-            [(lesson+'#lab',['打开实验台','Open the lab']),
-             (lesson+'#challenges',['试做挑战','Try the challenges']),
-             (lesson+'#code',['打开 Python','Open Python'])],
-        ),
-        (
-            ['对比结果，下次接着学','Compare results and pick up later'],
-            ['到「同图比较」用相同输入运行多种算法。想复现这组实验，点「复制本次比较链接」。用「学习记录」查看已完成的活动或导出进度。',
-             'Run several algorithms on the same input in Compare. Use Copy comparison link to recreate an experiment. Open Progress to check completed activities or export your record.'],
-            [('../compare/index.html',['打开同图比较','Open comparison']),
-             ('../progress/index.html',['查看学习记录','View your progress'])],
-        ),
-    ]
-    cards=[]
-    for number,(title,description,links) in enumerate(steps,1):
-        actions=''.join(
-            f'<a href="{E(href)}">{E(T(label,lang))} →</a>'
-            for href,label in links)
-        cards.append(f'''<li>
-    <span class="guide-step-number" aria-hidden="true">{number:02d}</span>
-    <h3>{E(T(title,lang))}</h3>
-    <p>{E(T(description,lang))}</p>
-    <div class="guide-step-links">{actions}</div>
-  </li>''')
-    return f'''<section aria-labelledby="quickstart">
-<h2 id="quickstart">{T(['第一次使用','Your first visit'],lang)}</h2>
-<ol class="guide-steps" role="list">
-  {''.join(cards)}
-</ol>
-<p class="guide-tip">{T(['想找某个概念？在课程页点放大镜，或按 / 搜索讲义。页面底部的「使用指南与离线学习」可回到这里。',
-                        'Looking for a concept? On a lesson page, select the search icon or press / to search the lesson text. The Guide &amp; offline learning link in the footer brings you back here.'],lang)}</p>
-</section>'''
+    return f'''<h2 id="quickstart">{T(['在页面上跟着走一遍','Take a tour on the page'],lang)}</h2>
+<p>{T(['使用页面右下角的「使用引导」，即可圈出当前页面的功能并逐步说明。用「下一步」「上一步」浏览，随时退出。课程首页和每个课时都有对应引导。',
+       'Use Site tour at the bottom right to highlight the current page’s features with step-by-step explanations. Select Next or Back and exit at any time. Course and lesson pages have their own tours.'],lang)}</p>
+<p><a class="btn primary" href="../index.html?tour=1">{T(['在首页开始引导','Start the homepage tour'],lang)} →</a></p>'''
 
 def shared_pages(lang):
     z=lambda x:T(x,lang)
@@ -307,7 +262,7 @@ def shared_pages(lang):
     glossary='<dl>'+''.join(f'<dt>{E(key)}</dt><dd>{E(term[2] if lang else term[1])} <a href="../{url(m)}#terms">Lesson {m["id"]} ↗</a></dd>' for key,(term,m) in terms.items())+'</dl>'
     standard('glossary/index.html',z(['术语表','Glossary']),z(['中英术语与可回到上下文的解释。按 / 也可以搜索讲义全文。','Bilingual terms with links back to their lessons. Press / to search the complete lesson text.']),glossary)
     guide=getting_started(lang)+f'''<h2>{z(['学习记录与隐私','Progress and privacy'])}</h2><p>{z(['记录仅保存在当前浏览器，包括代码草稿；没有账号、云同步或成绩上传。阅读需手动标记，实验到达最后一步、挑战答对、代码全部检查通过才分别记录。清理浏览器会删除本地记录，建议定期导出。','Progress and drafts stay in this browser; there is no account, cloud sync or grade upload. Mark reading manually. Reach the last lab step, answer challenges correctly and pass code checks to complete those activities. Export before clearing browser data.'])}</p><h2>{z(['离线学习','Offline learning'])}</h2><p>{z(['下载站点包后解压，用包内 serve.py 启动本地服务器，再在浏览器打开。首页导论片、课时影片、实验、讲义、搜索和 Python 都使用本地文件；作者托管的原影片与外链仍需网络。直接双击 HTML 会受到浏览器模块与 worker 的限制。','Download and extract the site bundle, run its serve.py local server, then open the printed URL. The homepage introduction, lesson films, lessons, search, labs and Python use local files; author-hosted films and external links still need a connection. Opening HTML directly can block modules and workers.'])}</p><p><a href="{'../../' if lang else '../'}downloads/learning-partitioning-offline.zip">{z(['下载离线站点','Download offline course'])} ↓</a> · <a href="{'../../' if lang else '../'}downloads/partitioning-python.zip">{z(['下载全部 Python 练习','Download all Python exercises'])} ↓</a></p><h2>{z(['键盘与可访问性','Keyboard and accessibility'])}</h2><p>{z(['Tab 导航到按钮和表单；节点换侧支持 Enter/空格；播放、回退与时间轴可用键盘操作。按 / 搜索，Esc 关闭搜索。系统的减少动态设置会关闭界面过渡；算法只在你按播放后自动前进。','Use Tab for controls and forms. Enter or Space moves an interactive vertex. Playback and timeline controls support the keyboard. / opens search; Escape closes it. Reduced-motion preferences disable transitions; automatic stepping starts only when you press Play.'])}</p>'''
-    standard('guide/index.html',z(['网站使用指南','Site guide']),z(['从选课到做完第一次实验，按步骤体验网站的主要功能。','Choose a course and try your first experiment. Each step takes you straight to the feature.']),guide,'guide')
+    standard('guide/index.html',z(['网站使用指南','Site guide']),z(['需要操作指引时，点击右下角「使用引导」。这里保留离线学习、记录与键盘说明。','Select Site tour at the bottom right for an on-page walkthrough. Find offline learning, progress and keyboard help below.']),guide,'guide')
     credits=f'<h2>{z(["七份原提交","The seven original contributions"])}</h2>'
     for m in CATALOG:
         link=f"https://github.com/{m['repo']}/tree/{m['commit']}" if m.get('repo') else m['attachment']
