@@ -130,7 +130,7 @@
   ],
   "sourceFiles": {
     "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
-    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/render_lessons.py": "0092f31c6477a7fe66312112b311cf100960224cf8fc9784283e84193fd9e38f",
     "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
     "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
     "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"

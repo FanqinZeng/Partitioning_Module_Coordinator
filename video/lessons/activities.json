@@ -1,0 +1,18 @@
+{
+  "02": [
+    {
+      "id": "cut",
+      "time": 20,
+      "start": 15,
+      "end": 23,
+      "prompt": ["在下方预测割代价", "Predict the cut below"]
+    },
+    {
+      "id": "capacity",
+      "time": 70,
+      "start": 65,
+      "end": 73,
+      "prompt": ["在下方换组并检查容量", "Move vertices and check capacity below"]
+    }
+  ]
+}

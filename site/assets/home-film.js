@@ -7,6 +7,7 @@ export function mountHomeFilm(){
  const stem=video.dataset.filmStem;
  const base=new URL('.',video.querySelector('source').src);let lastChapter=-1,pending=null;
  function seek(time,play=false){
+  video.dispatchEvent(new CustomEvent('filmseek',{detail:time}));
   if(video.readyState>=1){video.currentTime=Math.min(time,video.duration);if(play)video.play().catch(()=>status.textContent=t('已定位章节，点击播放继续。','Chapter selected. Press Play to continue.'));}
   else{pending={time,play};video.load();}
  }
@@ -34,4 +35,5 @@ export function mountHomeFilm(){
   const selected=chapterButtons[chapter];if(selected)status.textContent=t('当前章节：','Current chapter: ')+selected.textContent.trim();
  });
  video.addEventListener('error',()=>status.textContent=t('影片加载失败，可使用下方 MP4 链接直接打开。','The film could not load. Use the MP4 link below to open it directly.'));
+ return {video,language,seek};
 }

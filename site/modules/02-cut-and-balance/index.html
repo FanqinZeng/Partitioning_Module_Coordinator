@@ -15,6 +15,16 @@
   <label>播放速度<select data-home-film-speed><option value="1">1×</option><option value="0.75">0.75×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
   <p data-home-film-status role="status">字幕与原创配乐，无旁白。</p>
 </div>
+<div class="film-activities" data-film-activities hidden>
+  <p data-film-activity-intro>影片会在两处暂停，让你先算割代价，再动手调整分组。也可点击时间重做。</p>
+  <div class="film-activity-buttons"><button type="button" data-film-cue="cut" data-time="20"></button><button type="button" data-film-cue="capacity" data-time="70"></button></div>
+  <section class="film-activity" data-film-activity aria-labelledby="film-activity-title" hidden>
+    <h3 id="film-activity-title" tabindex="-1"></h3>
+    <div data-film-question></div>
+    <p data-film-feedback role="status"></p>
+    <button class="film-resume" type="button" data-film-resume></button>
+  </section>
+</div>
 <nav class="home-chapters" aria-label="影片章节"><button type="button" data-home-chapter="0"><span>00:00</span>先确认分组</button><button type="button" data-home-chapter="20"><span>00:20</span>逐条累计跨组边</button><button type="button" data-home-chapter="40"><span>00:40</span>人数相同，连接质量不同</button><button type="button" data-home-chapter="60"><span>01:00</span>面积是另一条约束</button><button type="button" data-home-chapter="80"><span>01:20</span>带着指标做实验</button></nav>
 <div class="home-film-links">
   <a data-home-download href="../../media/lessons/02/lesson.zh.mp4" download>下载 MP4 ↓</a>

@@ -82,7 +82,7 @@ def page(path,title,body,lang=0,page_type='',module=None):
 def film_clock(seconds):
     return f'{int(seconds)//60:02}:{int(seconds)%60:02}'
 
-def film_player(film, base, stem, label, lang, extra_link=''):
+def film_player(film, base, stem, label, lang, extra_link='', activities=''):
     z=lambda x:T(x,lang)
     language='en' if lang else 'zh'
     chapters=''.join(
@@ -104,6 +104,7 @@ def film_player(film, base, stem, label, lang, extra_link=''):
     zh_selected=' selected' if not lang else ''
     en_selected=' selected' if lang else ''
     speeds=''.join(f'<option value="{value}">{value}×</option>' for value in (1,0.75,1.25,1.5))
+    activity_markup=activities+'\n' if activities else ''
     return f'''<div class="home-film">
 <video data-home-video data-film-stem="{stem}" controls playsinline preload="metadata" poster="{media}.jpg" aria-label="{E(label)}">
   <source src="{media}.mp4" type="video/mp4">
@@ -114,7 +115,7 @@ def film_player(film, base, stem, label, lang, extra_link=''):
   <label>{z(['播放速度','Playback speed'])}<select data-home-film-speed>{speeds}</select></label>
   <p data-home-film-status role="status">{z(['字幕与原创配乐，无旁白。','Captions and original score, with no narration.'])}</p>
 </div>
-<nav class="home-chapters" aria-label="{z(['影片章节','Film chapters'])}">{chapters}</nav>
+{activity_markup}<nav class="home-chapters" aria-label="{z(['影片章节','Film chapters'])}">{chapters}</nav>
 <div class="home-film-links">
   <a data-home-download href="{media}.mp4" download>{z(['下载 MP4','Download MP4'])} ↓</a>
   <a data-home-captions href="{media}.vtt" download>{z(['下载字幕','Download captions'])}</a>
@@ -133,6 +134,22 @@ def home_film(lang):
     player=film_player(film,base,'intro',z(['Partitioning 首页导论片','Partitioning introduction film']),lang,extra_link)
     return f'''<section class="intro-band" id="intro"><div class="wrap"><div class="section-head intro-film-heading"><div><p class="eyebrow">01 / AN ORIGINAL INTRODUCTION</p><h2>{z(['什么是 Partitioning','What is partitioning?'])}</h2><p class="home-film-heading-time">{film_clock(film['duration'])} · 1080p · {z(['中英两版 · 字幕与原创配乐','Chinese & English · captions and original score'])}</p></div><p>{E(film['why'][language])}</p></div>{player}</div></section>'''
 
+def lesson_film_activities(film, lang):
+    buttons=''.join(
+        f'<button type="button" data-film-cue="{E(cue["id"])}" data-time="{cue["time"]}"></button>'
+        for cue in film['activities'])
+    z=lambda x:T(x,lang)
+    return f'''<div class="film-activities" data-film-activities hidden>
+  <p data-film-activity-intro>{z(['影片会在两处暂停，让你先算割代价，再动手调整分组。也可点击时间重做。','The film pauses twice. Predict a cut, then move vertices to meet a capacity. Select a time to retry.'])}</p>
+  <div class="film-activity-buttons">{buttons}</div>
+  <section class="film-activity" data-film-activity aria-labelledby="film-activity-title" hidden>
+    <h3 id="film-activity-title" tabindex="-1"></h3>
+    <div data-film-question></div>
+    <p data-film-feedback role="status"></p>
+    <button class="film-resume" type="button" data-film-resume></button>
+  </section>
+</div>'''
+
 def lesson_film(module, media, lang):
     z=lambda x:T(x,lang)
     lesson=module['id']
@@ -142,7 +159,8 @@ def lesson_film(module, media, lang):
     for caption in film['captions']:
         caption['zh'],caption['en']=caption['text']
     base=('../../../' if lang else '../../')+f'media/lessons/{lesson}/'
-    player=film_player(film,base,'lesson',z(film['title']),lang)
+    activities=lesson_film_activities(film, lang) if film.get('activities') else ''
+    player=film_player(film,base,'lesson',z(film['title']),lang,activities=activities)
     original=[]
     for key, label in (
         ('video', '中文' if media.get('language')=='zh' else 'English'),

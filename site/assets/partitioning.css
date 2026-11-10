@@ -46,3 +46,19 @@ dialog{border:1px solid var(--line);background:var(--paper);color:var(--ink);bor
 @media(max-width:430px){.brand-name{font-size:15px}.topbar .wrap{gap:8px}.icon-button{font-size:0}.icon-button:after{content:'⌕';font-size:21px}.mobile-nav{font-size:11px}.course-grid{grid-template-columns:1fr}.hero h1{font-size:47px}.hero-sub{font-size:22px}.term-grid{grid-template-columns:1fr}.module-hero h1{font-size:37px}.metric-strip strong{font-size:20px}.metric-strip small{font-size:9px}.workbench .lab-btn{padding:8px 10px}.slide-canvas h3{font-size:20px;margin:8px 0 12px}.slide-canvas p{font-size:11px;line-height:1.65}.slide-canvas{aspect-ratio:auto;min-height:220px;padding:25px}.slide-canvas .eyebrow{font-size:8px}.compare-config{gap:15px}.compare-config label{flex:1;min-width:110px}.compare-config input{max-width:100%;width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 @media print{.topbar,.module-nav,.reading-toc,.workbench,.challenge form,.hint-row,.code-grid,.footer,.slide-controls,.slide-deck,.btn-row,dialog,.intro-band{display:none!important}body{background:white;color:black;font-size:12pt}.wrap{width:100%;max-width:100%}.section{padding:20px 0}.reading-layout{display:block}.lesson-prose h2{break-after:avoid;margin-top:30px}.lesson-prose p{font-size:12pt;line-height:1.8}.module-intro,.mistake-list{display:block}.module-hero{padding:0}.module-hero h1{font-size:30pt}a{color:inherit}h2,h3{color:black}.term-grid{grid-template-columns:1fr 1fr}.next-lesson{display:none}}
+
+.film-activities{padding:16px 0;border-bottom:1px solid var(--c-line)}
+.film-activities p{color:var(--c-muted);font-size:14px;line-height:1.65;margin:0 0 12px}
+.film-activity-buttons,.film-vertex-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.film-activities button,.film-activities input{color:var(--c-ink);background:#142e35;border:1px solid #456166;border-radius:3px;padding:8px 12px;min-height:40px;font:inherit;font-size:13px}
+.film-activities button:hover{border-color:var(--c-teal)}
+.film-activity{margin-top:14px;padding:clamp(12px,3vw,24px);border:1px solid var(--c-line);background:#10272c}
+.film-activity h3{color:var(--c-ink);font-size:21px;margin:0 0 8px;scroll-margin-top:135px}
+.film-activity-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:12px}
+.film-activity .graph-svg{display:block;width:100%;max-height:240px}
+.film-activity label{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.film-activity input{width:7rem}
+.film-activity form button[type=submit]{margin:12px 0}
+.film-activity [role=status]:not(:empty){color:var(--c-ink);border-left:2px solid var(--c-teal);padding-left:10px}
+.film-activity .film-resume{border-color:var(--c-teal);color:var(--c-teal)}
+@media(max-width:600px){.film-activity-grid{grid-template-columns:minmax(0,1fr)}.film-activity .graph-svg{max-height:155px}}

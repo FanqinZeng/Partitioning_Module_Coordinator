@@ -130,15 +130,16 @@
   ],
   "sourceFiles": {
     "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
-    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/render_lessons.py": "0092f31c6477a7fe66312112b311cf100960224cf8fc9784283e84193fd9e38f",
     "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
     "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
-    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99",
+    "video/lessons/activities.json": "bc06a4493075b95f22b846ba72a4fb76cd5e20a9662e554e45944c5bbfd0aa00"
   },
   "versions": {
     "zh": {
-      "sha256": "abed1a58ed11e7e8c38c6e0af6fbb1ca7b20eccaa12794cd7018868a746cdc78",
-      "bytes": 3198365,
+      "sha256": "1da391b03364973048476f6d3b6ee9b857c59d9069890e43929eca66b36a0f5e",
+      "bytes": 3253576,
       "frames": 3000,
       "audioRmsDbFS": -24.012,
       "audioPeakDbFS": -14.751,
@@ -146,13 +147,35 @@
       "faststart": true
     },
     "en": {
-      "sha256": "c1ff58943d4382b416d5a4c0be3aebc65ca497e649ad432a4be3a3493dfbd988",
-      "bytes": 3160924,
+      "sha256": "27aa89e3325d455a06d93652be17f7841fc56c53f8747b49c4548e204b757b9f",
+      "bytes": 3208631,
       "frames": 3000,
       "audioRmsDbFS": -24.012,
       "audioPeakDbFS": -14.751,
       "decoded": true,
       "faststart": true
     }
-  }
+  },
+  "activities": [
+    {
+      "id": "cut",
+      "time": 20,
+      "start": 15,
+      "end": 23,
+      "prompt": [
+        "在下方预测割代价",
+        "Predict the cut below"
+      ]
+    },
+    {
+      "id": "capacity",
+      "time": 70,
+      "start": 65,
+      "end": 73,
+      "prompt": [
+        "在下方换组并检查容量",
+        "Move vertices and check capacity below"
+      ]
+    }
+  ]
 }

@@ -22,6 +22,8 @@ from validate_intro import atoms
 
 ROOT = Path(__file__).resolve().parents[2]
 STORYBOARDS = ROOT / 'video/lessons/storyboards.json'
+ACTIVITY_FILE = ROOT / 'video/lessons/activities.json'
+ACTIVITIES = json.loads(ACTIVITY_FILE.read_text())
 DATA = json.loads(STORYBOARDS.read_text())
 GRAPH = DATA['graph']
 CACHE = ROOT / '.cache/lesson-films'
@@ -204,6 +206,25 @@ def draw_order(image, view, elapsed, lang):
 DRAW = {'cards': draw_cards, 'chart': draw_chart, 'matrix': draw_matrix, 'order': draw_order}
 
 
+def draw_heading(image, lesson, beat, elapsed, lang):
+    time = beat['start'] + elapsed
+    for cue in ACTIVITIES.get(lesson, []):
+        if cue['start'] <= time < cue['end']:
+            zh, en = cue['prompt']
+            minute, second = divmod(cue['time'], 60)
+            clock = f'{minute:02}:{second:02}'
+            box(image, (112, 116, 1808, 256), GOLD, PANEL, 13, 3)
+            text(image, clock, 144, 153, 54, GOLD, 'mono')
+            line(image, (337, 140), (337, 232), FAINT, 2)
+            if lang == 'zh':
+                text(image, zh, 372, 128, 70, IVORY, 'bold', max_width=1397)
+                text(image, en, 372, 211, 34, MUTED, max_width=1397)
+            else:
+                text(image, en, 372, 155, 68, IVORY, 'bold', max_width=1397)
+            return
+    text(image, tr(beat['title'], lang), 112, 134, 61, IVORY, 'serif', max_width=1680)
+
+
 def frame(lesson, film, beats, index, elapsed, lang):
     beat = beats[index]
     image = background().copy()
@@ -215,7 +236,7 @@ def frame(lesson, film, beats, index, elapsed, lang):
         DRAW[view['type']](image, view, elapsed, lang)
     text(image, f'LEARNING PARTITIONING / LESSON {lesson}', 112, 65, 22, TEAL, 'mono')
     text(image, tr(film['title'], lang), 1806, 61, 27, MUTED, 'serif', 'right', 755)
-    text(image, tr(beat['title'], lang), 112, 134, 61, IVORY, 'serif', max_width=1680)
+    draw_heading(image, lesson, beat, elapsed, lang)
     zh, en = beat['caption']
     if lang == 'zh':
         lines = wrap(zh, 44, 1660, 'bold')
@@ -301,6 +322,10 @@ def contact_sheet(lesson, film, beats, lang, media=None):
 
 def build_lesson(lesson, film, stills):
     beats, chapters, scenes = timeline(film)
+    activities = ACTIVITIES.get(lesson, [])
+    for cue in activities:
+        assert cue['time'] in {beat['start'] for beat in beats}, cue
+        assert 0 <= cue['start'] < cue['time'] < cue['end'] <= beats[-1]['end'], cue
     if stills:
         for lang in ('zh', 'en'):
             contact_sheet(lesson, film, beats, lang)
@@ -332,6 +357,9 @@ def build_lesson(lesson, film, stills):
                 'description': film['description'], 'chapters': chapters,
                 'captions': [{'start': b['start'], 'end': b['end'], 'text': b['caption']} for b in beats],
                 'sourceFiles': {name: sha(ROOT / name) for name in SOURCE_FILES}, 'versions': versions}
+    if activities:
+        metadata['activities'] = activities
+        metadata['sourceFiles'][str(ACTIVITY_FILE.relative_to(ROOT))] = sha(ACTIVITY_FILE)
     (directory / 'film.json').write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + '\n')
 
 

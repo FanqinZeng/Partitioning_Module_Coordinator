@@ -7,6 +7,7 @@ import {G01, BAD, GOOD, exact, metrics, run} from '../site/engines/course.js';
 const read = path => readFileSync(new URL('../' + path, import.meta.url));
 const load = path => JSON.parse(read(path));
 const storyboards = load('video/lessons/storyboards.json');
+const activities = load('video/lessons/activities.json');
 const media = load('content/media.json');
 const catalog = load('content/catalog.json');
 const stamp = seconds => new Date(seconds * 1000).toISOString().slice(11, 23);
@@ -46,6 +47,7 @@ test('all lesson pages link to decoded bilingual films, aligned captions and sou
     const story = storyboards.films[id];
     const beats = story.scenes.flatMap(scene => scene.beats);
     assert.equal(film.lesson, id);
+    assert.deepEqual(film.activities ?? [], activities[id] ?? []);
     assert.equal(film.chapters.length, story.scenes.length);
     assert.equal(film.captions.length, beats.length);
     let cursor = 0;
@@ -91,6 +93,9 @@ test('all lesson pages link to decoded bilingual films, aligned captions and sou
         if (media[id][key]) assert.ok(page.includes('href="' + media[id][key] + '"'));
       }
       assert.equal((page.match(/data-home-chapter=/g) || []).length, film.chapters.length);
+      const markers = [...page.matchAll(/data-film-cue="([^"]+)" data-time="(\d+)"/g)];
+      assert.deepEqual(markers.map(([, key, time]) => [key, Number(time)]),
+        (film.activities ?? []).map(({id: key, time}) => [key, time]));
     }
   }
 });

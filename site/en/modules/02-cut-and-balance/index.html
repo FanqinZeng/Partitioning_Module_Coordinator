@@ -15,6 +15,16 @@
   <label>Playback speed<select data-home-film-speed><option value="1">1×</option><option value="0.75">0.75×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
   <p data-home-film-status role="status">Captions and original score, with no narration.</p>
 </div>
+<div class="film-activities" data-film-activities hidden>
+  <p data-film-activity-intro>The film pauses twice. Predict a cut, then move vertices to meet a capacity. Select a time to retry.</p>
+  <div class="film-activity-buttons"><button type="button" data-film-cue="cut" data-time="20"></button><button type="button" data-film-cue="capacity" data-time="70"></button></div>
+  <section class="film-activity" data-film-activity aria-labelledby="film-activity-title" hidden>
+    <h3 id="film-activity-title" tabindex="-1"></h3>
+    <div data-film-question></div>
+    <p data-film-feedback role="status"></p>
+    <button class="film-resume" type="button" data-film-resume></button>
+  </section>
+</div>
 <nav class="home-chapters" aria-label="Film chapters"><button type="button" data-home-chapter="0"><span>00:00</span>Check the assignment first</button><button type="button" data-home-chapter="20"><span>00:20</span>Add the crossing weights</button><button type="button" data-home-chapter="40"><span>00:40</span>Same counts, different cut</button><button type="button" data-home-chapter="60"><span>01:00</span>Check area capacity separately</button><button type="button" data-home-chapter="80"><span>01:20</span>Take the metrics into the lab</button></nav>
 <div class="home-film-links">
   <a data-home-download href="../../../media/lessons/02/lesson.en.mp4" download>Download MP4 ↓</a>
