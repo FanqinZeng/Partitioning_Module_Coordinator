@@ -1,5 +1,6 @@
 import {t} from './ui.js';
 import {mountFilmTranscript} from './film-transcript.js';
+import {linkedFilmTime} from './transcript-timeline.js';
 
 export function mountHomeFilm(){
  const video=document.querySelector('[data-home-video]');if(!video)return;
@@ -38,5 +39,19 @@ export function mountHomeFilm(){
  video.addEventListener('error',()=>status.textContent=t('影片加载失败，可使用下方 MP4 链接直接打开。','The film could not load. Use the MP4 link below to open it directly.'));
  const player={video,language,seek};
  mountFilmTranscript(player);
+ const section=video.closest('.intro-band');
+ const starts=new Set([...section.querySelectorAll('[data-home-seek]')].map(button=>Number(button.dataset.homeSeek)));
+ function openLinkedPassage(){
+  const time=linkedFilmTime(location.hash,starts);
+  if(time===null)return;
+  video.pause();
+  seek(time);
+  const heading=section.querySelector('h2');
+  heading.tabIndex=-1;
+  heading.focus({preventScroll:true});
+  section.scrollIntoView({block:'start',behavior:'instant'});
+ }
+ window.addEventListener('hashchange',openLinkedPassage);
+ requestAnimationFrame(openLinkedPassage);
  return player;
 }

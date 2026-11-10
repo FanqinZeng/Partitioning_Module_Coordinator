@@ -141,6 +141,18 @@ def home_film(lang):
     player=film_player(film,base,'intro',z(['Partitioning 首页导论片','Partitioning introduction film']),lang,extra_link)
     return f'''<section class="intro-band" id="intro"><div class="wrap"><div class="section-head intro-film-heading"><div><p class="eyebrow">01 / AN ORIGINAL INTRODUCTION</p><h2>{z(['什么是 Partitioning','What is partitioning?'])}</h2><p class="home-film-heading-time">{film_clock(film['duration'])} · 1080p · {z(['中英两版 · 字幕与原创配乐','Chinese & English · captions and original score'])}</p></div><p>{E(film['why'][language])}</p></div>{player}</div></section>'''
 
+def film_search_index():
+    index = []
+    for key in ['home', *(m['id'] for m in CATALOG)]:
+        directory = key if key == 'home' else f'lessons/{key}'
+        film = json.loads((SITE/'media'/directory/'film.json').read_text())
+        title = film['title']
+        if key == 'home':
+            title = [title['zh'], title['en']]
+        captions = [[c['start'], *c.get('text', [c.get('zh'), c.get('en')])] for c in film['captions']]
+        index.append({'id': key, 'title': title, 'captions': captions})
+    (SITE/'data/film-search.json').write_text(json.dumps(index, ensure_ascii=False, separators=(',', ':'))+'\n')
+
 def lesson_film_activities(film, lang):
     buttons=''.join(
         f'<button type="button" data-film-cue="{E(cue["id"])}" data-time="{cue["time"]}"></button>'
@@ -303,6 +315,7 @@ if __name__=='__main__':
     subprocess.run(['python3',str(ROOT/'scripts/create-python-labs.py')],check=True)
     (SITE/'data').mkdir(exist_ok=True)
     (SITE/'data/course.json').write_text(json.dumps(CATALOG,ensure_ascii=False))
+    film_search_index()
     (SITE/'python').mkdir(exist_ok=True)
     shutil.copy(ROOT/'python/checker.py',SITE/'python/checker.py')
     (SITE/'assets/favicon.svg').write_text(LOGO.replace('aria-hidden="true"','xmlns="http://www.w3.org/2000/svg"'))
