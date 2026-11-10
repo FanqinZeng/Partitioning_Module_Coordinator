@@ -99,3 +99,8 @@ dialog{border:1px solid var(--line);background:var(--paper);color:var(--ink);bor
 .home-transcript [data-transcript-start].is-current{border-left-color:var(--c-teal);background:#142e35;color:var(--c-ink)}
 .home-transcript [data-home-seek]{min-width:44px;min-height:44px;margin-top:0;line-height:1.9}
 @media(max-width:600px){.transcript-search{flex-basis:100%}.home-transcript [data-transcript-start]{padding:10px 8px}}
+
+/* Keep the native file control keyboard-accessible inside its visible label. */
+.file-label{position:relative}
+.file-label input{display:block;position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.file-label:focus-within{outline:3px solid var(--accent);outline-offset:5px}

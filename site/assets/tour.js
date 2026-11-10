@@ -1,7 +1,7 @@
 import {t} from './ui.js';
 
 // A tour describes the live page. It never runs an exercise or marks progress.
-const step = (selector, title, description) => ({selector, title, description});
+const step = (selector, title, description, actionSelector) => ({selector, title, description, actionSelector});
 const isMetrics = document.body.dataset.module === '02';
 const navigation = (path) => `.topnav a[href$="${path}"], .mobile-nav summary`;
 const language = step('.lang-switch', ['切换中英文', 'Choose your language'],
@@ -27,30 +27,30 @@ const tours = {
     step('.hero .btn.primary', ['从第一章开始', 'Start with the first lesson'],
       ['点击这里进入 Lesson 02，先理解割代价和平衡。每章都可以直接进入，无需登录。', 'Open Lesson 02 to understand cut cost and balance. Every lesson is open; no sign-in is needed.']),
     step('#intro h2', ['先看首页导论片', 'Watch the introduction'],
-      ['下方是 3 分 10 秒的导论片。点击播放器的播放键，先认识整个课程要解决的问题。', 'The 3:10 introduction is below this heading. Press Play in the player to meet the questions explored in the course.']),
+      ['下方是 3 分 10 秒的导论片。点击播放器的播放键，先认识整个课程要解决的问题。', 'The 3:10 introduction is below this heading. Press Play in the player to meet the questions explored in the course.'], '[data-home-video]'),
     step('[data-home-film-lang]', ['影片可以单独切换语言', 'Choose the film language'],
       ['选择中文或 English。旁边可以调整速度，下方章节时间与文字稿都可跳转影片。', 'Choose Chinese or English. Adjust speed beside it; chapter times and transcript entries also seek through the film.']),
     step('#curriculum h2', ['按目标选择章节', 'Pick a lesson by its goal'],
-      ['下方七张章节卡片可直接进入对应课时。建议先学割代价，再学构造、改进与多路划分。', 'The seven lesson cards below open each lesson. Start with costs, then construction, refinement and k-way partitioning.']),
+      ['下方七张章节卡片可直接进入对应课时。建议先学割代价，再学构造、改进与多路划分。', 'The seven lesson cards below open each lesson. Start with costs, then construction, refinement and k-way partitioning.'], '#curriculum .course-card'),
     compare, progress,
   ],
   module: [
     step('#goals h2', ['先看本章目标', 'Read the lesson goals'],
       ['每章从学习目标和问题约束开始，先明确需要学会什么、哪些分组才合法。', 'Each lesson starts with goals and constraints. Find out what to learn and what makes an assignment feasible.']),
     step('#watch h2', ['在这里观看影片', 'Watch the lesson film'],
-      ['点击下方播放器的播放键。影片下方有语言、速度、章节跳转和完整文字稿。', 'Press Play in the player below. Language, speed, chapter shortcuts and a full transcript sit beneath it.']),
+      ['点击下方播放器的播放键。影片下方有语言、速度、章节跳转和完整文字稿。', 'Press Play in the player below. Language, speed, chapter shortcuts and a full transcript sit beneath it.'], '[data-home-video]'),
     step('.film-activity-buttons', ['影片暂停后，在下方动手', 'When the film pauses, try the activity'],
       ['Lesson 02 在 00:20 和 01:10 暂停。先填割代价，再移动节点检验容量；提交后查看解释，点击继续观看。这里也可以重做。', 'Lesson 02 pauses at 00:20 and 01:10. Predict the cut, then move vertices to check capacity. Submit, read the explanation and continue watching. These buttons let you retry.']),
     step('#reading .lesson-prose h2', ['读解释，再检查理解', 'Read and check your understanding'],
       ['讲义里有推导和随文实验。读完后用讲义末尾的「我已读完本章」记录阅读完成。', 'The lesson includes explanations and embedded experiments. Use Mark reading complete at the end when you finish reading.']),
     isMetrics ? step('#lab-root [data-node="A"], #lab h2', ['点击节点，观察分组变化', 'Move a vertex and inspect the change'],
-      ['退出引导后，点击图上的节点给它换组；也可用 Tab 选中节点后按 Enter。观察跨组边、割代价与面积如何变化。', 'After exiting the tour, select a vertex to move it, or focus it with Tab and press Enter. Watch the crossing edges, cut cost and areas change.']) :
+      ['点击「从这里开始」后，点击节点或按 Enter 给它换组。观察跨组边、割代价与面积如何变化。', 'Choose Start here, then select the vertex or press Enter to move it. Watch the crossing edges, cut cost and areas change.']) :
     step('#lab-root .playback, #lab h2', ['在实验台逐步观察', 'Explore the algorithm step by step'],
-      ['退出引导后，用播放、单步和回退观察图与指标如何一起变化。到达最后一步才记录实验完成。', 'After exiting the tour, use Play, Step and Back to follow the graph and metrics. Lab completion is recorded only when you reach the final step.']),
+      ['点击「从这里开始」后，用播放、单步和回退观察图与指标如何一起变化。到达最后一步才记录实验完成。', 'Choose Start here, then use Play, Step and Back to follow the graph and metrics. Lab completion is recorded only when you reach the final step.'], '#lab-root [data-play]'),
     step('#challenges-root .challenge h3, #challenges h2', ['先作答，再看反馈', 'Try a challenge and read the feedback'],
-      ['先提交自己的判断，再看解释。遇到困难可以展开提示，修改答案后重新提交。', 'Submit your own answer before reading the explanation. Open hints if needed and retry after revising your answer.']),
+      ['先提交自己的判断，再看解释。遇到困难可以展开提示，修改答案后重新提交。', 'Submit your own answer before reading the explanation. Open hints if needed and retry after revising your answer.'], '#challenges-root .challenge input'),
     step('#code h2', ['把算法写成 Python', 'Write the algorithm in Python'],
-      ['在下方编程区补全函数并运行检查。草稿保存在本浏览器，全部检查通过才记录代码完成。', 'Complete the functions in the editor below and run the checks. Drafts stay in this browser; code completion requires all checks to pass.']),
+      ['在下方编程区补全函数并运行检查。草稿保存在本浏览器，全部检查通过才记录代码完成。', 'Complete the functions in the editor below and run the checks. Drafts stay in this browser; code completion requires all checks to pass.'], '#python-editor'),
     progress,
   ],
   catalog: [
@@ -72,7 +72,7 @@ const tours = {
   ],
   progress: [
     step('.progress-row', ['分别查看完成情况', 'Check each activity separately'],
-      ['阅读、实验、挑战和 Python 分别记录。展开「未完成挑战」可直接进入具体题目，或用每章的下一项活动接着学。', 'Reading, labs, challenges and Python are recorded separately. Expand Unfinished challenges to open a specific question, or use the next activity link to continue.']),
+      ['阅读、实验、挑战和 Python 分别记录。展开「未完成挑战」可直接进入具体题目，或用每章的下一项活动接着学。', 'Reading, labs, challenges and Python are recorded separately. Expand Unfinished challenges to open a specific question, or use the next activity link to continue.'], '.progress-row [data-progress-next]'),
     step('[data-export]', ['先导出备份', 'Export a backup'],
       ['记录仅存在当前浏览器。更换设备或清理浏览器前，先导出记录文件。', 'Records stay in this browser. Export a file before changing devices or clearing browser data.']),
     step('.file-label', ['在另一台设备恢复', 'Restore on another device'],
@@ -90,7 +90,8 @@ dialog.innerHTML = `<div class="tour-ring" aria-hidden="true"></div>
     <div class="tour-top"><span class="tour-count"></span><button type="button" data-tour-close>${t('退出引导', 'Exit tour')} ×</button></div>
     <div aria-live="polite" aria-atomic="true"><h2 id="tour-title" tabindex="-1"></h2><p id="tour-description"></p></div>
     <div class="tour-actions"><button type="button" class="btn quiet" data-tour-prev>${t('上一步', 'Back')}</button><button type="button" class="btn primary" data-tour-next></button></div>
-    <p class="tour-hint">${t('圈出的是当前页面的真实功能 · Esc 可退出', 'Highlights point to real page features · Esc to exit')}</p>
+    <button type="button" class="btn quiet tour-try" data-tour-try>${t('从这里开始', 'Start here')}</button>
+    <p class="tour-hint">${t('从这里开始：退出并留在当前功能，之后可继续引导。Esc 返回引导前的位置。', 'Start here leaves you at this feature; resume the tour when ready. Esc returns to where you started.')}</p>
   </section>`;
 document.body.append(dialog);
 const card = dialog.querySelector('.tour-card');
@@ -99,9 +100,41 @@ const title = dialog.querySelector('#tour-title');
 const next = dialog.querySelector('[data-tour-next]');
 const previous = dialog.querySelector('[data-tour-prev]');
 let steps = [], index = 0, target = null, returnFocus = null, returnScroll = 0, frame = 0;
+let resumeSelector = null, handoff = null;
 const visibleTarget = selector => selector.split(',').flatMap(part => [...document.querySelectorAll(part.trim())]).find(el =>
   el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
 const clamp = (value, min, max) => Math.max(min, Math.min(value, Math.max(min, max)));
+const controls = 'a[href],button,input:not([type="hidden"]),select,textarea,summary,video,[tabindex]';
+const available = el => !el.matches(':disabled,[aria-disabled="true"]') &&
+  el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden';
+
+function updateLauncher() {
+  launcher.lastChild.textContent = t(resumeSelector ? '继续引导' : '使用引导', resumeSelector ? 'Resume tour' : 'Site tour');
+}
+function scrollToTarget(element) {
+  if (element.closest('.topbar')) return;
+  const inset = (document.querySelector('.topbar')?.offsetHeight || 0) +
+    (document.querySelector('.module-nav')?.offsetHeight || 0) + 36;
+  window.scrollBy({top:element.getBoundingClientRect().top - inset, behavior:'instant'});
+}
+function handoffTarget() {
+  const specified = steps[index].actionSelector;
+  const element = (specified && visibleTarget(specified)) || visibleTarget(steps[index].selector);
+  if (!element) return null;
+  if (element.matches(controls) && available(element)) return element;
+  return [...element.querySelectorAll(controls)].find(available) || element;
+}
+function focusFeature(element) {
+  const temporary = !element.matches(controls);
+  if (temporary) element.setAttribute('tabindex', '-1');
+  element.setAttribute('data-tour-destination', '');
+  element.addEventListener('blur', () => {
+    element.removeAttribute('data-tour-destination');
+    if (temporary) element.removeAttribute('tabindex');
+  }, {once:true});
+  scrollToTarget(element);
+  element.focus({preventScroll:true});
+}
 
 function position() {
   if (!dialog.open || !target) return;
@@ -143,12 +176,13 @@ function show() {
   dialog.querySelector('.tour-count').textContent = `${t('使用引导', 'SITE TOUR')} · ${index + 1} / ${steps.length}`;
   previous.disabled = index === 0;
   next.textContent = index === steps.length - 1 ? t('完成引导', 'Finish tour') : t('下一步', 'Next');
+  dialog.querySelector('.tour-hint').textContent = index === steps.length - 1
+    ? t('从这里开始：关闭引导并留在当前功能。右下角可重新查看引导；Esc 返回引导前的位置。',
+        'Start here closes the tour at this feature. Reopen it from the bottom corner; Esc returns to where you started.')
+    : t('从这里开始：退出并留在当前功能，之后可继续引导。Esc 返回引导前的位置。',
+        'Start here leaves you at this feature; resume the tour when ready. Esc returns to where you started.');
   // Reserve space above for the sticky site and lesson navigation.
-  if (!target.closest('.topbar')) {
-    const inset = (document.querySelector('.topbar')?.offsetHeight || 0) +
-      (document.querySelector('.module-nav')?.offsetHeight || 0) + 36;
-    window.scrollBy({top:target.getBoundingClientRect().top - inset, behavior:'instant'});
-  }
+  scrollToTarget(target);
   position();
   title.focus({preventScroll:true});
 }
@@ -164,7 +198,10 @@ function start(event) {
   returnFocus = event?.currentTarget || launcher;
   returnScroll = scrollY;
   document.querySelectorAll('video').forEach(video => video.pause());
-  index = 0;
+  index = event?.currentTarget === launcher && resumeSelector
+    ? Math.max(0, steps.findIndex(s => s.selector === resumeSelector)) : 0;
+  resumeSelector = null;
+  updateLauncher();
   dialog.showModal();
   document.documentElement.classList.add('tour-active');
   show();
@@ -173,10 +210,22 @@ function close() { dialog.close(); }
 dialog.addEventListener('close', () => {
   document.documentElement.classList.remove('tour-active');
   cancelAnimationFrame(frame);
-  window.scrollTo({top:returnScroll, behavior:'instant'});
-  returnFocus?.focus({preventScroll:true});
+  const destination = handoff;
+  handoff = null;
+  if (destination?.isConnected) focusFeature(destination);
+  else {
+    window.scrollTo({top:returnScroll, behavior:'instant'});
+    returnFocus?.focus({preventScroll:true});
+  }
 });
 dialog.querySelector('[data-tour-close]').addEventListener('click', close);
+dialog.querySelector('[data-tour-try]').addEventListener('click', () => {
+  handoff = handoffTarget();
+  if (!handoff) return;
+  resumeSelector = steps[index + 1]?.selector || null;
+  updateLauncher();
+  close();
+});
 previous.addEventListener('click', () => {if(index > 0) {index--; show();}});
 next.addEventListener('click', () => {if(index < steps.length - 1) {index++; show();} else close();});
 // Capture keyboard shortcuts so the underlying search cannot open over a tour.
