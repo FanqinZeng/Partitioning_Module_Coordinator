@@ -1,0 +1,31 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:10.000
+Put edge weights into the adjacency matrix. Each row sum gives the weighted degree.
+
+00:00:10.000 --> 00:00:20.000
+The Laplacian L = D − A has degrees on the diagonal, negative edge weights elsewhere and zero row sums.
+
+00:00:20.000 --> 00:00:30.000
+Take an eigenvector for the second-smallest eigenvalue. Each vertex gets one coordinate.
+
+00:00:30.000 --> 00:00:40.000
+Sort the coordinates to get E, D, C, B, A. Negating the vector reverses this order.
+
+00:00:40.000 --> 00:00:50.000
+Try gaps between consecutive vertices. Both parts must meet the count window.
+
+00:00:50.000 --> 00:01:00.000
+The legal prefix costs are 6, 3, 5, 6. Choose the lowest-cost entry.
+
+00:01:00.000 --> 00:01:10.000
+Cut after vertex 2: DE | ABC, with cut 3.
+
+00:01:10.000 --> 00:01:20.000
+The result comes from sweeping one spectral order. Check small instances against exact enumeration.
+
+00:01:20.000 --> 00:01:30.000
+A disconnected graph can have several zero eigenvalues, so its ordering direction can be non-unique.
+
+00:01:30.000 --> 00:01:40.000
+Vary the count window and check which cuts remain legal. Next, bisect a selected subgraph.

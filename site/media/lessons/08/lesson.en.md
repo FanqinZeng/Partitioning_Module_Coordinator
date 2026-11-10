@@ -1,0 +1,31 @@
+# Multiway partitioning
+
+00:00:00.000
+Use three nonempty parts with area capacity 2. Verify capacity before comparing cuts.
+
+00:00:10.000
+Every method uses the same G01. Each result must assign every vertex to exactly one part.
+
+00:00:20.000
+Round robin assigns input vertices cyclically, giving AD | BE | C.
+
+00:00:30.000
+Recursion uses graph structure and gives DE | C | AB. Both starts meet capacity here.
+
+00:00:40.000
+Consider swapping two vertices from different parts. Check area capacity, then compare cut gains.
+
+00:00:50.000
+Here even the best legal swap has no positive gain, so the search stops at its current split.
+
+00:01:00.000
+Round robin costs 18. Recursion and swap refinement both cost 8 on this input.
+
+00:01:10.000
+Exact enumeration checks 15 feasible unlabeled partitions. The minimum cut is 8.
+
+00:01:20.000
+Capacity uses area. Change a vertex size and recheck the parts even when counts stay fixed.
+
+00:01:30.000
+Re-run the three methods in the comparison lab. Record the input, capacity, feasibility and cut.

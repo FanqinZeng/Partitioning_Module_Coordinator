@@ -1,0 +1,3231 @@
+{
+  "graph": {
+    "id": "G01",
+    "nodes": [
+      {
+        "id": "A",
+        "size": 1
+      },
+      {
+        "id": "B",
+        "size": 1
+      },
+      {
+        "id": "C",
+        "size": 1
+      },
+      {
+        "id": "D",
+        "size": 1
+      },
+      {
+        "id": "E",
+        "size": 1
+      }
+    ],
+    "edges": [
+      {
+        "u": "A",
+        "v": "B",
+        "w": 5
+      },
+      {
+        "u": "A",
+        "v": "C",
+        "w": 1
+      },
+      {
+        "u": "B",
+        "v": "C",
+        "w": 4
+      },
+      {
+        "u": "C",
+        "v": "D",
+        "w": 2
+      },
+      {
+        "u": "C",
+        "v": "E",
+        "w": 1
+      },
+      {
+        "u": "D",
+        "v": "E",
+        "w": 5
+      }
+    ],
+    "positions": {
+      "A": [
+        170,
+        100
+      ],
+      "B": [
+        390,
+        85
+      ],
+      "C": [
+        305,
+        270
+      ],
+      "D": [
+        530,
+        375
+      ],
+      "E": [
+        280,
+        440
+      ]
+    }
+  },
+  "films": {
+    "02": {
+      "title": [
+        "割代价与平衡",
+        "Cut cost and balance"
+      ],
+      "description": [
+        "在五节点图上逐条算割代价，再检验面积容量。",
+        "Count crossing edges on a five-vertex graph, then check area capacity."
+      ],
+      "scenes": [
+        {
+          "title": [
+            "先确认分组",
+            "Check the assignment first"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "每个节点恰好属于一组，两组都要有节点。",
+                "Assign each vertex once and keep both groups nonempty."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "课程公共图 G01",
+                      "Shared graph G01"
+                    ],
+                    "value": "A–E",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AE | BCD",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 3",
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "全放在一侧时，cut 是 0，但另一侧为空。",
+                "Putting everything on one side gives cut 0 and an empty part."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 0,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": "cut",
+                    "value": 0,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "5 : 0",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "二分可行",
+                      "Feasible split"
+                    ],
+                    "value": [
+                      "否：空组",
+                      "No: empty part"
+                    ],
+                    "tone": "rose"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "逐条累计跨组边",
+            "Add the crossing weights"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "从 AE | BCD 出发，只把连接不同组的边加入和式。",
+                "For AE | BCD, add weights only when the endpoints belong to different groups."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": "AB",
+                    "value": 5,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "AC",
+                    "value": 1,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "CE",
+                    "value": 1,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "DE",
+                    "value": 5,
+                    "tone": "gold"
+                  }
+                ],
+                "accumulate": [
+                  "AB",
+                  "AC",
+                  "CE",
+                  "DE"
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "每条无向边只算一次。割代价为 5 + 1 + 1 + 5 = 12。",
+                "Count each undirected edge once. The cut is 5 + 1 + 1 + 5 = 12."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "跨组边",
+                      "Crossing edges"
+                    ],
+                    "value": "AB · AC · CE · DE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "权重和",
+                      "Weight sum"
+                    ],
+                    "value": "5 + 1 + 1 + 5",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 12,
+                    "tone": "gold"
+                  }
+                ],
+                "focus": [
+                  "AB",
+                  "AC",
+                  "CE",
+                  "DE"
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "人数相同，连接质量不同",
+            "Same counts, different cut"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "改成 ABC | DE，只有 CD 和 CE 跨组。",
+                "Switch to ABC | DE. Only CD and CE cross the cut."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 0,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "ABC | DE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "3 : 2",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "跨组边",
+                      "Crossing edges"
+                    ],
+                    "value": "2 + 1",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "focus": [
+                  "CD",
+                  "CE"
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "两种方案都是两点与三点，cut 从 12 降到 3。",
+                "Both splits have a two-vertex and a three-vertex part. The cut drops from 12 to 3."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "相同人数分布下的割代价",
+                  "Cut costs at the same count split"
+                ],
+                "values": [
+                  {
+                    "name": "AE | BCD",
+                    "value": 12,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "ABC | DE",
+                    "value": 3,
+                    "tone": "muted"
+                  }
+                ],
+                "best": 1
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "面积是另一条约束",
+            "Check area capacity separately"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "把 A 的面积改成 4。节点数没变，ABC 的面积变成 6。",
+                "Set A’s area to 4. The counts stay fixed while the area of ABC grows to 6."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 0,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "3 : 2",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "面积和",
+                      "Area totals"
+                    ],
+                    "value": "6 : 2",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "面积容量",
+                      "Area capacity"
+                    ],
+                    "value": 4,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "sizes": {
+                  "A": 4
+                }
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "每组容量为 4 时，ABC 超出容量。先拒绝这份方案，再比较 cut。",
+                "At capacity 4, ABC overflows. Check feasibility before comparing cuts."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "组面积与容量",
+                  "Part areas and capacity"
+                ],
+                "values": [
+                  {
+                    "name": "ABC",
+                    "value": 6,
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "DE",
+                    "value": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "容量",
+                      "Capacity"
+                    ],
+                    "value": 4,
+                    "tone": "gold"
+                  }
+                ],
+                "best": 2
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "带着指标做实验",
+            "Take the metrics into the lab"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "默认面积为 1 时，面积比是 2/3，面积不平衡度是 0.2。",
+                "With unit areas, the area ratio is 2/3 and normalized imbalance is 0.2."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "两个平衡指标",
+                  "Two measures of balance"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "最小面积 ÷ 最大面积",
+                      "Minimum area / maximum area"
+                    ],
+                    "value": "0.667",
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "面积差 ÷ 总面积",
+                      "Area gap / total area"
+                    ],
+                    "value": 0.2,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "在实验里移动一个点，先预测哪些边会跨组，再检查组面积。",
+                "In the lab, move a vertex. Predict the crossing edges, then check both part areas."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 0,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "ABC | DE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "预测",
+                      "Predict"
+                    ],
+                    "value": [
+                      "跨组边",
+                      "Crossing edges"
+                    ],
+                    "tone": "gold"
+                  },
+                  {
+                    "name": [
+                      "复核",
+                      "Verify"
+                    ],
+                    "value": [
+                      "组面积",
+                      "Part areas"
+                    ],
+                    "tone": "teal"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        }
+      ]
+    },
+    "03": {
+      "title": [
+        "初始二分",
+        "Initial bisection"
+      ],
+      "description": [
+        "用相同人数约束比较随机、顺序贪心和区域生长。",
+        "Compare random, sequential greedy and region growing under the same count target."
+      ],
+      "scenes": [
+        {
+          "title": [
+            "固定目标人数",
+            "Fix the target counts"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "五个点分成两点和三点。先找到可行起点，再讨论质量。",
+                "Split five vertices into parts of two and three. Establish a feasible start, then compare quality."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "构造契约",
+                  "Construction contract"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "左组节点数",
+                      "Left part count"
+                    ],
+                    "value": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "右组节点数",
+                      "Right part count"
+                    ],
+                    "value": 3,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "三种方法使用同一张图和同一人数目标，便于比较构造过程。",
+                "The three methods share one graph and one count target, so we can compare their decisions."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "三种构造规则",
+                  "Three construction rules"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "随机",
+                      "Random"
+                    ],
+                    "value": [
+                      "先洗牌",
+                      "Shuffle first"
+                    ],
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "顺序贪心",
+                      "Sequential greedy"
+                    ],
+                    "value": [
+                      "比较增量",
+                      "Compare increments"
+                    ],
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "区域生长",
+                      "Region growing"
+                    ],
+                    "value": [
+                      "扩张边界",
+                      "Grow from a seed"
+                    ],
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "随机是可复现的基线",
+            "Random gives a repeatable baseline"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "种子 7 给出顺序 D、B、C、E、A。前两个点放左边。",
+                "Seed 7 gives the order D, B, C, E, A. Put the first two on the left."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 0,
+                  "C": 1,
+                  "D": 0,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": "seed",
+                    "value": 7,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "洗牌顺序",
+                      "Shuffled order"
+                    ],
+                    "value": "D → B → C → E → A",
+                    "tone": "gold"
+                  },
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "BD | ACE",
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "得到 BD | ACE，cut 为 16。改变种子会得到另一种起点。",
+                "The split BD | ACE costs 16. Try another seed for a different start."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 0,
+                  "C": 1,
+                  "D": 0,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "BD | ACE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 3",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 16,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "贪心比较当前增量",
+            "Greedy checks incremental cost"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "按字母顺序处理节点。A 已在左侧，比较 B 放到两侧的新增割边权重。",
+                "Visit vertices alphabetically. With A on the left, compare B’s added cut on either side."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "B 到组 0",
+                      "B to part 0"
+                    ],
+                    "value": 0,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": [
+                      "B 到组 1",
+                      "B to part 1"
+                    ],
+                    "value": 5,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "B 放左侧后，左组满员。后续节点只看仍有名额的右组。",
+                "B fills the left part. Subsequent vertices use the remaining space on the right."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 1,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AB | CDE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "左组",
+                      "Left part"
+                    ],
+                    "value": [
+                      "已满",
+                      "Full"
+                    ],
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 5,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "区域生长看连接强度",
+            "Region growing follows strong links"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "以 A 为起点，对未选节点计算它们连向左组的权重和。",
+                "Start at A and sum each unselected vertex’s edge weights into the left part."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": "B",
+                    "value": 5,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "C",
+                    "value": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "D",
+                    "value": 0,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "E",
+                    "value": 0,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "B 的分数最高，加入左组，得到 AB | CDE。",
+                "B has the strongest connection. Adding it gives AB | CDE."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 1,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AB | CDE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 3",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 5,
+                    "tone": "gold"
+                  }
+                ],
+                "focus": [
+                  "AB"
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "起点还可以改进",
+            "A starting split can be refined"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "本例中贪心和生长都得到 cut 5。精确对照的 cut 为 3。",
+                "Greedy and growing both cost 5 here. Exact enumeration gives 3."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "同一张图的对照",
+                  "Comparisons on one graph"
+                ],
+                "values": [
+                  {
+                    "name": [
+                      "随机",
+                      "Random"
+                    ],
+                    "value": 16,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "顺序贪心",
+                      "Greedy"
+                    ],
+                    "value": 5,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "区域生长",
+                      "Growing"
+                    ],
+                    "value": 5,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "精确对照",
+                      "Exact"
+                    ],
+                    "value": 3,
+                    "tone": "muted"
+                  }
+                ],
+                "best": 3
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "进入实验，先预测选择，再改种子或边权。下一章用交换改进起点。",
+                "Predict the next choice, then vary the seed or edge weights. Next, refine the start with swaps."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 1,
+                  "D": 1,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AB | CDE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "下一章",
+                      "Next lesson"
+                    ],
+                    "value": "Kernighan–Lin",
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        }
+      ]
+    },
+    "04": {
+      "title": [
+        "Kernighan–Lin 成对交换",
+        "Kernighan–Lin pair swaps"
+      ],
+      "description": [
+        "走完一轮配对试探、锁定和最佳前缀回退。",
+        "Follow a complete pass of trial swaps, locks and rollback to the best prefix."
+      ],
+      "scenes": [
+        {
+          "title": [
+            "交换保留人数",
+            "A pair swap preserves counts"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "起点 AE | BCD 的 cut 是 12。每次选一左一右，试着交换。",
+                "The starting split AE | BCD costs 12. Try exchanging one vertex from each part."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AE | BCD",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 3",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 12,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "一进一出保持人数。面积不同的节点换侧时，仍要单独检查组面积。",
+                "One in and one out preserve counts. If vertex sizes differ, check the part areas separately."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "交换的约束",
+                  "What a swap preserves"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": [
+                      "保持不变",
+                      "Preserved"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "面积和",
+                      "Area totals"
+                    ],
+                    "value": [
+                      "需另行检查",
+                      "Check separately"
+                    ],
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "估计一对的收益",
+            "Score each candidate pair"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "D 值等于外部权重减内部权重。配对时还要减去两倍共享边权。",
+                "D is external minus internal weight. For a pair, also subtract twice their shared edge weight."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "配对增益",
+                  "Pair gain"
+                ],
+                "rows": [
+                  {
+                    "name": "D(v)",
+                    "value": "external − internal",
+                    "tone": "teal"
+                  },
+                  {
+                    "name": "g(a, b)",
+                    "value": "D(a) + D(b) − 2w(a,b)",
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "这一轮先选 A 与 D。两点间无边，配对增益为 9。",
+                "A and D win the first choice. They share no edge, and the gain is 9."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": "A ↔ D",
+                    "value": "+9",
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "E ↔ B",
+                    "value": "+7",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "A ↔ C",
+                    "value": "0",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "E ↔ C",
+                    "value": "0",
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "试探与锁定",
+            "Try the swap and lock the pair"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "A 与 D 交换后，cut 变为 3。这两个点在本轮锁定。",
+                "Swapping A and D takes the cut to 3. Both vertices are locked for this pass."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "锁定",
+                      "Locked"
+                    ],
+                    "value": "A · D",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": [
+                  "A",
+                  "D"
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "剩余点还要重新评分。下一对增益是 −8，作为试探仍可以执行。",
+                "Re-score the remaining vertices. The next gain is −8 and can still be tried."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 0,
+                  "D": 0,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "本步增益",
+                      "Trial gain"
+                    ],
+                    "value": "−8",
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 11,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": [
+                  "A",
+                  "C",
+                  "D",
+                  "E"
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "保留累计收益最高的前缀",
+            "Keep the best cumulative prefix"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "累计收益依次是 0、9、1。第一步结束时最高。",
+                "The cumulative gains are 0, 9, 1. The first swap gives the best prefix."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "累计增益",
+                  "Cumulative gain"
+                ],
+                "values": [
+                  {
+                    "name": "0",
+                    "value": 0,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "1",
+                    "value": 9,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "2",
+                    "value": 1,
+                    "tone": "muted"
+                  }
+                ],
+                "best": 1
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "撤回第二步，只保留第一步。接受方案的 cut 是 3。",
+                "Undo the second trial and keep the first. The accepted cut is 3."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "保留步数",
+                      "Accepted swaps"
+                    ],
+                    "value": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": [],
+                "from": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 0,
+                  "D": 0,
+                  "E": 1
+                }
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "在实验中回放",
+            "Replay the pass in the lab"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "空前缀的累计收益是零。只有正收益前缀能改进这一轮。",
+                "The empty prefix has gain zero. An improving pass requires a positive prefix."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "停止条件",
+                  "When to stop"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "最佳前缀收益",
+                      "Best prefix gain"
+                    ],
+                    "value": [
+                      "正数：接受",
+                      "Positive: accept"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "空前缀收益",
+                      "Empty prefix gain"
+                    ],
+                    "value": [
+                      "零：保留起点",
+                      "Zero: keep the start"
+                    ],
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "在实验里逐步播放，分别记录试探中的 cut 和回退后接受的 cut。",
+                "Step through the lab and record the trial cuts and the accepted cut separately."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "试探末尾",
+                      "Last trial"
+                    ],
+                    "value": 11,
+                    "tone": "rose"
+                  },
+                  {
+                    "name": [
+                      "接受结果",
+                      "Accepted"
+                    ],
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": []
+              },
+              "seconds": 10
+            }
+          ]
+        }
+      ]
+    },
+    "05": {
+      "title": [
+        "Fiduccia–Mattheyses 单点移动",
+        "Fiduccia–Mattheyses vertex moves"
+      ],
+      "description": [
+        "按人数差过滤候选，观察单点增益更新、锁定和最佳前缀。",
+        "Filter moves by count balance, then watch gains, locks and the best prefix update."
+      ],
+      "scenes": [
+        {
+          "title": [
+            "先过滤候选",
+            "Filter candidates before ranking"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "FM 一次移动一个点。两组需非空，默认人数差最多为 1。",
+                "FM moves one vertex at a time. Keep both parts nonempty and their count difference at most 1."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AE | BCD",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 3",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "允许人数差",
+                      "Allowed count gap"
+                    ],
+                    "value": "≤ 1",
+                    "tone": "teal"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 12,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "A 和 E 的收益都高，但会造成 1 比 4。合法候选里 D 的收益最高。",
+                "A and E score highly but leave counts 1 and 4. D leads the legal candidates."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": "A · +6",
+                    "value": [
+                      "超出人数差",
+                      "Count violation"
+                    ],
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "B · +1",
+                    "value": [
+                      "合法",
+                      "Legal"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": "C · −4",
+                    "value": [
+                      "合法",
+                      "Legal"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": "D · +3",
+                    "value": [
+                      "合法",
+                      "Legal"
+                    ],
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "E · +6",
+                    "value": [
+                      "超出人数差",
+                      "Count violation"
+                    ],
+                    "tone": "rose"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "移动 D 会改变哪些边",
+            "What changes when D moves?"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "D–E 从跨组变为组内，贡献正收益。D–C 变成跨组，抵消部分收益。",
+                "D–E becomes internal, adding gain. D–C becomes crossing and offsets some of it."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": "CD",
+                    "value": "−2",
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "DE",
+                    "value": "+5",
+                    "tone": "gold"
+                  }
+                ],
+                "focus": [
+                  "CD",
+                  "DE"
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "D 移动后被锁定。cut 从 12 降到 9，A 现在可以移动。",
+                "Lock D after its move. The cut drops from 12 to 9, and A becomes legal."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "ADE | BC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "锁定",
+                      "Locked"
+                    ],
+                    "value": "D",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "A 的候选增益",
+                      "Gain for A"
+                    ],
+                    "value": "+6",
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 9,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": [
+                  "D"
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "重新评分并继续试探",
+            "Re-score and continue the trial"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "A 移动贡献 6，试探 cut 降到 3。锁定名单加入 A。",
+                "A contributes 6 and lowers the trial cut to 3. Add A to the locks."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "锁定",
+                      "Locked"
+                    ],
+                    "value": "A · D",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": [
+                  "A",
+                  "D"
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "接下来试探 C，收益为 −2。暂时变差的状态仍属于本轮轨迹。",
+                "The trial move of C gains −2. The pass can temporarily get worse."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 0,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "本步增益",
+                      "Trial gain"
+                    ],
+                    "value": "−2",
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 5,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": [
+                  "A",
+                  "C",
+                  "D"
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "最佳前缀决定保留哪些移动",
+            "The best prefix selects accepted moves"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "累计收益峰值是 9，出现在第 2 步。",
+                "The cumulative gain peaks at 9 after 2 moves."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "累计增益含空前缀",
+                  "Cumulative gain including the empty prefix"
+                ],
+                "values": [
+                  {
+                    "name": "0",
+                    "value": 0,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "1",
+                    "value": 3,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "2",
+                    "value": 9,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "3",
+                    "value": 7,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "4",
+                    "value": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "5",
+                    "value": 0,
+                    "tone": "muted"
+                  }
+                ],
+                "best": 2
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "恢复到前两步之后。最终接受 DE | ABC，cut 为 3。",
+                "Restore the state after the first two moves. Accept DE | ABC with cut 3."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "保留步数",
+                      "Accepted moves"
+                    ],
+                    "value": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "locks": [],
+                "from": {
+                  "A": 1,
+                  "B": 0,
+                  "C": 0,
+                  "D": 0,
+                  "E": 1
+                }
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "到实验里改变平衡窗口",
+            "Vary the balance window in the lab"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "严格等人数时，单点换侧会破坏等式。KL 的成对交换仍保持人数。",
+                "Under strict equal counts, a single move breaks equality. A KL pair swap preserves the counts."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "两种改进邻域",
+                  "Two refinement neighborhoods"
+                ],
+                "rows": [
+                  {
+                    "name": "FM",
+                    "value": [
+                      "单点移动",
+                      "One vertex moves"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": "KL",
+                    "value": [
+                      "成对交换",
+                      "Two vertices swap"
+                    ],
+                    "tone": "blue"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "在实验里改人数差阈值，观察合法候选和最佳前缀随之改变。",
+                "Change the allowed count gap and observe the legal candidates and best prefix in the lab."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 3",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "实验变量",
+                      "Lab parameter"
+                    ],
+                    "value": "maxDiff",
+                    "tone": "gold"
+                  }
+                ],
+                "locks": []
+              },
+              "seconds": 10
+            }
+          ]
+        }
+      ]
+    },
+    "06": {
+      "title": [
+        "谱二分",
+        "Spectral bisection"
+      ],
+      "description": [
+        "从拉普拉斯矩阵构造谱排序，再扫描可行切口。",
+        "Build a spectral order from the Laplacian and sweep feasible cuts."
+      ],
+      "scenes": [
+        {
+          "title": [
+            "把连接写进矩阵",
+            "Write connections into a matrix"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "把边权填入邻接矩阵。每一行的权重和给出该点的加权度。",
+                "Put edge weights into the adjacency matrix. Each row sum gives the weighted degree."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 1,
+                  "D": 1,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "课程公共图 G01",
+                      "Shared graph G01"
+                    ],
+                    "value": "A–E",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "边权",
+                      "Edge weight"
+                    ],
+                    "value": "A[u,v]",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "度",
+                      "Degree"
+                    ],
+                    "value": "D[u,u] = Σ A[u,v]",
+                    "tone": "teal"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "拉普拉斯 L = D − A。对角线是度，非对角项是负边权，每行和为零。",
+                "The Laplacian L = D − A has degrees on the diagonal, negative edge weights elsewhere and zero row sums."
+              ],
+              "view": {
+                "type": "matrix",
+                "heading": [
+                  "拉普拉斯矩阵",
+                  "Laplacian matrix"
+                ],
+                "values": [
+                  [
+                    6,
+                    -5,
+                    -1,
+                    0,
+                    0
+                  ],
+                  [
+                    -5,
+                    9,
+                    -4,
+                    0,
+                    0
+                  ],
+                  [
+                    -1,
+                    -4,
+                    8,
+                    -2,
+                    -1
+                  ],
+                  [
+                    0,
+                    0,
+                    -2,
+                    7,
+                    -5
+                  ],
+                  [
+                    0,
+                    0,
+                    -1,
+                    -5,
+                    6
+                  ]
+                ],
+                "names": [
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "E"
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "把向量变成排序",
+            "Turn the vector into an order"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "取第二小特征值对应的向量，每个节点获得一个坐标。",
+                "Take an eigenvector for the second-smallest eigenvalue. Each vertex gets one coordinate."
+              ],
+              "view": {
+                "type": "order",
+                "heading": [
+                  "Fiedler 坐标",
+                  "Fiedler coordinates"
+                ],
+                "names": [
+                  "E",
+                  "D",
+                  "C",
+                  "B",
+                  "A"
+                ],
+                "values": [
+                  "-0.553",
+                  "-0.489",
+                  "0.106",
+                  "0.418",
+                  "0.519"
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "按坐标从小到大，顺序为 E、D、C、B、A。向量翻号会把顺序反过来。",
+                "Sort the coordinates to get E, D, C, B, A. Negating the vector reverses this order."
+              ],
+              "view": {
+                "type": "order",
+                "heading": [
+                  "从小到大的排序",
+                  "Ascending order"
+                ],
+                "names": [
+                  "E",
+                  "D",
+                  "C",
+                  "B",
+                  "A"
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "扫描每个合法前缀",
+            "Sweep each legal prefix"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "沿排序尝试相邻点之间的切口。两侧要满足给定人数窗口。",
+                "Try gaps between consecutive vertices. Both parts must meet the count window."
+              ],
+              "view": {
+                "type": "order",
+                "heading": [
+                  "依次移动切线",
+                  "Sweep the separator"
+                ],
+                "names": [
+                  "E",
+                  "D",
+                  "C",
+                  "B",
+                  "A"
+                ],
+                "sweep": true
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "本例合法前缀的 cut 依次为 6、3、5、6。保留最小项。",
+                "The legal prefix costs are 6, 3, 5, 6. Choose the lowest-cost entry."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "前缀长度与割代价",
+                  "Prefix length and cut cost"
+                ],
+                "values": [
+                  {
+                    "name": "k = 1",
+                    "value": 6,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "k = 2",
+                    "value": 3,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "k = 3",
+                    "value": 5,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "k = 4",
+                    "value": 6,
+                    "tone": "muted"
+                  }
+                ],
+                "best": 1
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "读取谱切割的结果",
+            "Read the spectral result"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "在第 2 个点之后切开。得到 DE | ABC，cut 为 3。",
+                "Cut after vertex 2: DE | ABC, with cut 3."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 3",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "这个结果来自一条谱排序的扫描。小图可再用精确枚举校准。",
+                "The result comes from sweeping one spectral order. Check small instances against exact enumeration."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "两种验证层次",
+                  "Two levels of verification"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "向量",
+                      "Eigenvector"
+                    ],
+                    "value": [
+                      "检查特征方程",
+                      "Check the eigen-equation"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "离散分组",
+                      "Discrete split"
+                    ],
+                    "value": [
+                      "与精确枚举比较",
+                      "Compare with exact enumeration"
+                    ],
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "用实验改变输入",
+            "Change the input in the lab"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "断连图可能有多个零特征值，此时排序方向可能不唯一。",
+                "A disconnected graph can have several zero eigenvalues, so its ordering direction can be non-unique."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "诊断信息",
+                  "Diagnostics"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "图连通性",
+                      "Connectivity"
+                    ],
+                    "value": [
+                      "检查连通分量",
+                      "Inspect components"
+                    ],
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "特征值",
+                      "Eigenvalues"
+                    ],
+                    "value": [
+                      "留意重复值",
+                      "Look for repeated values"
+                    ],
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "调整人数窗口，检查切口是否合法。下一章把二分用到选中的子图。",
+                "Vary the count window and check which cuts remain legal. Next, bisect a selected subgraph."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "下一章",
+                      "Next lesson"
+                    ],
+                    "value": [
+                      "递归二分",
+                      "Recursive bisection"
+                    ],
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        }
+      ]
+    },
+    "07": {
+      "title": [
+        "递归二分",
+        "Recursive bisection"
+      ],
+      "description": [
+        "在诱导子图上重算二分，并累计全图新增跨边。",
+        "Recompute splits on induced subgraphs and add newly crossing edges in the full graph."
+      ],
+      "scenes": [
+        {
+          "title": [
+            "从一组走向三组",
+            "From one part to three"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "目标是三组。先把全部节点作为一个待拆分的组。",
+                "Aim for three parts. Start with all vertices together in one part."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 0,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "ABCDE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "目标组数",
+                      "Target parts"
+                    ],
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "每轮挑选人数最多的组。人数相同时按组编号选，保证结果可复现。",
+                "At each step, choose the largest part by vertex count. Break ties by part ID."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "递归规则",
+                  "Recursive rule"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "选择",
+                      "Select"
+                    ],
+                    "value": [
+                      "当前最大组",
+                      "Current largest part"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "求解",
+                      "Solve"
+                    ],
+                    "value": [
+                      "在诱导子图上二分",
+                      "Bisect its induced subgraph"
+                    ],
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "第一次在全图上切",
+            "First split the full graph"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "谱二分先得到 DE | ABC。全图 cut 增加 3。",
+                "Spectral bisection gives DE | ABC and adds 3 to the full-graph cut."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "新增跨边权重",
+                      "New crossing weight"
+                    ],
+                    "value": 3,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 3,
+                    "tone": "gold"
+                  }
+                ],
+                "focus": [
+                  "CD",
+                  "CE"
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "现在 ABC 人数最多。下一次只保留 ABC 内部的节点和边。",
+                "ABC is now the largest part. The next solve uses only its vertices and internal edges."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 1,
+                  "B": 1,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "选择子图",
+                      "Chosen subgraph"
+                    ],
+                    "value": "ABC",
+                    "tone": "gold"
+                  },
+                  {
+                    "name": [
+                      "内部边",
+                      "Internal edges"
+                    ],
+                    "value": "AB · AC · BC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "已分出的组",
+                      "Other part"
+                    ],
+                    "value": "DE",
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "子图重新计算谱排序",
+            "Recompute the order inside the subgraph"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "ABC 子图重算后的谱顺序为 C、B、A，切出 C 和 AB。",
+                "The recomputed order is C, B, A, separating C from AB."
+              ],
+              "view": {
+                "type": "order",
+                "heading": [
+                  "ABC 诱导子图",
+                  "Induced subgraph ABC"
+                ],
+                "names": [
+                  "C",
+                  "B",
+                  "A"
+                ],
+                "separator": 1
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "这一步新增 5。DE 仍是原来的组，先前的跨边继续计入总和。",
+                "This split adds 5. DE stays together, and earlier crossing edges still count."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | C | AB",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "本步新增",
+                      "New cut"
+                    ],
+                    "value": 5,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 8,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "检查累计账本",
+            "Check the cut ledger"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "全图 cut 从 0 到 3，再到 8。每条边在首次分开时计入。",
+                "The full-graph cut rises from 0 to 3 to 8. Count each edge when first separated."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "每次分裂后的全图 cut",
+                  "Full-graph cut after each split"
+                ],
+                "values": [
+                  {
+                    "name": "0",
+                    "value": 0,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "1",
+                    "value": 3,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "2",
+                    "value": 8,
+                    "tone": "muted"
+                  }
+                ],
+                "best": 2
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "局部窗口只约束眼前的二分。最终三组的面积要重新检查。",
+                "A local window constrains the current split. Check the areas of the final three parts separately."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 1 : 2",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "面积和",
+                      "Area totals"
+                    ],
+                    "value": "2 : 1 : 2",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 8,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "在分裂树上定位变化",
+            "Find the changes in the split tree"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "回看第一次分裂，再查看 ABC 的子图。试着标出第二次新增的跨边。",
+                "Replay the first split, then inspect ABC. Identify the edges newly cut by the second split."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "第一层",
+                      "First split"
+                    ],
+                    "value": "ABCDE → DE | ABC",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "第二层",
+                      "Second split"
+                    ],
+                    "value": "ABC → C | AB",
+                    "tone": "gold"
+                  }
+                ],
+                "from": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 0,
+                  "D": 0,
+                  "E": 0
+                }
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "下一章用相同容量约束比较递归、轮转和交换改进。",
+                "Next, compare recursion, round robin and swap refinement under a common capacity."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | C | AB",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "下一章",
+                      "Next lesson"
+                    ],
+                    "value": [
+                      "多路划分",
+                      "Multiway partitioning"
+                    ],
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        }
+      ]
+    },
+    "08": {
+      "title": [
+        "多路划分",
+        "Multiway partitioning"
+      ],
+      "description": [
+        "在同一容量约束下比较轮转、递归、交换和精确小图对照。",
+        "Compare round robin, recursion, swaps and an exact small-graph reference under one capacity."
+      ],
+      "scenes": [
+        {
+          "title": [
+            "先写清多路约束",
+            "Set the k-way contract"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "本例目标三组，每组非空，面积容量为 2。先检验容量，再比较 cut。",
+                "Use three nonempty parts with area capacity 2. Verify capacity before comparing cuts."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "对照契约",
+                  "Comparison contract"
+                ],
+                "rows": [
+                  {
+                    "name": "k",
+                    "value": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "每组容量",
+                      "Capacity per part"
+                    ],
+                    "value": 2,
+                    "tone": "gold"
+                  },
+                  {
+                    "name": [
+                      "目标",
+                      "Objective"
+                    ],
+                    "value": [
+                      "最小化割代价",
+                      "Minimize cut cost"
+                    ],
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "所有方法用同一张 G01。结果需要为每个节点指定唯一组号。",
+                "Every method uses the same G01. Each result must assign every vertex to exactly one part."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "课程公共图 G01",
+                      "Shared graph G01"
+                    ],
+                    "value": "A–E",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | C | AB",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "面积和",
+                      "Area totals"
+                    ],
+                    "value": "2 : 1 : 2",
+                    "tone": "muted"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "轮转基线与递归构造",
+            "Round robin and recursive starts"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "轮转按输入顺序轮流放入三组，得到 AD | BE | C。",
+                "Round robin assigns input vertices cyclically, giving AD | BE | C."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 1,
+                  "C": 2,
+                  "D": 0,
+                  "E": 1
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AD | BE | C",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "面积和",
+                      "Area totals"
+                    ],
+                    "value": "2 : 2 : 1",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 18,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "递归先看图结构，在本例得到 DE | C | AB。两种分组都符合容量。",
+                "Recursion uses graph structure and gives DE | C | AB. Both starts meet capacity here."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | C | AB",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "面积和",
+                      "Area totals"
+                    ],
+                    "value": "2 : 1 : 2",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 8,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "交换前检查容量",
+            "Validate swaps before considering gain"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "对两组间的候选节点做一进一出。先验面积容量，再比较 cut 的下降。",
+                "Consider swapping two vertices from different parts. Check area capacity, then compare cut gains."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": "A ↔ C",
+                    "value": "−1",
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "C ↔ E",
+                    "value": "−3",
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "B ↔ C",
+                    "value": "−4",
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "C ↔ D",
+                    "value": "−4",
+                    "tone": "rose"
+                  }
+                ]
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "这里最佳合法交换仍无正收益，算法停在当前分组。",
+                "Here even the best legal swap has no positive gain, so the search stops at its current split."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "DE | C | AB",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "最佳合法交换增益",
+                      "Best legal swap gain"
+                    ],
+                    "value": "−1",
+                    "tone": "rose"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 8,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "小图精确对照",
+            "Calibrate with exact enumeration"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "轮转 cut 为 18，递归和交换改进在此例都是 8。",
+                "Round robin costs 18. Recursion and swap refinement both cost 8 on this input."
+              ],
+              "view": {
+                "type": "chart",
+                "heading": [
+                  "同一约束下的割代价",
+                  "Cut costs under the same constraint"
+                ],
+                "values": [
+                  {
+                    "name": [
+                      "轮转",
+                      "Round robin"
+                    ],
+                    "value": 18,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "递归",
+                      "Recursive"
+                    ],
+                    "value": 8,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "递归后交换",
+                      "After swaps"
+                    ],
+                    "value": 8,
+                    "tone": "muted"
+                  }
+                ],
+                "best": 2
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "精确枚举检查了 15 个可行无标号分组，最小 cut 是 8。",
+                "Exact enumeration checks 15 feasible unlabeled partitions. The minimum cut is 8."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 0,
+                  "B": 0,
+                  "C": 1,
+                  "D": 2,
+                  "E": 2
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "可行分组数",
+                      "Feasible splits"
+                    ],
+                    "value": 15,
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "分组",
+                      "Groups"
+                    ],
+                    "value": "AB | C | DE",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": "cut",
+                    "value": 8,
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        },
+        {
+          "title": [
+            "改变面积再做对照",
+            "Change an area and compare again"
+          ],
+          "beats": [
+            {
+              "caption": [
+                "容量按面积计算。改动单点面积后，即使人数不变，也要复核各组。",
+                "Capacity uses area. Change a vertex size and recheck the parts even when counts stay fixed."
+              ],
+              "view": {
+                "type": "graph",
+                "assignment": {
+                  "A": 2,
+                  "B": 2,
+                  "C": 1,
+                  "D": 0,
+                  "E": 0
+                },
+                "rows": [
+                  {
+                    "name": [
+                      "节点数",
+                      "Vertex counts"
+                    ],
+                    "value": "2 : 1 : 2",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "面积和",
+                      "Area totals"
+                    ],
+                    "value": "2 : 1 : 5",
+                    "tone": "muted"
+                  },
+                  {
+                    "name": [
+                      "容量",
+                      "Capacity"
+                    ],
+                    "value": 2,
+                    "tone": "rose"
+                  }
+                ],
+                "sizes": {
+                  "A": 4
+                }
+              },
+              "seconds": 10
+            },
+            {
+              "caption": [
+                "到比较台重跑三种构造方法。记录输入、容量、可行性和 cut。",
+                "Re-run the three methods in the comparison lab. Record the input, capacity, feasibility and cut."
+              ],
+              "view": {
+                "type": "cards",
+                "heading": [
+                  "可复核的比较",
+                  "A reproducible comparison"
+                ],
+                "rows": [
+                  {
+                    "name": [
+                      "固定",
+                      "Fix"
+                    ],
+                    "value": [
+                      "输入、组数与容量",
+                      "Input, part count and capacity"
+                    ],
+                    "tone": "teal"
+                  },
+                  {
+                    "name": [
+                      "记录",
+                      "Record"
+                    ],
+                    "value": [
+                      "可行性与割代价",
+                      "Feasibility and cut cost"
+                    ],
+                    "tone": "gold"
+                  }
+                ]
+              },
+              "seconds": 10
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

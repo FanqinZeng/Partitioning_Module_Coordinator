@@ -1,0 +1,158 @@
+{
+  "lesson": "04",
+  "duration": 100,
+  "title": [
+    "Kernighan–Lin 成对交换",
+    "Kernighan–Lin pair swaps"
+  ],
+  "description": [
+    "走完一轮配对试探、锁定和最佳前缀回退。",
+    "Follow a complete pass of trial swaps, locks and rollback to the best prefix."
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": [
+        "交换保留人数",
+        "A pair swap preserves counts"
+      ]
+    },
+    {
+      "time": 20,
+      "title": [
+        "估计一对的收益",
+        "Score each candidate pair"
+      ]
+    },
+    {
+      "time": 40,
+      "title": [
+        "试探与锁定",
+        "Try the swap and lock the pair"
+      ]
+    },
+    {
+      "time": 60,
+      "title": [
+        "保留累计收益最高的前缀",
+        "Keep the best cumulative prefix"
+      ]
+    },
+    {
+      "time": 80,
+      "title": [
+        "在实验中回放",
+        "Replay the pass in the lab"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": [
+        "起点 AE | BCD 的 cut 是 12。每次选一左一右，试着交换。",
+        "The starting split AE | BCD costs 12. Try exchanging one vertex from each part."
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "text": [
+        "一进一出保持人数。面积不同的节点换侧时，仍要单独检查组面积。",
+        "One in and one out preserve counts. If vertex sizes differ, check the part areas separately."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "text": [
+        "D 值等于外部权重减内部权重。配对时还要减去两倍共享边权。",
+        "D is external minus internal weight. For a pair, also subtract twice their shared edge weight."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "text": [
+        "这一轮先选 A 与 D。两点间无边，配对增益为 9。",
+        "A and D win the first choice. They share no edge, and the gain is 9."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "text": [
+        "A 与 D 交换后，cut 变为 3。这两个点在本轮锁定。",
+        "Swapping A and D takes the cut to 3. Both vertices are locked for this pass."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "text": [
+        "剩余点还要重新评分。下一对增益是 −8，作为试探仍可以执行。",
+        "Re-score the remaining vertices. The next gain is −8 and can still be tried."
+      ]
+    },
+    {
+      "start": 60,
+      "end": 70,
+      "text": [
+        "累计收益依次是 0、9、1。第一步结束时最高。",
+        "The cumulative gains are 0, 9, 1. The first swap gives the best prefix."
+      ]
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "text": [
+        "撤回第二步，只保留第一步。接受方案的 cut 是 3。",
+        "Undo the second trial and keep the first. The accepted cut is 3."
+      ]
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "text": [
+        "空前缀的累计收益是零。只有正收益前缀能改进这一轮。",
+        "The empty prefix has gain zero. An improving pass requires a positive prefix."
+      ]
+    },
+    {
+      "start": 90,
+      "end": 100,
+      "text": [
+        "在实验里逐步播放，分别记录试探中的 cut 和回退后接受的 cut。",
+        "Step through the lab and record the trial cuts and the accepted cut separately."
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
+    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+  },
+  "versions": {
+    "zh": {
+      "sha256": "d9ac01fac9aac321d4311e8811833f5a538bac3af71a96b28121479fb824fc0a",
+      "bytes": 3300831,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    },
+    "en": {
+      "sha256": "294efdd334f3edfd24bf0ba5ca1b329ed44f463fc0238cf4777d902693283bb7",
+      "bytes": 3228396,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    }
+  }
+}

@@ -1,0 +1,41 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:10.000
+目标是三组。先把全部节点作为一个待拆分的组。
+Aim for three parts. Start with all vertices together in one part.
+
+00:00:10.000 --> 00:00:20.000
+每轮挑选人数最多的组。人数相同时按组编号选，保证结果可复现。
+At each step, choose the largest part by vertex count. Break ties by part ID.
+
+00:00:20.000 --> 00:00:30.000
+谱二分先得到 DE | ABC。全图 cut 增加 3。
+Spectral bisection gives DE | ABC and adds 3 to the full-graph cut.
+
+00:00:30.000 --> 00:00:40.000
+现在 ABC 人数最多。下一次只保留 ABC 内部的节点和边。
+ABC is now the largest part. The next solve uses only its vertices and internal edges.
+
+00:00:40.000 --> 00:00:50.000
+ABC 子图重算后的谱顺序为 C、B、A，切出 C 和 AB。
+The recomputed order is C, B, A, separating C from AB.
+
+00:00:50.000 --> 00:01:00.000
+这一步新增 5。DE 仍是原来的组，先前的跨边继续计入总和。
+This split adds 5. DE stays together, and earlier crossing edges still count.
+
+00:01:00.000 --> 00:01:10.000
+全图 cut 从 0 到 3，再到 8。每条边在首次分开时计入。
+The full-graph cut rises from 0 to 3 to 8. Count each edge when first separated.
+
+00:01:10.000 --> 00:01:20.000
+局部窗口只约束眼前的二分。最终三组的面积要重新检查。
+A local window constrains the current split. Check the areas of the final three parts separately.
+
+00:01:20.000 --> 00:01:30.000
+回看第一次分裂，再查看 ABC 的子图。试着标出第二次新增的跨边。
+Replay the first split, then inspect ABC. Identify the edges newly cut by the second split.
+
+00:01:30.000 --> 00:01:40.000
+下一章用相同容量约束比较递归、轮转和交换改进。
+Next, compare recursion, round robin and swap refinement under a common capacity.

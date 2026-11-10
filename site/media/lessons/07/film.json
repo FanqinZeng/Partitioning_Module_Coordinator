@@ -1,0 +1,158 @@
+{
+  "lesson": "07",
+  "duration": 100,
+  "title": [
+    "递归二分",
+    "Recursive bisection"
+  ],
+  "description": [
+    "在诱导子图上重算二分，并累计全图新增跨边。",
+    "Recompute splits on induced subgraphs and add newly crossing edges in the full graph."
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": [
+        "从一组走向三组",
+        "From one part to three"
+      ]
+    },
+    {
+      "time": 20,
+      "title": [
+        "第一次在全图上切",
+        "First split the full graph"
+      ]
+    },
+    {
+      "time": 40,
+      "title": [
+        "子图重新计算谱排序",
+        "Recompute the order inside the subgraph"
+      ]
+    },
+    {
+      "time": 60,
+      "title": [
+        "检查累计账本",
+        "Check the cut ledger"
+      ]
+    },
+    {
+      "time": 80,
+      "title": [
+        "在分裂树上定位变化",
+        "Find the changes in the split tree"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": [
+        "目标是三组。先把全部节点作为一个待拆分的组。",
+        "Aim for three parts. Start with all vertices together in one part."
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "text": [
+        "每轮挑选人数最多的组。人数相同时按组编号选，保证结果可复现。",
+        "At each step, choose the largest part by vertex count. Break ties by part ID."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "text": [
+        "谱二分先得到 DE | ABC。全图 cut 增加 3。",
+        "Spectral bisection gives DE | ABC and adds 3 to the full-graph cut."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "text": [
+        "现在 ABC 人数最多。下一次只保留 ABC 内部的节点和边。",
+        "ABC is now the largest part. The next solve uses only its vertices and internal edges."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "text": [
+        "ABC 子图重算后的谱顺序为 C、B、A，切出 C 和 AB。",
+        "The recomputed order is C, B, A, separating C from AB."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "text": [
+        "这一步新增 5。DE 仍是原来的组，先前的跨边继续计入总和。",
+        "This split adds 5. DE stays together, and earlier crossing edges still count."
+      ]
+    },
+    {
+      "start": 60,
+      "end": 70,
+      "text": [
+        "全图 cut 从 0 到 3，再到 8。每条边在首次分开时计入。",
+        "The full-graph cut rises from 0 to 3 to 8. Count each edge when first separated."
+      ]
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "text": [
+        "局部窗口只约束眼前的二分。最终三组的面积要重新检查。",
+        "A local window constrains the current split. Check the areas of the final three parts separately."
+      ]
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "text": [
+        "回看第一次分裂，再查看 ABC 的子图。试着标出第二次新增的跨边。",
+        "Replay the first split, then inspect ABC. Identify the edges newly cut by the second split."
+      ]
+    },
+    {
+      "start": 90,
+      "end": 100,
+      "text": [
+        "下一章用相同容量约束比较递归、轮转和交换改进。",
+        "Next, compare recursion, round robin and swap refinement under a common capacity."
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
+    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+  },
+  "versions": {
+    "zh": {
+      "sha256": "39473304a3ec130f23f40403fbcb501de845a048c42953029f00b7921ccc9c21",
+      "bytes": 3127463,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    },
+    "en": {
+      "sha256": "bceab853e4c589cd467170527bb7aca2097207186bad5b04e8f330b67f371c36",
+      "bytes": 3076183,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    }
+  }
+}

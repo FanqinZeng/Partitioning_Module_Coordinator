@@ -1,0 +1,158 @@
+{
+  "lesson": "05",
+  "duration": 100,
+  "title": [
+    "Fiduccia–Mattheyses 单点移动",
+    "Fiduccia–Mattheyses vertex moves"
+  ],
+  "description": [
+    "按人数差过滤候选，观察单点增益更新、锁定和最佳前缀。",
+    "Filter moves by count balance, then watch gains, locks and the best prefix update."
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": [
+        "先过滤候选",
+        "Filter candidates before ranking"
+      ]
+    },
+    {
+      "time": 20,
+      "title": [
+        "移动 D 会改变哪些边",
+        "What changes when D moves?"
+      ]
+    },
+    {
+      "time": 40,
+      "title": [
+        "重新评分并继续试探",
+        "Re-score and continue the trial"
+      ]
+    },
+    {
+      "time": 60,
+      "title": [
+        "最佳前缀决定保留哪些移动",
+        "The best prefix selects accepted moves"
+      ]
+    },
+    {
+      "time": 80,
+      "title": [
+        "到实验里改变平衡窗口",
+        "Vary the balance window in the lab"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": [
+        "FM 一次移动一个点。两组需非空，默认人数差最多为 1。",
+        "FM moves one vertex at a time. Keep both parts nonempty and their count difference at most 1."
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "text": [
+        "A 和 E 的收益都高，但会造成 1 比 4。合法候选里 D 的收益最高。",
+        "A and E score highly but leave counts 1 and 4. D leads the legal candidates."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "text": [
+        "D–E 从跨组变为组内，贡献正收益。D–C 变成跨组，抵消部分收益。",
+        "D–E becomes internal, adding gain. D–C becomes crossing and offsets some of it."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "text": [
+        "D 移动后被锁定。cut 从 12 降到 9，A 现在可以移动。",
+        "Lock D after its move. The cut drops from 12 to 9, and A becomes legal."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "text": [
+        "A 移动贡献 6，试探 cut 降到 3。锁定名单加入 A。",
+        "A contributes 6 and lowers the trial cut to 3. Add A to the locks."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "text": [
+        "接下来试探 C，收益为 −2。暂时变差的状态仍属于本轮轨迹。",
+        "The trial move of C gains −2. The pass can temporarily get worse."
+      ]
+    },
+    {
+      "start": 60,
+      "end": 70,
+      "text": [
+        "累计收益峰值是 9，出现在第 2 步。",
+        "The cumulative gain peaks at 9 after 2 moves."
+      ]
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "text": [
+        "恢复到前两步之后。最终接受 DE | ABC，cut 为 3。",
+        "Restore the state after the first two moves. Accept DE | ABC with cut 3."
+      ]
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "text": [
+        "严格等人数时，单点换侧会破坏等式。KL 的成对交换仍保持人数。",
+        "Under strict equal counts, a single move breaks equality. A KL pair swap preserves the counts."
+      ]
+    },
+    {
+      "start": 90,
+      "end": 100,
+      "text": [
+        "在实验里改人数差阈值，观察合法候选和最佳前缀随之改变。",
+        "Change the allowed count gap and observe the legal candidates and best prefix in the lab."
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
+    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+  },
+  "versions": {
+    "zh": {
+      "sha256": "dfa5f73fabad2f8a7850407f07e4ab3d8c488db2d35c854578a960afb4cb21eb",
+      "bytes": 3470212,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    },
+    "en": {
+      "sha256": "657fb887390a958918cfa15bee3c586f758a430425875649e424098747efc2a1",
+      "bytes": 3375111,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    }
+  }
+}

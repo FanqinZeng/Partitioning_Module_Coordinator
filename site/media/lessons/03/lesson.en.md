@@ -1,0 +1,31 @@
+# Initial bisection
+
+00:00:00.000
+Split five vertices into parts of two and three. Establish a feasible start, then compare quality.
+
+00:00:10.000
+The three methods share one graph and one count target, so we can compare their decisions.
+
+00:00:20.000
+Seed 7 gives the order D, B, C, E, A. Put the first two on the left.
+
+00:00:30.000
+The split BD | ACE costs 16. Try another seed for a different start.
+
+00:00:40.000
+Visit vertices alphabetically. With A on the left, compare B’s added cut on either side.
+
+00:00:50.000
+B fills the left part. Subsequent vertices use the remaining space on the right.
+
+00:01:00.000
+Start at A and sum each unselected vertex’s edge weights into the left part.
+
+00:01:10.000
+B has the strongest connection. Adding it gives AB | CDE.
+
+00:01:20.000
+Greedy and growing both cost 5 here. Exact enumeration gives 3.
+
+00:01:30.000
+Predict the next choice, then vary the seed or edge weights. Next, refine the start with swaps.

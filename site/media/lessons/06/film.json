@@ -1,0 +1,158 @@
+{
+  "lesson": "06",
+  "duration": 100,
+  "title": [
+    "谱二分",
+    "Spectral bisection"
+  ],
+  "description": [
+    "从拉普拉斯矩阵构造谱排序，再扫描可行切口。",
+    "Build a spectral order from the Laplacian and sweep feasible cuts."
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": [
+        "把连接写进矩阵",
+        "Write connections into a matrix"
+      ]
+    },
+    {
+      "time": 20,
+      "title": [
+        "把向量变成排序",
+        "Turn the vector into an order"
+      ]
+    },
+    {
+      "time": 40,
+      "title": [
+        "扫描每个合法前缀",
+        "Sweep each legal prefix"
+      ]
+    },
+    {
+      "time": 60,
+      "title": [
+        "读取谱切割的结果",
+        "Read the spectral result"
+      ]
+    },
+    {
+      "time": 80,
+      "title": [
+        "用实验改变输入",
+        "Change the input in the lab"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": [
+        "把边权填入邻接矩阵。每一行的权重和给出该点的加权度。",
+        "Put edge weights into the adjacency matrix. Each row sum gives the weighted degree."
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "text": [
+        "拉普拉斯 L = D − A。对角线是度，非对角项是负边权，每行和为零。",
+        "The Laplacian L = D − A has degrees on the diagonal, negative edge weights elsewhere and zero row sums."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "text": [
+        "取第二小特征值对应的向量，每个节点获得一个坐标。",
+        "Take an eigenvector for the second-smallest eigenvalue. Each vertex gets one coordinate."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "text": [
+        "按坐标从小到大，顺序为 E、D、C、B、A。向量翻号会把顺序反过来。",
+        "Sort the coordinates to get E, D, C, B, A. Negating the vector reverses this order."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "text": [
+        "沿排序尝试相邻点之间的切口。两侧要满足给定人数窗口。",
+        "Try gaps between consecutive vertices. Both parts must meet the count window."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "text": [
+        "本例合法前缀的 cut 依次为 6、3、5、6。保留最小项。",
+        "The legal prefix costs are 6, 3, 5, 6. Choose the lowest-cost entry."
+      ]
+    },
+    {
+      "start": 60,
+      "end": 70,
+      "text": [
+        "在第 2 个点之后切开。得到 DE | ABC，cut 为 3。",
+        "Cut after vertex 2: DE | ABC, with cut 3."
+      ]
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "text": [
+        "这个结果来自一条谱排序的扫描。小图可再用精确枚举校准。",
+        "The result comes from sweeping one spectral order. Check small instances against exact enumeration."
+      ]
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "text": [
+        "断连图可能有多个零特征值，此时排序方向可能不唯一。",
+        "A disconnected graph can have several zero eigenvalues, so its ordering direction can be non-unique."
+      ]
+    },
+    {
+      "start": 90,
+      "end": 100,
+      "text": [
+        "调整人数窗口，检查切口是否合法。下一章把二分用到选中的子图。",
+        "Vary the count window and check which cuts remain legal. Next, bisect a selected subgraph."
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
+    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+  },
+  "versions": {
+    "zh": {
+      "sha256": "e29b3796d82a5300e2950f20b0c2ba87204abac249663d63c8e9d5ed0386790b",
+      "bytes": 3102759,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    },
+    "en": {
+      "sha256": "e6e8345c29d12eb8475993ee776854171ffd8071cb63f6eee4873d8c154fc487",
+      "bytes": 3031398,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    }
+  }
+}

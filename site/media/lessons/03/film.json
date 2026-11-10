@@ -1,0 +1,158 @@
+{
+  "lesson": "03",
+  "duration": 100,
+  "title": [
+    "初始二分",
+    "Initial bisection"
+  ],
+  "description": [
+    "用相同人数约束比较随机、顺序贪心和区域生长。",
+    "Compare random, sequential greedy and region growing under the same count target."
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": [
+        "固定目标人数",
+        "Fix the target counts"
+      ]
+    },
+    {
+      "time": 20,
+      "title": [
+        "随机是可复现的基线",
+        "Random gives a repeatable baseline"
+      ]
+    },
+    {
+      "time": 40,
+      "title": [
+        "贪心比较当前增量",
+        "Greedy checks incremental cost"
+      ]
+    },
+    {
+      "time": 60,
+      "title": [
+        "区域生长看连接强度",
+        "Region growing follows strong links"
+      ]
+    },
+    {
+      "time": 80,
+      "title": [
+        "起点还可以改进",
+        "A starting split can be refined"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": [
+        "五个点分成两点和三点。先找到可行起点，再讨论质量。",
+        "Split five vertices into parts of two and three. Establish a feasible start, then compare quality."
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "text": [
+        "三种方法使用同一张图和同一人数目标，便于比较构造过程。",
+        "The three methods share one graph and one count target, so we can compare their decisions."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "text": [
+        "种子 7 给出顺序 D、B、C、E、A。前两个点放左边。",
+        "Seed 7 gives the order D, B, C, E, A. Put the first two on the left."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "text": [
+        "得到 BD | ACE，cut 为 16。改变种子会得到另一种起点。",
+        "The split BD | ACE costs 16. Try another seed for a different start."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "text": [
+        "按字母顺序处理节点。A 已在左侧，比较 B 放到两侧的新增割边权重。",
+        "Visit vertices alphabetically. With A on the left, compare B’s added cut on either side."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "text": [
+        "B 放左侧后，左组满员。后续节点只看仍有名额的右组。",
+        "B fills the left part. Subsequent vertices use the remaining space on the right."
+      ]
+    },
+    {
+      "start": 60,
+      "end": 70,
+      "text": [
+        "以 A 为起点，对未选节点计算它们连向左组的权重和。",
+        "Start at A and sum each unselected vertex’s edge weights into the left part."
+      ]
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "text": [
+        "B 的分数最高，加入左组，得到 AB | CDE。",
+        "B has the strongest connection. Adding it gives AB | CDE."
+      ]
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "text": [
+        "本例中贪心和生长都得到 cut 5。精确对照的 cut 为 3。",
+        "Greedy and growing both cost 5 here. Exact enumeration gives 3."
+      ]
+    },
+    {
+      "start": 90,
+      "end": 100,
+      "text": [
+        "进入实验，先预测选择，再改种子或边权。下一章用交换改进起点。",
+        "Predict the next choice, then vary the seed or edge weights. Next, refine the start with swaps."
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
+    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+  },
+  "versions": {
+    "zh": {
+      "sha256": "306246dc7f775b854ee3e236ada5f2e40b77817cc861daefe6f8823382fe001c",
+      "bytes": 3319972,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    },
+    "en": {
+      "sha256": "8cc15af8c887a335548ba0ee4c0f2433aef28c0855382b323edd50f2a3ddbfc2",
+      "bytes": 3278870,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    }
+  }
+}

@@ -37,3 +37,20 @@ python3 scripts/build.py
 `--stills` 输出两版 contact sheet，以及每个场景入场、中段、出场三帧。`--sample 60 98` 输出 38 秒代表样片，覆盖实际割边累计、分组移动与面积约束。审片产物在 `.qa/intro/`。
 
 完成渲染后运行 `scripts/film/validate_intro.py` 检查完整解码、分辨率/帧率、AAC、faststart、时长、字幕时序与数据断言。`tests/film.test.mjs` 在普通 CI 中检查电影数据与当前引擎一致、阅读时间和分发资产。
+
+## Lesson 02–08 课时影片
+
+每章中英各 100 秒，沿用首页的深色二维图、字幕与原创配乐《边界》。中文版本包含中英字幕，英文版本只显示英文。分镜从课程引擎读出公共图 G01、候选、锁定、扫描、回退和割代价，按每章学习目标组织。每个课时的「影片」区提供新片和原作者资源链接。
+
+```sh
+node scripts/film/export_lesson_data.mjs
+.venv-film/bin/python scripts/film/render_lessons.py --stills
+.venv-film/bin/python scripts/film/render_lessons.py
+python3 scripts/build.py
+node --test tests/*.test.mjs
+python3 tests/check_site.py
+```
+
+可在渲染命令末尾指定课时编号，如 `05`，只重渲该课时。全局分镜、绘图或配乐源改变后，重渲七章以刷新产物与校验元数据。渲染使用 Pillow 11.3、NumPy 2.0 和 imageio-ffmpeg 0.6。每章成片、封面、WebVTT、文字稿与校验结果位于 `site/media/lessons/<编号>/`，编码后的逐段抽帧保存在 `.qa/lesson-films/`。
+
+渲染器对每个版本完整解码，校验 1920×1080、30 fps、H.264、AAC、faststart、3000 帧和音量。元数据记录成片体积、哈希与渲染源哈希。站点测试检查七章的双语字幕时序和阅读时间、页面入口、封面及原作链接。

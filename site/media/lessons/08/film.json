@@ -1,0 +1,158 @@
+{
+  "lesson": "08",
+  "duration": 100,
+  "title": [
+    "多路划分",
+    "Multiway partitioning"
+  ],
+  "description": [
+    "在同一容量约束下比较轮转、递归、交换和精确小图对照。",
+    "Compare round robin, recursion, swaps and an exact small-graph reference under one capacity."
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": [
+        "先写清多路约束",
+        "Set the k-way contract"
+      ]
+    },
+    {
+      "time": 20,
+      "title": [
+        "轮转基线与递归构造",
+        "Round robin and recursive starts"
+      ]
+    },
+    {
+      "time": 40,
+      "title": [
+        "交换前检查容量",
+        "Validate swaps before considering gain"
+      ]
+    },
+    {
+      "time": 60,
+      "title": [
+        "小图精确对照",
+        "Calibrate with exact enumeration"
+      ]
+    },
+    {
+      "time": 80,
+      "title": [
+        "改变面积再做对照",
+        "Change an area and compare again"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": [
+        "本例目标三组，每组非空，面积容量为 2。先检验容量，再比较 cut。",
+        "Use three nonempty parts with area capacity 2. Verify capacity before comparing cuts."
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "text": [
+        "所有方法用同一张 G01。结果需要为每个节点指定唯一组号。",
+        "Every method uses the same G01. Each result must assign every vertex to exactly one part."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "text": [
+        "轮转按输入顺序轮流放入三组，得到 AD | BE | C。",
+        "Round robin assigns input vertices cyclically, giving AD | BE | C."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "text": [
+        "递归先看图结构，在本例得到 DE | C | AB。两种分组都符合容量。",
+        "Recursion uses graph structure and gives DE | C | AB. Both starts meet capacity here."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "text": [
+        "对两组间的候选节点做一进一出。先验面积容量，再比较 cut 的下降。",
+        "Consider swapping two vertices from different parts. Check area capacity, then compare cut gains."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "text": [
+        "这里最佳合法交换仍无正收益，算法停在当前分组。",
+        "Here even the best legal swap has no positive gain, so the search stops at its current split."
+      ]
+    },
+    {
+      "start": 60,
+      "end": 70,
+      "text": [
+        "轮转 cut 为 18，递归和交换改进在此例都是 8。",
+        "Round robin costs 18. Recursion and swap refinement both cost 8 on this input."
+      ]
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "text": [
+        "精确枚举检查了 15 个可行无标号分组，最小 cut 是 8。",
+        "Exact enumeration checks 15 feasible unlabeled partitions. The minimum cut is 8."
+      ]
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "text": [
+        "容量按面积计算。改动单点面积后，即使人数不变，也要复核各组。",
+        "Capacity uses area. Change a vertex size and recheck the parts even when counts stay fixed."
+      ]
+    },
+    {
+      "start": 90,
+      "end": 100,
+      "text": [
+        "到比较台重跑三种构造方法。记录输入、容量、可行性和 cut。",
+        "Re-run the three methods in the comparison lab. Record the input, capacity, feasibility and cut."
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
+    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+  },
+  "versions": {
+    "zh": {
+      "sha256": "581b29ea3c6bae55d570ea0bfd40194a3762e375927d1d94afc4b0d8d1dc9af2",
+      "bytes": 3351762,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    },
+    "en": {
+      "sha256": "9cc6408c9644ef77847925eb538a9aa71a84437d86f2441b2e95bd1c3114c86f",
+      "bytes": 3324706,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    }
+  }
+}

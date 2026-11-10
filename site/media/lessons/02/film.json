@@ -1,0 +1,158 @@
+{
+  "lesson": "02",
+  "duration": 100,
+  "title": [
+    "割代价与平衡",
+    "Cut cost and balance"
+  ],
+  "description": [
+    "在五节点图上逐条算割代价，再检验面积容量。",
+    "Count crossing edges on a five-vertex graph, then check area capacity."
+  ],
+  "chapters": [
+    {
+      "time": 0,
+      "title": [
+        "先确认分组",
+        "Check the assignment first"
+      ]
+    },
+    {
+      "time": 20,
+      "title": [
+        "逐条累计跨组边",
+        "Add the crossing weights"
+      ]
+    },
+    {
+      "time": 40,
+      "title": [
+        "人数相同，连接质量不同",
+        "Same counts, different cut"
+      ]
+    },
+    {
+      "time": 60,
+      "title": [
+        "面积是另一条约束",
+        "Check area capacity separately"
+      ]
+    },
+    {
+      "time": 80,
+      "title": [
+        "带着指标做实验",
+        "Take the metrics into the lab"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": [
+        "每个节点恰好属于一组，两组都要有节点。",
+        "Assign each vertex once and keep both groups nonempty."
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "text": [
+        "全放在一侧时，cut 是 0，但另一侧为空。",
+        "Putting everything on one side gives cut 0 and an empty part."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "text": [
+        "从 AE | BCD 出发，只把连接不同组的边加入和式。",
+        "For AE | BCD, add weights only when the endpoints belong to different groups."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "text": [
+        "每条无向边只算一次。割代价为 5 + 1 + 1 + 5 = 12。",
+        "Count each undirected edge once. The cut is 5 + 1 + 1 + 5 = 12."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "text": [
+        "改成 ABC | DE，只有 CD 和 CE 跨组。",
+        "Switch to ABC | DE. Only CD and CE cross the cut."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "text": [
+        "两种方案都是两点与三点，cut 从 12 降到 3。",
+        "Both splits have a two-vertex and a three-vertex part. The cut drops from 12 to 3."
+      ]
+    },
+    {
+      "start": 60,
+      "end": 70,
+      "text": [
+        "把 A 的面积改成 4。节点数没变，ABC 的面积变成 6。",
+        "Set A’s area to 4. The counts stay fixed while the area of ABC grows to 6."
+      ]
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "text": [
+        "每组容量为 4 时，ABC 超出容量。先拒绝这份方案，再比较 cut。",
+        "At capacity 4, ABC overflows. Check feasibility before comparing cuts."
+      ]
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "text": [
+        "默认面积为 1 时，面积比是 2/3，面积不平衡度是 0.2。",
+        "With unit areas, the area ratio is 2/3 and normalized imbalance is 0.2."
+      ]
+    },
+    {
+      "start": 90,
+      "end": 100,
+      "text": [
+        "在实验里移动一个点，先预测哪些边会跨组，再检查组面积。",
+        "In the lab, move a vertex. Predict the crossing edges, then check both part areas."
+      ]
+    }
+  ],
+  "sourceFiles": {
+    "scripts/film/export_lesson_data.mjs": "39136f18fefafad7d23f64274826ce4b8f1b85c5326922ebd23ec010ca8bd302",
+    "scripts/film/render_lessons.py": "8c71c5e32ab5ff4239d54af7192e53d8fdd449c0164717aa3f922bf57f7484e8",
+    "scripts/film/graphics.py": "6b9841c2e50c3c4c0bac62aa93acc98739e1ba5ff554126a865166bd6569680c",
+    "scripts/film/score.py": "73b545167e9cc7c5a5d8dd68ea9d5d8320516bc9c07bdf0851926e2ff4df2748",
+    "video/lessons/storyboards.json": "929d01dbdee5b15dba582c3448443ff92076e26de635d1d1c3c0d583a8da2b99"
+  },
+  "versions": {
+    "zh": {
+      "sha256": "abed1a58ed11e7e8c38c6e0af6fbb1ca7b20eccaa12794cd7018868a746cdc78",
+      "bytes": 3198365,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    },
+    "en": {
+      "sha256": "c1ff58943d4382b416d5a4c0be3aebc65ca497e649ad432a4be3a3493dfbd988",
+      "bytes": 3160924,
+      "frames": 3000,
+      "audioRmsDbFS": -24.012,
+      "audioPeakDbFS": -14.751,
+      "decoded": true,
+      "faststart": true
+    }
+  }
+}

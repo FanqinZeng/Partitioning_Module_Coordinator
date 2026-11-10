@@ -1,0 +1,31 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:10.000
+Aim for three parts. Start with all vertices together in one part.
+
+00:00:10.000 --> 00:00:20.000
+At each step, choose the largest part by vertex count. Break ties by part ID.
+
+00:00:20.000 --> 00:00:30.000
+Spectral bisection gives DE | ABC and adds 3 to the full-graph cut.
+
+00:00:30.000 --> 00:00:40.000
+ABC is now the largest part. The next solve uses only its vertices and internal edges.
+
+00:00:40.000 --> 00:00:50.000
+The recomputed order is C, B, A, separating C from AB.
+
+00:00:50.000 --> 00:01:00.000
+This split adds 5. DE stays together, and earlier crossing edges still count.
+
+00:01:00.000 --> 00:01:10.000
+The full-graph cut rises from 0 to 3 to 8. Count each edge when first separated.
+
+00:01:10.000 --> 00:01:20.000
+A local window constrains the current split. Check the areas of the final three parts separately.
+
+00:01:20.000 --> 00:01:30.000
+Replay the first split, then inspect ABC. Identify the edges newly cut by the second split.
+
+00:01:30.000 --> 00:01:40.000
+Next, compare recursion, round robin and swap refinement under a common capacity.
