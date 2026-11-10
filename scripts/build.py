@@ -98,9 +98,9 @@ def film_player(film, base, stem, label, lang, extra_link='', activities=''):
             text=E(caption['en'])
             if code=='zh':
                 text=E(caption['zh'])+'<small lang="en">'+text+'</small>'
-            lines.append(f'<p><button type="button" data-home-seek="{time}" aria-label="{z(["跳到","Go to"])} {display}">{display}</button><span>{text}</span></p>')
+            lines.append(f'<p data-transcript-start="{time}" data-transcript-end="{caption["end"]}"><button type="button" data-home-seek="{time}" aria-label="{z(["跳到","Go to"])} {display}">{display}</button><span>{text}</span></p>')
         hidden=' hidden' if code!=language else ''
-        transcript.append(f'<div data-home-transcript-lang="{code}"{hidden}>'+''.join(lines)+'</div>')
+        transcript.append(f'<div data-home-transcript-lang="{code}" lang="{code}"{hidden}>'+''.join(lines)+'</div>')
     media=base+stem+'.'+language
     zh_selected=' selected' if not lang else ''
     en_selected=' selected' if lang else ''
@@ -123,7 +123,13 @@ def film_player(film, base, stem, label, lang, extra_link='', activities=''):
   <a data-home-text href="{media}.md">{z(['完整文字稿','Full transcript'])}</a>{extra_link}
 </div>
 <p class="home-film-credit">{z(['原创动画与配乐《边界》：FanqinZeng · 内容 CC BY 4.0；制作规范与视觉参考：Su3037 / Learning Clustering。','Original animation and score “Boundaries”: FanqinZeng · content CC BY 4.0. Production and visual reference: Su3037 / Learning Clustering.'])}</p>
-<details class="home-transcript"><summary>{z(['展开文字稿，点击时间跳转','Read the transcript and select a timestamp'])}</summary>{''.join(transcript)}</details>
+<details class="home-transcript"><summary>{z(['展开文字稿，点击时间跳转','Read the transcript and select a timestamp'])}</summary>
+<div class="transcript-tools" data-transcript-tools hidden>
+  <label class="transcript-search">{z(['搜索文字稿','Search transcript'])}<input type="search" data-transcript-search maxlength="120" autocomplete="off" placeholder="{z(['例如：容量、cut','For example: capacity, cut'])}"></label>
+  <label class="transcript-follow"><input type="checkbox" data-transcript-follow>{z(['跟随播放','Follow playback'])}</label>
+  <button type="button" data-transcript-current>{z(['定位当前句','Find current passage'])}</button>
+</div>
+<p class="transcript-result" data-transcript-result role="status" hidden></p>{''.join(transcript)}</details>
 </div>'''
 
 def home_film(lang):

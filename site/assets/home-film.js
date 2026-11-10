@@ -1,4 +1,5 @@
 import {t} from './ui.js';
+import {mountFilmTranscript} from './film-transcript.js';
 
 export function mountHomeFilm(){
  const video=document.querySelector('[data-home-video]');if(!video)return;
@@ -35,5 +36,7 @@ export function mountHomeFilm(){
   const selected=chapterButtons[chapter];if(selected)status.textContent=t('当前章节：','Current chapter: ')+selected.textContent.trim();
  });
  video.addEventListener('error',()=>status.textContent=t('影片加载失败，可使用下方 MP4 链接直接打开。','The film could not load. Use the MP4 link below to open it directly.'));
- return {video,language,seek};
+ const player={video,language,seek};
+ mountFilmTranscript(player);
+ return player;
 }
